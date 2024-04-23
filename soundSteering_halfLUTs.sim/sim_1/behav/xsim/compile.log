@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/new/serial_adc_pwm_datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'serial_adc_pwm_datapath'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/new/shiftRAM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'shiftRAM'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/imports/backup/_IP/src/vhdl_serial_peripheral.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vhdl_serial_peripheral'

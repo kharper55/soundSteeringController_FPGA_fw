@@ -1,0 +1,9 @@
++===========================+===========================+=======================================================================+
+| Launch Setup Clock        | Launch Hold Clock         | Pin                                                                   |
++===========================+===========================+=======================================================================+
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/axi_iic_0/U0/X_IIC/WRITE_FIFO_CTRL_I/Addr_Counters[3].FDRE_I/D |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/axi_iic_0/U0/X_IIC/WRITE_FIFO_CTRL_I/Addr_Counters[2].FDRE_I/D |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/axi_iic_0/U0/X_IIC/WRITE_FIFO_CTRL_I/FIFO_RAM[1].SRL16E_I/CE   |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/axi_iic_0/U0/X_IIC/WRITE_FIFO_CTRL_I/FIFO_RAM[0].SRL16E_I/CE   |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/axi_iic_0/U0/X_IIC/WRITE_FIFO_CTRL_I/Data_Exists_DFF/D         |
++---------------------------+---------------------------+-----------------------------------------------------------------------+

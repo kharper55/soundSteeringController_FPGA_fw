@@ -1,0 +1,73 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/c2c6" --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/ec67/hdl" --include "C:/Xilinx/Vivado/2023.2/data/xilinx_vip/include" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_64/sim/blk_mem_gen_1_1_64.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_63/sim/blk_mem_gen_1_1_63.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_62/sim/blk_mem_gen_1_1_62.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_61/sim/blk_mem_gen_1_1_61.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_60/sim/blk_mem_gen_1_1_60.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_59/sim/blk_mem_gen_1_1_59.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_58/sim/blk_mem_gen_1_1_58.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_57/sim/blk_mem_gen_1_1_57.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_56/sim/blk_mem_gen_1_1_56.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_55/sim/blk_mem_gen_1_1_55.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_54/sim/blk_mem_gen_1_1_54.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_53/sim/blk_mem_gen_1_1_53.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_52/sim/blk_mem_gen_1_1_52.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_51/sim/blk_mem_gen_1_1_51.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_50/sim/blk_mem_gen_1_1_50.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_49/sim/blk_mem_gen_1_1_49.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_48/sim/blk_mem_gen_1_1_48.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_47/sim/blk_mem_gen_1_1_47.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_46/sim/blk_mem_gen_1_1_46.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_45/sim/blk_mem_gen_1_1_45.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_44/sim/blk_mem_gen_1_1_44.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_43/sim/blk_mem_gen_1_1_43.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_42/sim/blk_mem_gen_1_1_42.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_41/sim/blk_mem_gen_1_1_41.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_40/sim/blk_mem_gen_1_1_40.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_39/sim/blk_mem_gen_1_1_39.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_38/sim/blk_mem_gen_1_1_38.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_37/sim/blk_mem_gen_1_1_37.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_36/sim/blk_mem_gen_1_1_36.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_35/sim/blk_mem_gen_1_1_35.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_34/sim/blk_mem_gen_1_1_34.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_33/sim/blk_mem_gen_1_1_33.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_32/sim/blk_mem_gen_1_1_32.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_31/sim/blk_mem_gen_1_1_31.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_30/sim/blk_mem_gen_1_1_30.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_29/sim/blk_mem_gen_1_1_29.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_28/sim/blk_mem_gen_1_1_28.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_27/sim/blk_mem_gen_1_1_27.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_26/sim/blk_mem_gen_1_1_26.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_25/sim/blk_mem_gen_1_1_25.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_24/sim/blk_mem_gen_1_1_24.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_23/sim/blk_mem_gen_1_1_23.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_22/sim/blk_mem_gen_1_1_22.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_21/sim/blk_mem_gen_1_1_21.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_20/sim/blk_mem_gen_1_1_20.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_19/sim/blk_mem_gen_1_1_19.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_18/sim/blk_mem_gen_1_1_18.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_17/sim/blk_mem_gen_1_1_17.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_16/sim/blk_mem_gen_1_1_16.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_15/sim/blk_mem_gen_1_1_15.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_14/sim/blk_mem_gen_1_1_14.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_13/sim/blk_mem_gen_1_1_13.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_12/sim/blk_mem_gen_1_1_12.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_11/sim/blk_mem_gen_1_1_11.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_10/sim/blk_mem_gen_1_1_10.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_9/sim/blk_mem_gen_1_1_9.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_8/sim/blk_mem_gen_1_1_8.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_7/sim/blk_mem_gen_1_1_7.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_6/sim/blk_mem_gen_1_1_6.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_5/sim/blk_mem_gen_1_1_5.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_4/sim/blk_mem_gen_1_1_4.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_3/sim/blk_mem_gen_1_1_3.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_2/sim/blk_mem_gen_1_1_2.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_1_1_1/sim/blk_mem_gen_1_1_1.v" \
+"../../../../soundSteering_halfLUTs.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

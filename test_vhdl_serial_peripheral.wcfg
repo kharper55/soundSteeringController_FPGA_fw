@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_vhdl_serial_peripheral_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="test_vhdl_serial_peripheral" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,204.764 ns"></ZoomEndTime>
+      <Cursor1Time time="587.500 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="154"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/test_vhdl_serial_peripheral/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/s_axi_aclk" type="logic">
+      <obj_property name="ElementShortName">s_axi_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/en" type="logic">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/s_axi_aresetn" type="logic">
+      <obj_property name="ElementShortName">s_axi_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdi_data" type="array">
+      <obj_property name="ElementShortName">sdi_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sdi_data[15:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdoa_data" type="array">
+      <obj_property name="ElementShortName">sdoa_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sdoa_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdob_data" type="array">
+      <obj_property name="ElementShortName">sdob_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sdob_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/cycle_counter_out" type="array">
+      <obj_property name="ElementShortName">cycle_counter_out[5:0]</obj_property>
+      <obj_property name="ObjectShortName">cycle_counter_out[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdoa" type="logic">
+      <obj_property name="ElementShortName">sdoa</obj_property>
+      <obj_property name="ObjectShortName">sdoa</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdob" type="logic">
+      <obj_property name="ElementShortName">sdob</obj_property>
+      <obj_property name="ObjectShortName">sdob</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/cs" type="logic">
+      <obj_property name="ElementShortName">cs</obj_property>
+      <obj_property name="ObjectShortName">cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/scl" type="logic">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sdi" type="logic">
+      <obj_property name="ElementShortName">sdi</obj_property>
+      <obj_property name="ObjectShortName">sdi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/tst_counter_clr" type="logic">
+      <obj_property name="ElementShortName">tst_counter_clr</obj_property>
+      <obj_property name="ObjectShortName">tst_counter_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/tst_en_buff" type="logic">
+      <obj_property name="ElementShortName">tst_en_buff</obj_property>
+      <obj_property name="ObjectShortName">tst_en_buff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/tst_shift_en" type="logic">
+      <obj_property name="ElementShortName">tst_shift_en</obj_property>
+      <obj_property name="ObjectShortName">tst_shift_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/counter_done" type="logic">
+      <obj_property name="ElementShortName">counter_done</obj_property>
+      <obj_property name="ObjectShortName">counter_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/sda_reg_clr" type="logic">
+      <obj_property name="ElementShortName">sda_reg_clr</obj_property>
+      <obj_property name="ObjectShortName">sda_reg_clr</obj_property>
+   </wvobject>
+</wave_config>

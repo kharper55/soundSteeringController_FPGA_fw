@@ -1,0 +1,7 @@
++===========================+===========================+======================================================================================+
+| Launch Setup Clock        | Launch Hold Clock         | Pin                                                                                  |
++===========================+===========================+======================================================================================+
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/serial_adc_pwm_top_0/U0/datapath/adc_serial_peripheral/sdi_data_reg_reg[14]/D |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/serial_adc_pwm_top_0/U0/fsm/FSM_sequential_CURRENT_STATE_reg[2]/D             |
+| clk_out1_msys_clk_wiz_0_0 | clk_out1_msys_clk_wiz_0_0 | msys_i/serial_adc_pwm_top_0/U0/datapath/adc_serial_peripheral/sdi_data_reg_reg[9]/D  |
++---------------------------+---------------------------+--------------------------------------------------------------------------------------+

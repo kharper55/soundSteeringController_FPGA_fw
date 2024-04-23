@@ -1,0 +1,14 @@
+verilog xil_defaultlib --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/c2c6" --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/ec67/hdl" \
+"../../../bd/msys/ip/msys_clk_wiz_0_0_4/msys_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/msys/ip/msys_clk_wiz_0_0_4/msys_clk_wiz_0_0.v" \
+"../../../bd/msys/ip/msys_xbar_0_4/sim/msys_xbar_0.v" \
+"../../../bd/msys/ip/msys_lmb_bram_0_4/sim/msys_lmb_bram_0.v" \
+"../../../bd/msys/ip/msys_microblaze_0_xlconcat_0_4/sim/msys_microblaze_0_xlconcat_0.v" \
+
+sv xil_defaultlib --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/c2c6" --include "../../../../soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/ec67/hdl" \
+"../../../bd/msys/ip/msys_i2s_receiver_0_0_4/sim/msys_i2s_receiver_0_0.sv" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

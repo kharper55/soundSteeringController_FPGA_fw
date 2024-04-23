@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="blk_mem_gen_1_1_48_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_48_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="blk_mem_gen_1_1_47_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_47_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_33_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_33_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_16_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_16_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_31_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_31_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_30_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_30_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_20_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_20_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_23_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_23_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_49_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_49_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_19_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_19_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_41_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_41_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_42_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_42_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_38_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_38_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_37_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_37_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_32_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_32_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_5_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_5_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_26_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_26_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_3_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_3_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_1_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_21_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_21_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_36_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_36_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_63_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_63_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_62_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_62_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_45_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_45_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_46_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_46_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_27_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_27_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_52_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_52_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_53_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_53_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_54_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_54_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_55_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_55_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_43_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_43_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_44_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_44_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_50_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_50_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_51_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_51_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_59_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_59_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_60_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_60_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_58_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_58_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_61_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_61_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_64_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_64_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_6_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_6_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_2_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_17_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_17_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_57_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_57_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_56_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_56_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_40_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_40_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_39_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_39_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_22_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_22_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_34_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_34_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_35_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_35_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_14_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_14_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_15_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_15_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_13_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_13_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_25_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_25_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_24_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_24_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_11_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_11_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_8_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_8_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_4_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_4_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_7_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_7_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_10_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_10_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_9_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_9_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_28_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_28_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_29_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_29_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_18_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_18_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="blk_mem_gen_1_1_12_synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/blk_mem_gen_1_1_12_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado" IsOrderedIPRun="true">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+	</Run>
+	<Run Id="synth_1" LaunchDir="C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="blk_mem_gen_1_1_48_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_47_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_33_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_16_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_31_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_30_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_20_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_23_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_49_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_19_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_41_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_42_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_38_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_37_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_32_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_5_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_26_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_3_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_1_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_21_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_36_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_63_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_62_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_45_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_46_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_27_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_52_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_53_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_54_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_55_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_43_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_44_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_50_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_51_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_59_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_60_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_58_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_61_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_64_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_6_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_2_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_17_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_57_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_56_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_40_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_39_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_22_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_34_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_35_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_14_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_15_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_13_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_25_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_24_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_11_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_8_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_4_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_7_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_10_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_9_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_28_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_29_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_18_synth_1"/>
+		<Parent Id="blk_mem_gen_1_1_12_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+		<Parameter Name="general.shortenLongPath" Val="true" Type="bool"/>
+	</Parameters>
+	<ProductInfo Name="vivado"/>
+</Runs>
+

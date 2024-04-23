@@ -1,0 +1,2 @@
+blk_mem_gen_33.v,verilog,xil_defaultlib,../../../../soundSteering.gen/sources_1/ip/blk_mem_gen_33/sim/blk_mem_gen_33.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

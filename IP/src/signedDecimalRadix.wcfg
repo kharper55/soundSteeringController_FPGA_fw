@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_serial_adc_pwm_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_serial_adc_pwm_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="153.325 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="316"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="46" />
+   <wvobject fp_name="/test_serial_adc_pwm_top/clk_main_int" type="logic">
+      <obj_property name="ElementShortName">clk_main_int</obj_property>
+      <obj_property name="ObjectShortName">clk_main_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/clk_serial_int" type="logic">
+      <obj_property name="ElementShortName">clk_serial_int</obj_property>
+      <obj_property name="ObjectShortName">clk_serial_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/heartbeat_led" type="logic">
+      <obj_property name="ElementShortName">heartbeat_led</obj_property>
+      <obj_property name="ObjectShortName">heartbeat_led</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tx_active_led" type="logic">
+      <obj_property name="ElementShortName">tx_active_led</obj_property>
+      <obj_property name="ObjectShortName">tx_active_led</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/rst_n" type="logic">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/pwm_out" type="array">
+      <obj_property name="ElementShortName">pwm_out[1:64]</obj_property>
+      <obj_property name="ObjectShortName">pwm_out[1:64]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/sdoa" type="logic">
+      <obj_property name="ElementShortName">sdoa</obj_property>
+      <obj_property name="ObjectShortName">sdoa</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/sdob" type="logic">
+      <obj_property name="ElementShortName">sdob</obj_property>
+      <obj_property name="ObjectShortName">sdob</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/cs" type="logic">
+      <obj_property name="ElementShortName">cs</obj_property>
+      <obj_property name="ObjectShortName">cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/scl" type="logic">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/sdi" type="logic">
+      <obj_property name="ElementShortName">sdi</obj_property>
+      <obj_property name="ObjectShortName">sdi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/pwm_fan_int" type="logic">
+      <obj_property name="ElementShortName">pwm_fan_int</obj_property>
+      <obj_property name="ObjectShortName">pwm_fan_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/pwm_buff_en_int" type="logic">
+      <obj_property name="ElementShortName">pwm_buff_en_int</obj_property>
+      <obj_property name="ObjectShortName">pwm_buff_en_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/extra_io_int" type="array">
+      <obj_property name="ElementShortName">extra_io_int[2:0]</obj_property>
+      <obj_property name="ObjectShortName">extra_io_int[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_awaddr_int" type="array">
+      <obj_property name="ElementShortName">s_axi_awaddr_int[8:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awaddr_int[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_awprot_int" type="array">
+      <obj_property name="ElementShortName">s_axi_awprot_int[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awprot_int[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_awvalid_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_awvalid_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awvalid_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_awready_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_awready_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awready_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_wdata_int" type="array">
+      <obj_property name="ElementShortName">s_axi_wdata_int[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wdata_int[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_wstrb_int" type="array">
+      <obj_property name="ElementShortName">s_axi_wstrb_int[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wstrb_int[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_wvalid_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_wvalid_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wvalid_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_wready_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_wready_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wready_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_bresp_int" type="array">
+      <obj_property name="ElementShortName">s_axi_bresp_int[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bresp_int[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_bvalid_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_bvalid_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bvalid_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_bready_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_bready_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bready_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_araddr_int" type="array">
+      <obj_property name="ElementShortName">s_axi_araddr_int[8:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_araddr_int[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_arprot_int" type="array">
+      <obj_property name="ElementShortName">s_axi_arprot_int[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arprot_int[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_arvalid_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_arvalid_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arvalid_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_arready_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_arready_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arready_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_rdata_int" type="array">
+      <obj_property name="ElementShortName">s_axi_rdata_int[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rdata_int[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_rresp_int" type="array">
+      <obj_property name="ElementShortName">s_axi_rresp_int[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rresp_int[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_rvalid_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_rvalid_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rvalid_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/s_axi_rready_int" type="logic">
+      <obj_property name="ElementShortName">s_axi_rready_int</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rready_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/int_clk_100_mhz_cnt" type="array">
+      <obj_property name="ElementShortName">int_clk_100_mhz_cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">int_clk_100_mhz_cnt[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/int_clk_18_mhz_cnt" type="array">
+      <obj_property name="ElementShortName">int_clk_18_mhz_cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">int_clk_18_mhz_cnt[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_counter_5" type="array">
+      <obj_property name="ElementShortName">tst_counter_5[5:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_counter_5[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_state_int" type="array">
+      <obj_property name="ElementShortName">tst_state_int[4:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_state_int[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_comp_match" type="logic">
+      <obj_property name="ElementShortName">tst_comp_match</obj_property>
+      <obj_property name="ObjectShortName">tst_comp_match</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_signed_conv_16" type="array">
+      <obj_property name="ElementShortName">tst_signed_conv_16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_signed_conv_16[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_lut00_out_int" type="array">
+      <obj_property name="ElementShortName">tst_lut00_out_int[15:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_lut00_out_int[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_signal_sda_reg_clr_int" type="logic">
+      <obj_property name="ElementShortName">tst_signal_sda_reg_clr_int</obj_property>
+      <obj_property name="ObjectShortName">tst_signal_sda_reg_clr_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_adc_counter_clr_int" type="logic">
+      <obj_property name="ElementShortName">tst_adc_counter_clr_int</obj_property>
+      <obj_property name="ObjectShortName">tst_adc_counter_clr_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_adc_en_buff_int" type="logic">
+      <obj_property name="ElementShortName">tst_adc_en_buff_int</obj_property>
+      <obj_property name="ObjectShortName">tst_adc_en_buff_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_adc_data_shift_en_int" type="logic">
+      <obj_property name="ElementShortName">tst_adc_data_shift_en_int</obj_property>
+      <obj_property name="ObjectShortName">tst_adc_data_shift_en_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_serial_adc_pwm_top/tst_counter_done_int" type="logic">
+      <obj_property name="ElementShortName">tst_counter_done_int</obj_property>
+      <obj_property name="ObjectShortName">tst_counter_done_int</obj_property>
+   </wvobject>
+</wave_config>

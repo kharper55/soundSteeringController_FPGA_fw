@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<Index Version="1" Minor="0">
+	<Repository value="c:/Users/kharp/Desktop/soundSteering_halfLUTs/IP">
+	</Repository>
+	<IP>
+		<VLNV value="xilinx.com:user:soundSteering_axi_lite_ip:1.0">
+		</VLNV>
+		<DisplayName value="soundSteering_axi_lite_ip">
+		</DisplayName>
+		<Description value="soundSteering_axi_lite_ip">
+		</Description>
+		<ManuallyDisabled value="true">
+		</ManuallyDisabled>
+		<CoreRevision value="1">
+		</CoreRevision>
+		<ComponentPath value="component.xml">
+		</ComponentPath>
+		<Families>
+			<Family name="artix7">
+				<Part status="Production" name="ALL">
+				</Part>
+			</Family>
+		</Families>
+		<Taxonomies>
+			<Taxonomy value="/UserIP">
+			</Taxonomy>
+		</Taxonomies>
+		<SubcoreVLNVs>
+			<SubcoreVLNV value="xilinx.com:ip:axi_iic:2.1">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:axi_quad_spi:3.2">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:axi_timer:2.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:axi_uartlite:2.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:clk_wiz:6.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:mdm:3.2">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:microblaze:11.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:axi_intc:4.1">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:axi_crossbar:2.1">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:lmb_bram_if_cntlr:4.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:lmb_v10:3.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:blk_mem_gen:8.4">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:proc_sys_reset:5.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:ip:i2s_receiver:1.0">
+			</SubcoreVLNV>
+			<SubcoreVLNV value="xilinx.com:user:soundSteering_axi:1.0">
+			</SubcoreVLNV>
+		</SubcoreVLNVs>
+		<UpgradesFrom>
+			<Upgrade value="xilinx.com:user:serial_adc_pwm_top:1.0">
+			</Upgrade>
+		</UpgradesFrom>
+		<Interfaces>
+			<Interface value="AXI4">
+			</Interface>
+		</Interfaces>
+	</IP>
+</Index>
+

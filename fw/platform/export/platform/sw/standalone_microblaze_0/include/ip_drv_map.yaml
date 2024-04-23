@@ -1,0 +1,24 @@
+axi_iic_0:
+- axi_iic
+- iic
+axi_quad_spi_0:
+- axi_quad_spi
+- spi
+axi_quad_spi_1:
+- axi_quad_spi
+- spi
+axi_timer_0:
+- axi_timer
+- tmrctr
+axi_uartlite_0:
+- axi_uartlite
+- uartlite
+i2s_receiver_0:
+- i2s_receiver
+- None
+microblaze_0_axi_intc:
+- axi_intc
+- intc
+serial_adc_pwm_top_0:
+- serial_adc_pwm_top
+- None

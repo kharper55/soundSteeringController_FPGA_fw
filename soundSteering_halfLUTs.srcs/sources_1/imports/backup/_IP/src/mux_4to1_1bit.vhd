@@ -36,7 +36,7 @@ architecture Behavioral of mux_4to1_1bit is
 
 begin
 
-    output <= input1 when sel = "00" or sel = "01" else
+    output <= input1 when sel = "00" or sel = "01" else -- Output should remain input 1 here, as sdoa/sdob are swapped prior to reaching this mux
               input2 when sel = "10" else
               input3 when sel = "11" else
               '0';

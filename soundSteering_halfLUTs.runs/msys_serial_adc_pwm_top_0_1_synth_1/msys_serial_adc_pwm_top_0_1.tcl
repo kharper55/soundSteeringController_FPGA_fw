@@ -96,7 +96,6 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/new/LUT_64x12.vhd
   C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/imports/backup/_IP/src/adder_17bit.vhd
   C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/imports/backup/_IP/src/compare_match_16.vhd
   C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.srcs/sources_1/imports/backup/_IP/src/compare_match_32.vhd

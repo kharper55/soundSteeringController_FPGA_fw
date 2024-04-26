@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Thu Apr 18 16:22:21 2024
+-- Date        : Thu Apr 18 16:22:20 2024
 -- Host        : kharp running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_microblaze_0_axi_intc_0_4/msys_microblaze_0_axi_intc_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top msys_microblaze_0_axi_intc_0 -prefix
+--               msys_microblaze_0_axi_intc_0_ msys_microblaze_0_axi_intc_0_sim_netlist.vhdl
 -- Design      : msys_microblaze_0_axi_intc_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -115,8 +115,6 @@ entity msys_microblaze_0_axi_intc_0_address_decoder is
     \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]\ : in STD_LOGIC;
     Bus_RNW_reg_reg_25 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_address_decoder : entity is "address_decoder";
 end msys_microblaze_0_axi_intc_0_address_decoder;
 
 architecture STRUCTURE of msys_microblaze_0_axi_intc_0_address_decoder is
@@ -1565,8 +1563,6 @@ entity msys_microblaze_0_axi_intc_0_shared_ram_ivar is
     \ram_i[0].Doutb_reg[0]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_shared_ram_ivar : entity is "shared_ram_ivar";
 end msys_microblaze_0_axi_intc_0_shared_ram_ivar;
 
 architecture STRUCTURE of msys_microblaze_0_axi_intc_0_shared_ram_ivar is
@@ -3176,8 +3172,6 @@ entity msys_microblaze_0_axi_intc_0_intc_core is
     p_18_in : in STD_LOGIC;
     isr_en : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_intc_core : entity is "intc_core";
 end msys_microblaze_0_axi_intc_0_intc_core;
 
 architecture STRUCTURE of msys_microblaze_0_axi_intc_0_intc_core is
@@ -5226,8 +5220,6 @@ entity msys_microblaze_0_axi_intc_0_slave_attachment is
     p_0_in3_in : in STD_LOGIC;
     \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_slave_attachment : entity is "slave_attachment";
 end msys_microblaze_0_axi_intc_0_slave_attachment;
 
 architecture STRUCTURE of msys_microblaze_0_axi_intc_0_slave_attachment is
@@ -6709,8 +6701,6 @@ entity msys_microblaze_0_axi_intc_0_axi_lite_ipif is
     p_0_in3_in : in STD_LOGIC;
     \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end msys_microblaze_0_axi_intc_0_axi_lite_ipif;
 
 architecture STRUCTURE of msys_microblaze_0_axi_intc_0_axi_lite_ipif is
@@ -6913,8 +6903,6 @@ entity msys_microblaze_0_axi_intc_0_axi_intc is
   attribute C_S_AXI_ADDR_WIDTH of msys_microblaze_0_axi_intc_0_axi_intc : entity is 9;
   attribute C_S_AXI_DATA_WIDTH : integer;
   attribute C_S_AXI_DATA_WIDTH of msys_microblaze_0_axi_intc_0_axi_intc : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_microblaze_0_axi_intc_0_axi_intc : entity is "axi_intc";
   attribute hdl : string;
   attribute hdl of msys_microblaze_0_axi_intc_0_axi_intc : entity is "VHDL";
   attribute imp_netlist : string;

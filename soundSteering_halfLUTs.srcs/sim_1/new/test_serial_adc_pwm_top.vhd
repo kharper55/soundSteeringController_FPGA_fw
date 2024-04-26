@@ -38,7 +38,8 @@ architecture Behavioral of test_serial_adc_pwm_top is
     signal clk_serial : std_logic := '0';
     
     -- Serial ADC signals
-    signal sdoa, sdob, cs, scl, sdi : std_logic := '0';
+    signal sdoa, cs, scl, sdi : std_logic := '0';
+    signal sdob : std_logic := '1';
     
     -- GPIO
     signal pwm_out       : std_logic_vector(1 to 64) := (others => '1');
@@ -84,6 +85,12 @@ architecture Behavioral of test_serial_adc_pwm_top is
     signal tst_counter_clr : std_logic := '0';
     signal tst_sdi_data : std_logic_vector(15 downto 0) := (others => '0');
     signal tst_sdi_sel : std_logic_vector(2 downto 0) := (others => '0');
+    
+    signal tst_sdoa_data : std_logic_vector(15 downto 0) := (others => '0');
+    signal tst_sdob_data : std_logic_vector(15 downto 0) := (others => '0');
+    signal tst_adc_audio_data : std_logic_vector(15 downto 0) := (others => '0');
+    signal tst_adc_audio_data_conv : std_logic_vector(15 downto 0) := (others => '0');
+    signal tst_adc_data_bram_out : std_logic_vector(15 downto 0) := (others => '0');
     
     -- Test bench consts
     Constant ClockPeriod : TIME := 10 ns;   -- 100MHz sys clk
@@ -150,7 +157,12 @@ architecture Behavioral of test_serial_adc_pwm_top is
                tst_counter_clr  : out std_logic;
                tst_en_buff      : out std_logic;
                tst_shift_en     : out std_logic;
-               tst_counter_done : out std_logic
+               tst_counter_done : out std_logic;
+               tst_sdoa_data : out std_logic_vector(15 downto 0);
+               tst_sdob_data : out std_logic_vector(15 downto 0);
+               tst_adc_audio_data : out std_logic_vector(15 downto 0);
+               tst_adc_audio_data_conv : out std_logic_vector(15 downto 0);
+               tst_adc_data_bram_out : out std_logic_vector(15 downto 0)
 	   );
     end component;       
                                                   
@@ -206,7 +218,12 @@ begin
                                       tst_counter_clr      => tst_counter_clr,
                                       tst_en_buff          => tst_en_buff,
                                       tst_shift_en         => tst_shift_en,
-                                      tst_counter_done     => tst_counter_done
+                                      tst_counter_done     => tst_counter_done,
+                                      tst_sdoa_data        => tst_sdoa_data,
+                                      tst_sdob_data        => tst_sdob_data,
+                                      tst_adc_audio_data   => tst_adc_audio_data,
+                                      tst_adc_audio_data_conv => tst_adc_audio_data_conv,
+                                      tst_adc_data_bram_out   => tst_adc_data_bram_out
                                       );
     -- Generate S_AXI_ACLK signal
     GENERATE_SYSCLOCK : process
@@ -292,7 +309,8 @@ begin
         S_AXI_WSTRB<=b"0000";
             
         S_AXI_AWADDR<="100101000";
-        S_AXI_WDATA<=x"00000001";   -- set adc_en in fsm high
+        --sdoa <= '1';
+        S_AXI_WDATA<=x"00000001";   -- write to dummy reg
         S_AXI_WSTRB<=b"1111";
         sendIt<='1';                --Start AXI Write to Slave
         wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
@@ -310,7 +328,7 @@ begin
         S_AXI_WSTRB<=b"0000";
         
         S_AXI_AWADDR<='1'&x"04";
-        S_AXI_WDATA<=x"00000001";
+        S_AXI_WDATA<=x"00000001";   -- set adc_en in fsm high (clv reg 65, enable the device)
         S_AXI_WSTRB<=b"1111";
         sendIt<='1';                --Start AXI Write to Slave
         wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
@@ -323,12 +341,140 @@ begin
         wait for 1 ns; readIt<='0'; --Clear "Start Read" Flag
     wait until S_AXI_RVALID = '1';
     wait until S_AXI_RVALID = '0';
-        S_AXI_ARADDR<='1'&x"04";
+        S_AXI_ARADDR<='1'&x"04";    -- readback slv reg 65(adc ctrl reg)
         readIt<='1';                --Start AXI Read from Slave
         wait for 1 ns; readIt<='0'; --Clear "Start Read" Flag
     wait until S_AXI_RVALID = '1';
     wait until S_AXI_RVALID = '0';
-        
+    wait for 30us;
+    
+        S_AXI_AWADDR<="000000000";
+        S_AXI_WDATA<=x"00000000";   -- "change channel to a" (overwrite, no chang eshould occur)
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    wait for 30us;
+    
+        S_AXI_AWADDR<="000000000";
+        S_AXI_WDATA<=x"00000001";   -- change audio channel to sdob
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 50us;
+    
+        S_AXI_AWADDR<="000000000";
+        S_AXI_WDATA<=x"00000005";   -- Mute the device, keep audio chan on sdob
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 10us;
+    
+        S_AXI_AWADDR<="000000000";
+        S_AXI_WDATA<=x"00000000";   -- Unmute the device, change back to sdoa (init pulls up with sdoa)
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 30us;
+    
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65
+        S_AXI_WDATA<=x"00000000";   -- Not sure if this step needed. Setup the device for reconfiguration.... Disable the component by writing bit 0 of slvreg 65 to 0, write the appropriate cfg selection to bits 5:3, then set bit 1 of slvreg 65 high signifying reconfig desired
+        --      lowres_8xosr_no_crc bits 5:3  "000" else 
+        --      lowres_4xosr_no_crc bits 5:3  "001" else
+        --      lowres_2xosr_no_crc bits 5:3  "010" else
+        --      lowres_0xosr_no_crc bits 5:3  "011" else
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 1us;
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65 -- ISSUE: WRITE RECONFIG TO 1 TO PROVIDE FSM SOFT RST, THEN LOAD WITH YOUR DESIRED DATA PRIOR TO ENABLE
+        S_AXI_WDATA<=x"00000002";   -- SET BIT 1 HIGH SIGNIFYING SFT RST. DO NOT LEAVE THIS BIT STUCK AFTER REENABLING DEVICE
+        --      lowres_8xosr_no_crc bits 5:3  "000" else 
+        --      lowres_4xosr_no_crc bits 5:3  "001" else
+        --      lowres_2xosr_no_crc bits 5:3  "010" else
+        --      lowres_0xosr_no_crc bits 5:3  "011" else
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 1us;
+    
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65
+        S_AXI_WDATA<=x"00000011";   -- set bit 0 of slvreg 65 high enabling device, along with setting config number
+        --      lowres_8xosr_no_crc bits 5:3  "000" else 
+        --      lowres_4xosr_no_crc bits 5:3  "001" else
+        --      lowres_2xosr_no_crc bits 5:3  "010" else
+        --      lowres_0xosr_no_crc bits 5:3  "011" else
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    wait for 30us;
+    
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65
+        S_AXI_WDATA<=x"00000144";   -- disable device and signify we wish to do a readback from the adc registers. THIS REQUIRES WRITING THE DESIRED READBACK value to bits 8:6 of slvreg65
+              -- from ad4680 datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/ad4680-4681.pdf
+              -- These 5 consitute all valid reg addresses on the part, not that we really plan on using them
+              --addr = "001"        -- CONFIGURATION1 REG
+              --addr = "010"        -- CONFIGURATION2 REG
+              --addr = "011"        -- ALERT REG
+              --addr = "100"        -- ALERT_LOW_THRESHOLD REG
+              --addr = "101"        -- ALERT_HIGH_THRESHOLD REG
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
+    wait for 10us;
+    
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65
+        S_AXI_WDATA<=x"00000000";   -- force back into idle state
+              -- from ad4680 datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/ad4680-4681.pdf
+              -- These 5 consitute all valid reg addresses on the part, not that we really plan on using them
+              --addr = "001"        -- CONFIGURATION1 REG
+              --addr = "010"        -- CONFIGURATION2 REG
+              --addr = "011"        -- ALERT REG
+              --addr = "100"        -- ALERT_LOW_THRESHOLD REG
+              --addr = "101"        -- ALERT_HIGH_THRESHOLD REG
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    wait for 10us;
+    
+        S_AXI_AWADDR<='1'&x"04";    -- adc ctrl reg, slvreg 65
+        S_AXI_WDATA<=x"00000001";   -- enablee the device
+              -- from ad4680 datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/ad4680-4681.pdf
+              -- These 5 consitute all valid reg addresses on the part, not that we really plan on using them
+              --addr = "001"        -- CONFIGURATION1 REG
+              --addr = "010"        -- CONFIGURATION2 REG
+              --addr = "011"        -- ALERT REG
+              --addr = "100"        -- ALERT_LOW_THRESHOLD REG
+              --addr = "101"        -- ALERT_HIGH_THRESHOLD REG
+        S_AXI_WSTRB<=b"1111";
+        sendIt<='1';                --Start AXI Write to Slave
+        wait for 1 ns; sendIt<='0'; --Clear Start Send Flag
+    wait until S_AXI_BVALID = '1';
+    wait until S_AXI_BVALID = '0';  --AXI Write finished
+    
     wait; -- will wait forever
     end process axi_master;
 

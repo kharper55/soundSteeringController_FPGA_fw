@@ -39,15 +39,10 @@ architecture Behavioral of shift_right_multiplier_32 is
 
 begin
 
-    -- shiftreg process                                                                                        
+    -- shift_reg process                                                                                        
     process(clk)
 	begin
-	   --if rising_edge(s_axi_aclk) then
-	   --    if s_axi_aresetn = '0' then
-	   --        shift_reg <= (others => '0');
-	   --    end if;
-	   --end if;
-	   if falling_edge(clk) then
+	   if rising_edge(clk) then -- changed to rising edge 04/24
 	       if clr = '1' or rstn = '0' then
 	           shift_reg <= (others => '0');
 	       else

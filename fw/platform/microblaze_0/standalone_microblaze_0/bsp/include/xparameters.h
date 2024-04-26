@@ -181,9 +181,6 @@
 #define STDOUT_BASEADDRESS 0x40600000
 #define STDIN_BASEADDRESS 0x40600000
 
-/* Number of SLRs */
-#define NUMBER_OF_SLRS 0x1
-
 /* Device ID */
 #define XPAR_DEVICE_ID "7a100t"
 

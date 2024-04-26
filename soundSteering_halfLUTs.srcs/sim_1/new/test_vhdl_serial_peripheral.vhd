@@ -129,6 +129,7 @@ begin
        -- read alert reg to verify status_F bit
        elsif ClockCount = 95 then
           en <= '1';
+          sdi_data <= x"AAAA";
           wait for (ClockPeriod / 5);
        elsif ClockCount = 97 then
           sda_reg_clr <= '1';
@@ -136,8 +137,10 @@ begin
           wait for (ClockPeriod / 5); 
        elsif ClockCount = 99 then
           sda_reg_clr <= '0';
-          en <= '0';
           wait for (ClockPeriod / 5);
+       elsif ClockCount = 115 then  
+          en <= '0';   
+          wait for (ClockPeriod / 5);  
        else
           wait for (ClockPeriod / 5);
        end if;

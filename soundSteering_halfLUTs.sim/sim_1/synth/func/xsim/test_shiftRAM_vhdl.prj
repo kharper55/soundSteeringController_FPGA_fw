@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"test_shiftRAM_func_synth.vhd" \
+"../../../../../soundSteering_halfLUTs.srcs/sources_1/imports/backup/_IP/src/inverter_64bit.vhd" \
+"../../../../../soundSteering_halfLUTs.srcs/sources_1/new/shiftRAM.vhd" \
+"../../../../../soundSteering_halfLUTs.srcs/sim_1/new/tst_shiftRAM.vhd" \
+
+# Do not sort compile order
+nosort

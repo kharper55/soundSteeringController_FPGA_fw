@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Sun Apr 21 22:20:34 2024
+-- Date        : Thu Apr 25 03:36:30 2024
 -- Host        : kharp running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_serial_adc_pwm_top_0_1/msys_serial_adc_pwm_top_0_1_stub.vhdl

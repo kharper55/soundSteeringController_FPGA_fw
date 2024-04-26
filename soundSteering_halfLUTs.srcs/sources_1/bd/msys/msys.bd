@@ -2330,7 +2330,6 @@
           "microblaze_0_axi_periph/M04_ACLK",
           "microblaze_0_axi_periph/S00_ACLK",
           "microblaze_0_local_memory/LMB_Clk",
-          "rst_clk_wiz_0_100M/slowest_sync_clk",
           "microblaze_0_axi_periph/M05_ACLK",
           "axi_quad_spi_1/s_axi_aclk",
           "axi_quad_spi_1/ext_spi_clk",
@@ -2339,7 +2338,8 @@
           "i2s_receiver_0/s_axi_ctrl_aclk",
           "microblaze_0_axi_periph/M07_ACLK",
           "i2s_receiver_0/m_axis_aud_aclk",
-          "serial_adc_pwm_top_0/s_axi_aclk"
+          "serial_adc_pwm_top_0/s_axi_aclk",
+          "rst_clk_wiz_0_100M/slowest_sync_clk"
         ]
       },
       "microblaze_0_intr": {

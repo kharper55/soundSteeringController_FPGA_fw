@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Thu Apr 18 16:22:24 2024
+-- Date        : Thu Apr 18 16:22:23 2024
 -- Host        : kharp running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_mdm_1_0_4/msys_mdm_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top msys_mdm_1_0 -prefix
+--               msys_mdm_1_0_ msys_mdm_1_0_sim_netlist.vhdl
 -- Design      : msys_mdm_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,8 +39,6 @@ entity msys_mdm_1_0_MB_BSCANE2 is
     Dbg_TDO_0 : in STD_LOGIC;
     \Use_Serial_Unified_Completion.completion_status_reg[15]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_BSCANE2 : entity is "MB_BSCANE2";
 end msys_mdm_1_0_MB_BSCANE2;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_BSCANE2 is
@@ -164,8 +162,6 @@ entity msys_mdm_1_0_MB_BUFG is
     Dbg_Clk_0 : out STD_LOGIC;
     DRCK : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_BUFG : entity is "MB_BUFG";
 end msys_mdm_1_0_MB_BUFG;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_BUFG is
@@ -246,8 +242,6 @@ entity msys_mdm_1_0_MB_FDC_1 is
     Dbg_Rst_0 : in STD_LOGIC;
     Debug_SYS_Rst : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_FDC_1 : entity is "MB_FDC_1";
 end msys_mdm_1_0_MB_FDC_1;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_FDC_1 is
@@ -841,8 +835,6 @@ entity msys_mdm_1_0_MB_FDRE_1 is
     Dbg_Shift_0_3 : in STD_LOGIC;
     Dbg_Shift_0_4 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_FDRE_1 : entity is "MB_FDRE_1";
 end msys_mdm_1_0_MB_FDRE_1;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_FDRE_1 is
@@ -888,8 +880,6 @@ entity msys_mdm_1_0_MB_LUT1 is
     Ext_JTAG_TDI : out STD_LOGIC;
     I0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_LUT1 : entity is "MB_LUT1";
 end msys_mdm_1_0_MB_LUT1;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_LUT1 is
@@ -933,8 +923,6 @@ entity msys_mdm_1_0_MB_SRL16E is
     shift_Count_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
     config_TDO_2 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MB_SRL16E : entity is "MB_SRL16E";
 end msys_mdm_1_0_MB_SRL16E;
 
 architecture STRUCTURE of msys_mdm_1_0_MB_SRL16E is
@@ -1179,8 +1167,6 @@ entity msys_mdm_1_0_JTAG_CONTROL is
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_1\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \shift_Count_reg[0]_1\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_JTAG_CONTROL : entity is "JTAG_CONTROL";
 end msys_mdm_1_0_JTAG_CONTROL;
 
 architecture STRUCTURE of msys_mdm_1_0_JTAG_CONTROL is
@@ -2674,8 +2660,6 @@ entity msys_mdm_1_0_MDM_Core is
     AR : in STD_LOGIC_VECTOR ( 0 to 0 );
     \^sel\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MDM_Core : entity is "MDM_Core";
 end msys_mdm_1_0_MDM_Core;
 
 architecture STRUCTURE of msys_mdm_1_0_MDM_Core is
@@ -4835,8 +4819,6 @@ entity msys_mdm_1_0_MDM is
   attribute C_USE_CROSS_TRIGGER of msys_mdm_1_0_MDM : entity is 0;
   attribute C_USE_UART : integer;
   attribute C_USE_UART of msys_mdm_1_0_MDM : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_mdm_1_0_MDM : entity is "MDM";
   attribute bscan_debug_core : string;
   attribute bscan_debug_core of msys_mdm_1_0_MDM : entity is "FALSE";
   attribute dont_touch : string;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="msys_axi_iic_0_0_synth_1" LaunchPart="xc7a100tcsg324-2" LaunchTime="1713471622">
+<GenRun Id="msys_axi_iic_0_0_synth_1" LaunchPart="xc7a100tcsg324-2" LaunchTime="1714005653">
   <File Type="PA-TCL" Name="msys_axi_iic_0_0.tcl"/>
   <File Type="REPORTS-TCL" Name="msys_axi_iic_0_0_reports.tcl"/>
   <File Type="RDS-RDS" Name="msys_axi_iic_0_0.vds"/>
@@ -53,6 +53,14 @@
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_4"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/utils_1/imports/synth_7/msys_wrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_7"/>
         <Attr Name="AutoDcp" Val="1"/>
       </FileInfo>
     </File>

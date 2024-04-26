@@ -35,9 +35,11 @@ architecture Behavioral of test_shiftRAM is
     signal addr: std_logic_vector(11 downto 0) := (others => '0');
     signal pwm, inverts : std_logic_vector(1 to 64) := (others => '0');
     signal mutes : std_logic_vector(1 to 64) := (others => '1');
-    signal shiftreg_out : std_logic_vector(0 to 2500) := (others => '0');
-    signal tst_addr_flg : std_logic := '0';
-    signal tst_addr_conv : std_logic_vector(10 downto 0) := (others => '0');
+    signal shift_reg_out : std_logic_vector(0 to 2500) := (others => '0');
+    signal tst_addr_offset_flg  : std_logic := '0';
+    signal tst_addr_reg : std_logic_vector(10 downto 0) := (others => '0');
+    signal tst_addr_pipe_rega, tst_addr_pipe_regb : std_logic_vector(11 downto 0) := (others => '0');
+    signal tst_addr_mismatch_flg : std_logic := '0';
     signal clk_cnt : unsigned(31 downto 0) := to_unsigned(0, 32);
     
     signal td1_out, td2_out, td3_out, td4_out, td5_out, td6_out, td7_out, td8_out : integer;
@@ -55,21 +57,24 @@ architecture Behavioral of test_shiftRAM is
     shared variable ClockCount : integer range 0 to 50_000 := 100;
 
     COMPONENT shiftRAM is
-        Port ( clk      : in STD_LOGIC;             -- self explanatory
-               rstn     : in STD_LOGIC;             -- self explanatory
-               rom_trig : in std_logic;
-               clr      : in STD_LOGIC;
-               mute     : in std_logic;             -- Write all zeroes to the pwm logic vector, effectively muting everything
-               data     : in STD_LOGIC;             -- single bit pwm input data
-               addr     : in STD_LOGIC_VECTOR(11 downto 0);  -- input steering coordinate from microblaze SPI (5bit AZ & 5bit EL)
-               pwm      : out STD_LOGIC_VECTOR(1 to 64); -- individual pwm outputs for all transducers
-               shiftreg_out : out std_logic_vector(0 to 2500);
-               mutes    : in std_logic_vector(1 to 64);  -- transducer mutes
-               inverts  : in std_logic_vector(1 to 64);  -- transducer inverts for phase reversal
-               full     : out std_logic; 
+        Port ( clk           : in STD_LOGIC;             -- self explanatory
+               rstn          : in STD_LOGIC;             -- self explanatory
+               rom_trig      : in std_logic;
+               clr           : in STD_LOGIC;
+               mute          : in std_logic;             -- Write all zeroes to the pwm logic vector, effectively muting everything
+               data          : in STD_LOGIC;             -- single bit pwm input data
+               addr          : in STD_LOGIC_VECTOR(11 downto 0);  -- input steering coordinate from microblaze SPI (5bit AZ & 5bit EL)
+               pwm           : out STD_LOGIC_VECTOR(1 to 64); -- individual pwm outputs for all transducers
+               shift_reg_out  : out std_logic_vector(0 to 2500);
+               mutes         : in std_logic_vector(1 to 64);  -- transducer mutes
+               inverts       : in std_logic_vector(1 to 64);  -- transducer inverts for phase reversal
+               full          : out std_logic;
                counter12_out : out unsigned(11 downto 0);
-               tst_addr_flg : out std_logic;
-               tst_addr_conv : out std_logic_vector(10 downto 0);
+               tst_addr_offset_flg : out std_logic;
+               tst_addr_mismatch_flg : out std_logic;
+               tst_addr_reg : out std_logic_vector(10 downto 0) := (others => '0');
+               tst_addr_pipe_rega : out std_logic_vector(11 downto 0) := (others => '0');
+               tst_addr_pipe_regb : out std_logic_vector(11 downto 0) := (others => '0');
                td1_out : out integer;
                td2_out : out integer;
                td3_out : out integer;
@@ -133,27 +138,31 @@ architecture Behavioral of test_shiftRAM is
                td61_out : out integer;
                td62_out : out integer;
                td63_out : out integer;
-               td64_out : out integer ); 
+               td64_out : out integer
+           ); 
     end COMPONENT;
 
 begin
 
     tb: shiftRAM port map (  clk          => clk,
                              rstn         => rstn,
-                             rom_trig     => rom_trig,
+                             rom_trig     => clk, -- rom_trig
                              clr          => clr,
                              mute         => mute,
                              data         => data,
                              addr         => addr,
                              pwm          => pwm,  
-                             shiftreg_out => shiftreg_out,
+                             shift_reg_out => shift_reg_out,
                              mutes        => mutes,
                              inverts      => inverts,
-                             full => full, 
+                             full         => full, 
                              counter12_out => counter12_out, 
+                             tst_addr_offset_flg => tst_addr_offset_flg,
+                             tst_addr_mismatch_flg => tst_addr_mismatch_flg,
+                             tst_addr_reg => tst_addr_reg,
+                             tst_addr_pipe_rega => tst_addr_pipe_rega,  
+                             tst_addr_pipe_regb => tst_addr_pipe_regb,
                              td1_out => td1_out,
-                             tst_addr_flg => tst_addr_flg,
-                             tst_addr_conv => tst_addr_conv,
                             td2_out  => td2_out,
                             td3_out  => td3_out,
                             td4_out  => td4_out,
@@ -307,14 +316,28 @@ begin
           data <= '1';
           addr <= x"3C5";
           wait for 1ps;
-       elsif clk_cnt = x"00000A76" + x"00000060" + x"00000048" then
+       elsif clk_cnt = x"00000b25" then
           rom_trig <= '0';
+          addr <= x"F3C";
           wait for 1ps;
-       elsif clk_cnt = x"00000A76" + x"00000060" + x"00000050" then
-          rom_trig <= '1';
+       elsif clk_cnt = x"00000b25" + x"14" then
+          rom_trig <= '0';
+          addr <= x"3C5";
+          wait for 1ps;
+       elsif clk_cnt = x"00000b25" + x"14" + x"14" then
+          rom_trig <= '0';
+          addr <= x"F3C";
+          wait for 1ps;
+       elsif clk_cnt = x"00000b25" + x"14" + x"14" + x"14" then
+          rom_trig <= '0';
+          addr <= x"3C5";
+          wait for 1ps;
+       elsif clk_cnt = x"00000b25" + x"14" + x"14" + x"14" + x"14" then
+          rom_trig <= '0';
+          addr <= x"F3C";
           wait for 1ps;
        else
-          wait for 1ps;
+          wait for 1ns;
        end if;
     end process;
 

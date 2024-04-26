@@ -36,11 +36,11 @@ entity vhdl_serial_peripheral is
            scl                : out std_logic;
            sdoa_data          : out std_logic_vector(15 downto 0); -- to datapath, double ff synced
            sdob_data          : out std_logic_vector(15 downto 0); -- to datapath, double ff synced
-           cycle_counter_out  : out unsigned(5 downto 0);
-           tst_counter_clr    : out std_logic;
-           tst_en_buff        : out std_logic;
-           tst_shift_en       : out std_logic;
-           counter_done       : out std_logic);
+           --cycle_counter_out  : out unsigned(5 downto 0);
+           --tst_counter_clr    : out std_logic;
+           --tst_en_buff        : out std_logic;
+           --tst_shift_en       : out std_logic;
+           counter_done       : out std_logic );
 end vhdl_serial_peripheral;
 
 architecture Behavioral of vhdl_serial_peripheral is
@@ -51,6 +51,7 @@ architecture Behavioral of vhdl_serial_peripheral is
     constant CYCLE_LENGTH                 : unsigned(5 downto 0) := to_unsigned(37, 6) + to_unsigned(2, 6); -- add 22 clock cycles to meet timing specs
     constant CYCLE_DIFF                   : unsigned(5 downto 0) := to_unsigned(24, 6); -- difference from the above integer to 15 (highest needed index for serial register transaction)
     constant CYCLE_DATA_WIDTH             : unsigned(5 downto 0) := CYCLE_LENGTH - CYCLE_DIFF + 1;
+    constant CYCLE_DATA_WIDTH_IDX         : unsigned(5 downto 0) := CYCLE_DATA_WIDTH - 1;
     
     -- 16 bit shift register
     signal shift_regA_out, shift_regB_out : std_logic_vector(15 downto 0) := (others => '0');
@@ -82,14 +83,14 @@ architecture Behavioral of vhdl_serial_peripheral is
     
     component counter_6 is
         Port( clk           : in std_logic;
-              rstn : in std_logic;
+              rstn          : in std_logic;
               clr           : in std_logic;
               output        : out unsigned(5 downto 0));	
     end component;
     
     component shift_left_16 is
         Port( clk           : in std_logic;
-              rstn : in std_logic;
+              rstn          : in std_logic;
               input         : in std_logic;
               clr           : in std_logic;
               shift_en      : in std_logic;
@@ -157,24 +158,6 @@ begin
 	           en_metastable <= en_stretched;
 	           en_stable     <= en_metastable;
 	       end if;
-	   end if;
-	end process;
-
-    -- Stabilize sdoa, sdob data to main fast sys clock (100MHz)
-	process(clk_fast)
-	begin
-	   if rising_edge(clk_fast) then
-	        if rstn = '0' then
-	           sdoa_data_metastable <= (others => '0');
-	           sdoa_data_stable     <= (others => '0');
-	           sdob_data_metastable <= (others => '0');
-	           sdob_data_stable     <= (others => '0');     
-	        else
-			   sdoa_data_metastable <= sdoa_reg;
-			   sdoa_data_stable     <= sdoa_data_metastable;
-			   sdob_data_metastable <= sdob_reg;
-	           sdob_data_stable     <= sdob_data_metastable;
-			end if;
 	   end if;
 	end process;
     
@@ -277,7 +260,7 @@ begin
 	begin
         if falling_edge(clk_slow) then   
             if rstn = '0' then
-	           shift_en_reg <= '0';
+	            shift_en_reg <= '0';
             else 
                 shift_en_reg <= shift_en_next;
             end if;
@@ -320,12 +303,17 @@ begin
 	sdob_next <= shift_regB_out when (counter_value = CYCLE_DATA_WIDTH + to_unsigned(1, 6)) else
 				 sdob_reg;
     
-    -- NOTE: PUSHED THIS ONE CLOCK CYCLE BACKWARDS ON 04/21
-	sdi_next <=  '0' when ((counter_value > CYCLE_DATA_WIDTH) or counter_value = to_unsigned(0,6)) else
-	             sdi_data_reg(to_integer(CYCLE_DATA_WIDTH - counter_value)) when (cs_reg = '0' or (en_buffer_reg = '1' and (counter_value <= CYCLE_DATA_WIDTH))) else 
-	             sdi_reg;
+    -- START SHIFTING SDI OUT ON COUNT = 1
+	--sdi_next <=  '0' when ((counter_value > CYCLE_DATA_WIDTH) or counter_value = to_unsigned(0,6)) else
+	--             sdi_data_reg(to_integer(CYCLE_DATA_WIDTH - counter_value)) when (cs_reg = '0' or (en_buffer_reg = '1' and (counter_value <= CYCLE_DATA_WIDTH))) else 
+	--             sdi_reg;
+	
+	-- START SHIFTING SDI OUT ON COUNT = 0
+	sdi_next <=  '0' when (counter_value > CYCLE_DATA_WIDTH_IDX) else
+	             sdi_data_reg(to_integer(CYCLE_DATA_WIDTH_IDX - counter_value)) when (cs_reg = '0' or (en_buffer_reg = '1' and (counter_value <= CYCLE_DATA_WIDTH_IDX))) else 
+	             sdi_reg;                                    
 	                                
-	autoclear_next <= '1' when (counter_value = CYCLE_LENGTH or en_buffer_reg = '0') else
+	autoclear_next <= '1' when (counter_value = CYCLE_LENGTH or en_buffer_reg = '0') else -- CYCLE_LENGTH IS 1- THE ACTUAL VALUE REQUIRED FOR 1uS operation, SO THAT WE CAN ACCOUNT FOR THE CLOCK CYCLE DELAY REQUIRED TO CLEAR THINGS
 	                  '0';
 	
 	-- need to address fact that we arent even using the enable signal                  
@@ -333,7 +321,7 @@ begin
 	                  '0' when (counter_done_stable = '1' and counter_value = CYCLE_LENGTH and en_stable = '0') else
 	                  en_buffer_reg; -- buffer user applied enable so as to complete serial transmissions
 	                  
-	shift_en_next <= '1' when (en_buffer_reg = '1' and ((counter_value > 0) and (counter_value <= CYCLE_DATA_WIDTH))) else 
+	shift_en_next <= '1' when (en_buffer_reg = '1' and ((counter_value > to_unsigned(0, 6)) and (counter_value <= CYCLE_DATA_WIDTH))) else 
 	                 '0' when en_buffer_reg = '0' or (counter_value > CYCLE_DATA_WIDTH) else 
 	                 shift_en_reg;
 	
@@ -346,14 +334,14 @@ begin
 	        
 	sdi               <= sdi_reg;
 	cs                <= cs_reg;    
-    sdoa_data         <= sdoa_data_stable;
-    sdob_data         <= sdob_data_stable;
+    sdoa_data         <= sdoa_reg;
+    sdob_data         <= sdob_reg;
     counter_done      <= counter_done_stable;
     
     -- Test signal outputs
-    cycle_counter_out <= counter_value;
-    tst_shift_en      <= shift_en_reg;
-    tst_counter_clr   <= autoclear_reg;
-    tst_en_buff       <= en_buffer_reg;
+    --cycle_counter_out <= counter_value;
+    --tst_shift_en      <= shift_en_reg;
+    --tst_counter_clr   <= autoclear_reg;
+    --tst_en_buff       <= en_buffer_reg;
 
 end Behavioral;

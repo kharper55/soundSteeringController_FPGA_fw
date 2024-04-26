@@ -56,7 +56,7 @@ end serial_adc_pwm_fsm;
 architecture Behavioral of serial_adc_pwm_fsm is
 
 -- signals and components here
-type STATE_NAMES is (STATE_A, STATE_B, STATE_C, STATE_D, STATE_E, STATE_F, STATE_G, STATE_H, STATE_I, STATE_J);
+type STATE_NAMES is (STATE_A, STATE_B, STATE_C, STATE_D, STATE_E, STATE_F, STATE_G, STATE_H, STATE_I, STATE_J, STATE_K, STATE_L, STATE_M, STATE_N);
 signal CURRENT_STATE, NEXT_STATE : STATE_NAMES; 
 
 begin
@@ -72,8 +72,7 @@ begin
         end if;
     end process;
     
-    --mb_cmd format bits(15:7) - empty, bit 6 - adc_start_trig, bit 5 - chan sel for pwm output, bit 4 - chan sel for microblaze output, bits (3:0) - adc cfg
-    --process(CURRENT_STATE, NEXT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
+    ----process(CURRENT_STATE, NEXT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
     process(CURRENT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
     --process(CURRENT_STATE)
     begin
@@ -107,7 +106,7 @@ begin
              when STATE_C =>
                 if (en = '1' and fifo_full = '1') and flag = '0' then -- Enter main audio loop
                     NEXT_STATE <= STATE_D;
-                elsif flag = '1' then                -- User requested channel change, enter fifo refill loop
+                elsif flag = '1' then            -- User requested channel change, enter fifo refill loop after the current serial adc cycle finalizes
                     NEXT_STATE <= STATE_H;  
                 elsif reconfig = '1' then            -- User requested adc reconfig, go back to state A and wait for re-enable
                     NEXT_STATE <= STATE_A;  
@@ -119,7 +118,7 @@ begin
              
              -- ADC simultaneous continuous conversion state entry
              when STATE_D =>
-                if counter_done = '0' then
+                if counter_done = '1' then     -- Upon entry, counter done should be high. Wait for it to toggle low, signifying that a cycle has started
                     NEXT_STATE <= STATE_E;     -- Serial comms cycle counter has started (1uS cycles at 40MHz). Advance to next state and check user requests
                 else
                     NEXT_STATE <= STATE_D;
@@ -127,12 +126,19 @@ begin
              
              -- ADC simultaneous continuous conversion state exit
              when STATE_E =>
-                if en = '0' or flag = '1' then  -- Back out to idle state as the user has disabled the component, and or a channel change has occurred, requiring a FIFO refill (takes 25uS, ie 2500 * 10nS clk period)
-                    NEXT_STATE <= STATE_C;
-                elsif counter_done = '1' then   -- Go back to state D and continue getting conversions
-                    NEXT_STATE <= STATE_D;
+                --if (en = '0' or flag = '1') and counter_done = '1' then  -- Back out to idle state as the user has disabled the component, and or a channel change has occurred, requiring a FIFO refill (takes 25uS, ie 2500 * 10nS clk period)
+                --    NEXT_STATE <= STATE_C;
+                if counter_done = '0'  then
+                    NEXT_STATE <= STATE_K;      -- Remain in this state until cycle complete
                 else
-                    NEXT_STATE <= STATE_E;      -- Remain in this state until cycle complete
+                    NEXT_STATE <= STATE_E;
+                end if;
+                
+             when STATE_K =>
+                if (en = '0' or flag = '1') and counter_done = '1' then
+                    NEXT_STATE <= STATE_C;
+                elsif counter_done = '1'  then
+                    NEXT_STATE <= STATE_D;      -- Remain in this state until cycle complete
                 end if;
                 
              -- ADC register readback entry state
@@ -145,10 +151,34 @@ begin
               
               -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
               when STATE_G =>
-                if counter_done = '1' then -- stop conversion
-                    NEXT_STATE <= STATE_C;
+                if counter_done = '0' then -- stop conversion
+                    NEXT_STATE <= STATE_L;
                 else
                     NEXT_STATE <= STATE_G;
+                end if;   
+                
+             -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
+             when STATE_L =>
+                if counter_done = '1' then -- wait for user to drive reg read low once again prior to advancing back thru idle state and into the state machine (allow some time to read the reusltS)
+                    NEXT_STATE <= STATE_M;
+                else
+                    NEXT_STATE <= STATE_L;
+                end if; 
+                
+              -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
+             when STATE_M => -- NOP
+                if counter_done = '0' then -- wait for user to drive reg read low once again prior to advancing back thru idle state and into the state machine (allow some time to read the reusltS)
+                    NEXT_STATE <= STATE_N;
+                else
+                    NEXT_STATE <= STATE_M;
+                end if;  
+                
+              -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
+             when STATE_N =>
+                if counter_done = '1' and reg_read = '0' then -- wait for user to drive reg read low once again prior to advancing back thru idle state and into the state machine (allow some time to read the reusltS)
+                    NEXT_STATE <= STATE_C;
+                else
+                    NEXT_STATE <= STATE_N;
                 end if;   
                 
               -- Begin refill FIFO state (channel change)
@@ -262,6 +292,20 @@ begin
                 heartbeat_pwm_en     <= '1';
                 rom_trig             <= '0';
                 state                <= to_unsigned(5, 5);  -- debug port for observing the current state of the system
+             
+             when (STATE_K) =>
+                sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms	    
+                adc_en               <= '1'; -- '1' start, '0' for disabled                        
+		        rom_strobe           <= '0'; -- '1' to clock the ROM that contains the mapping of 2's complement ADC data to counts for PWM
+                sdi_sel              <= "011"; -- No OP/All zeroes
+                gpio_level           <= '1';
+                shiftreg_clr         <= '0';
+                flag_ack             <= '0';
+                fan_pwm_en           <= '1';
+                tx_active_pwm_en     <= '1';
+                heartbeat_pwm_en     <= '1';
+                rom_trig             <= '0';
+                state                <= to_unsigned(11, 5);  -- debug port for observing the current state of the system
                 
              -- ADC register readback entry state
              when (STATE_F) =>
@@ -277,9 +321,23 @@ begin
                 heartbeat_pwm_en     <= '1';
                 rom_trig             <= '0';
                 state                <= to_unsigned(6, 5);  -- debug port for observing the current state of the system
-                
-            -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
+             
             when (STATE_G) =>
+                sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms               
+                adc_en               <= '1'; -- '1' start, '0' for disabled                
+		        rom_strobe           <= '0'; -- '1' to clock the ROM that contains the mapping of 2's complement ADC data to counts for PWM
+                sdi_sel              <= "111"; -- READ REG
+                gpio_level           <= '0';
+                shiftreg_clr         <= '0';
+                flag_ack             <= '0';
+                fan_pwm_en           <= '1';
+                tx_active_pwm_en     <= '1';
+                heartbeat_pwm_en     <= '1';
+                rom_trig             <= '0';
+                state                <= to_unsigned(7, 5);  -- debug port for observing the current state of the system
+    
+            -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
+            when (STATE_L) =>
                 sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms                    
                 adc_en               <= '1'; -- '1' start, '0' for disabled                 
 		        rom_strobe           <= '0'; -- '1' to clock the ROM that contains the mapping of 2's complement ADC data to counts for PWM
@@ -291,8 +349,37 @@ begin
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
                 rom_trig             <= '0';
-                state                <= to_unsigned(7, 5);  -- debug port for observing the current state of the system
+                state                <= to_unsigned(12, 5);  -- debug port for observing the current state of the system
             
+            when (STATE_M) =>
+                sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms                    
+                adc_en               <= '1'; -- '1' start, '0' for disabled                 
+		        rom_strobe           <= '0'; -- '1' to clock the ROM that contains the mapping of 2's complement ADC data to counts for PWM
+                sdi_sel              <= "011";
+                gpio_level           <= '0';
+                shiftreg_clr         <= '0';
+                flag_ack             <= '0';
+                fan_pwm_en           <= '1';
+                tx_active_pwm_en     <= '1';
+                heartbeat_pwm_en     <= '1';
+                rom_trig             <= '0';
+                state                <= to_unsigned(13, 5);  -- debug port for observing the current state of the system
+            
+            when (STATE_N) =>
+                sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms                    
+                adc_en               <= '0'; -- '1' start, '0' for disabled                 
+		        rom_strobe           <= '0'; -- '1' to clock the ROM that contains the mapping of 2's complement ADC data to counts for PWM
+                sdi_sel              <= "011";
+                gpio_level           <= '0';
+                shiftreg_clr         <= '0';
+                flag_ack             <= '0';
+                fan_pwm_en           <= '1';
+                tx_active_pwm_en     <= '1';
+                heartbeat_pwm_en     <= '1';
+                rom_trig             <= '0';
+                state                <= to_unsigned(14, 5);  -- debug port for observing the current state of the system
+
+         
             -- Begin refill FIFO state (channel change)
             when (STATE_H) =>
                 sda_reg_clr          <= '0'; -- '1' to manually clear the contents of the shift register for serial A/D comms                    

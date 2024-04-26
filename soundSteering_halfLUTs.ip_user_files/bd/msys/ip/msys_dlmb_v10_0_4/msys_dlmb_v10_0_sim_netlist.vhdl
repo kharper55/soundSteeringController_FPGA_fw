@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 -- Date        : Thu Apr 18 16:22:14 2024
 -- Host        : kharp running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_dlmb_v10_0_4/msys_dlmb_v10_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top msys_dlmb_v10_0 -prefix
+--               msys_dlmb_v10_0_ msys_dlmb_v10_0_sim_netlist.vhdl
 -- Design      : msys_dlmb_v10_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -53,8 +53,6 @@ entity msys_dlmb_v10_0_lmb_v10 is
   attribute C_LMB_NUM_SLAVES of msys_dlmb_v10_0_lmb_v10 : entity is 1;
   attribute C_LMB_PROTOCOL : integer;
   attribute C_LMB_PROTOCOL of msys_dlmb_v10_0_lmb_v10 : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of msys_dlmb_v10_0_lmb_v10 : entity is "lmb_v10";
 end msys_dlmb_v10_0_lmb_v10;
 
 architecture STRUCTURE of msys_dlmb_v10_0_lmb_v10 is

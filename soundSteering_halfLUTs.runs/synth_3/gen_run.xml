@@ -3,8 +3,8 @@
   <File Type="PA-TCL" Name="msys_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="msys_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="msys_wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="msys_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="msys_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="serial_adc_pwm_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="serial_adc_pwm_top_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="msys_wrapper.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
@@ -2451,13 +2451,13 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="msys_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_iic_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_mdm_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_axi_intc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_axi_uartlite_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_mdm_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_timer_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_rst_clk_wiz_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_axi_intc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_0"/>

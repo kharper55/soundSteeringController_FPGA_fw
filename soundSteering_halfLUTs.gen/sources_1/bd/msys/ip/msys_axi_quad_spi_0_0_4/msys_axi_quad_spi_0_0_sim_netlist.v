@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Thu Apr 18 16:22:40 2024
+// Date        : Thu Apr 18 16:22:39 2024
 // Host        : kharp running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_axi_quad_spi_0_0_4/msys_axi_quad_spi_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top msys_axi_quad_spi_0_0 -prefix
+//               msys_axi_quad_spi_0_0_ msys_axi_quad_spi_0_0_sim_netlist.v
 // Design      : msys_axi_quad_spi_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -13,320 +13,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "msys_axi_quad_spi_0_0,axi_quad_spi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_quad_spi,Vivado 2023.2" *) 
-(* NotValidForBitStream *)
-module msys_axi_quad_spi_0_0
-   (ext_spi_clk,
-    s_axi_aclk,
-    s_axi_aresetn,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready,
-    io0_i,
-    io0_o,
-    io0_t,
-    io1_i,
-    io1_o,
-    io1_t,
-    io2_i,
-    io2_o,
-    io2_t,
-    io3_i,
-    io3_o,
-    io3_t,
-    ss_i,
-    ss_o,
-    ss_t,
-    cfgclk,
-    cfgmclk,
-    eos,
-    preq,
-    ip2intc_irpt);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 spi_clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME spi_clk, ASSOCIATED_BUSIF SPI_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input ext_spi_clk;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 lite_clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME lite_clk, ASSOCIATED_BUSIF AXI_LITE, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 lite_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME lite_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [6:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARADDR" *) input [6:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_I" *) (* x_interface_parameter = "XIL_INTERFACENAME SPI_0, BOARD.ASSOCIATED_PARAM QSPI_BOARD_INTERFACE" *) input io0_i;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_O" *) output io0_o;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_T" *) output io0_t;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_I" *) input io1_i;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_O" *) output io1_o;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_T" *) output io1_t;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_I" *) input io2_i;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_O" *) output io2_o;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_T" *) output io2_t;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_I" *) input io3_i;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_O" *) output io3_o;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_T" *) output io3_t;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_I" *) input [0:0]ss_i;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_O" *) output [0:0]ss_o;
-  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_T" *) output ss_t;
-  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO cfgclk" *) output cfgclk;
-  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO cfgmclk" *) output cfgmclk;
-  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO eos" *) output eos;
-  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO preq" *) output preq;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME interrupt, SENSITIVITY EDGE_RISING, PORTWIDTH 1" *) output ip2intc_irpt;
-
-  wire \<const0> ;
-  wire cfgclk;
-  wire cfgmclk;
-  wire eos;
-  wire ext_spi_clk;
-  wire io0_i;
-  wire io0_o;
-  wire io0_t;
-  wire io1_i;
-  wire io1_o;
-  wire io1_t;
-  wire io2_i;
-  wire io2_o;
-  wire io2_t;
-  wire io3_i;
-  wire io3_o;
-  wire io3_t;
-  wire ip2intc_irpt;
-  wire preq;
-  wire s_axi_aclk;
-  wire [6:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [6:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:1]\^s_axi_bresp ;
-  wire s_axi_bvalid;
-  wire [31:0]\^s_axi_rdata ;
-  wire s_axi_rready;
-  wire [1:1]\^s_axi_rresp ;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire s_axi_wvalid;
-  wire [0:0]ss_o;
-  wire ss_t;
-  wire NLW_U0_io0_1_o_UNCONNECTED;
-  wire NLW_U0_io0_1_t_UNCONNECTED;
-  wire NLW_U0_io1_1_o_UNCONNECTED;
-  wire NLW_U0_io1_1_t_UNCONNECTED;
-  wire NLW_U0_io2_1_o_UNCONNECTED;
-  wire NLW_U0_io2_1_t_UNCONNECTED;
-  wire NLW_U0_io3_1_o_UNCONNECTED;
-  wire NLW_U0_io3_1_t_UNCONNECTED;
-  wire NLW_U0_s_axi4_arready_UNCONNECTED;
-  wire NLW_U0_s_axi4_awready_UNCONNECTED;
-  wire NLW_U0_s_axi4_bvalid_UNCONNECTED;
-  wire NLW_U0_s_axi4_rlast_UNCONNECTED;
-  wire NLW_U0_s_axi4_rvalid_UNCONNECTED;
-  wire NLW_U0_s_axi4_wready_UNCONNECTED;
-  wire NLW_U0_sck_o_UNCONNECTED;
-  wire NLW_U0_sck_t_UNCONNECTED;
-  wire NLW_U0_ss_1_o_UNCONNECTED;
-  wire NLW_U0_ss_1_t_UNCONNECTED;
-  wire [3:0]NLW_U0_s_axi4_bid_UNCONNECTED;
-  wire [1:0]NLW_U0_s_axi4_bresp_UNCONNECTED;
-  wire [31:0]NLW_U0_s_axi4_rdata_UNCONNECTED;
-  wire [3:0]NLW_U0_s_axi4_rid_UNCONNECTED;
-  wire [1:0]NLW_U0_s_axi4_rresp_UNCONNECTED;
-  wire [0:0]NLW_U0_s_axi_bresp_UNCONNECTED;
-  wire [30:14]NLW_U0_s_axi_rdata_UNCONNECTED;
-  wire [0:0]NLW_U0_s_axi_rresp_UNCONNECTED;
-
-  assign s_axi_bresp[1] = \^s_axi_bresp [1];
-  assign s_axi_bresp[0] = \<const0> ;
-  assign s_axi_rdata[31] = \^s_axi_rdata [31];
-  assign s_axi_rdata[30] = \<const0> ;
-  assign s_axi_rdata[29] = \<const0> ;
-  assign s_axi_rdata[28] = \<const0> ;
-  assign s_axi_rdata[27] = \<const0> ;
-  assign s_axi_rdata[26] = \<const0> ;
-  assign s_axi_rdata[25] = \<const0> ;
-  assign s_axi_rdata[24] = \<const0> ;
-  assign s_axi_rdata[23] = \<const0> ;
-  assign s_axi_rdata[22] = \<const0> ;
-  assign s_axi_rdata[21] = \<const0> ;
-  assign s_axi_rdata[20] = \<const0> ;
-  assign s_axi_rdata[19] = \<const0> ;
-  assign s_axi_rdata[18] = \<const0> ;
-  assign s_axi_rdata[17] = \<const0> ;
-  assign s_axi_rdata[16] = \<const0> ;
-  assign s_axi_rdata[15] = \<const0> ;
-  assign s_axi_rdata[14] = \<const0> ;
-  assign s_axi_rdata[13:0] = \^s_axi_rdata [13:0];
-  assign s_axi_rresp[1] = \^s_axi_rresp [1];
-  assign s_axi_rresp[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  (* Async_Clk = "0" *) 
-  (* C_BYTE_LEVEL_INTERRUPT_EN = "0" *) 
-  (* C_DUAL_QUAD_MODE = "0" *) 
-  (* C_FAMILY = "artix7" *) 
-  (* C_FIFO_DEPTH = "256" *) 
-  (* C_INSTANCE = "axi_quad_spi_inst" *) 
-  (* C_LSB_STUP = "0" *) 
-  (* C_NEW_SEQ_EN = "1" *) 
-  (* C_NUM_SS_BITS = "1" *) 
-  (* C_NUM_TRANSFER_BITS = "8" *) 
-  (* C_SCK_RATIO = "2" *) 
-  (* C_SELECT_XPM = "0" *) 
-  (* C_SHARED_STARTUP = "0" *) 
-  (* C_SPI_MEMORY = "3" *) 
-  (* C_SPI_MEM_ADDR_BITS = "24" *) 
-  (* C_SPI_MODE = "2" *) 
-  (* C_SUB_FAMILY = "artix7" *) 
-  (* C_S_AXI4_ADDR_WIDTH = "24" *) 
-  (* C_S_AXI4_BASEADDR = "32'b11111111111111111111111111111111" *) 
-  (* C_S_AXI4_DATA_WIDTH = "32" *) 
-  (* C_S_AXI4_HIGHADDR = "32'b00000000000000000000000000000000" *) 
-  (* C_S_AXI4_ID_WIDTH = "4" *) 
-  (* C_S_AXI_ADDR_WIDTH = "7" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* C_TYPE_OF_AXI4_INTERFACE = "0" *) 
-  (* C_UC_FAMILY = "0" *) 
-  (* C_USE_STARTUP = "1" *) 
-  (* C_USE_STARTUP_EXT = "0" *) 
-  (* C_XIP_MODE = "0" *) 
-  (* C_XIP_PERF_MODE = "1" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  msys_axi_quad_spi_0_0_axi_quad_spi U0
-       (.cfgclk(cfgclk),
-        .cfgmclk(cfgmclk),
-        .clk(1'b0),
-        .eos(eos),
-        .ext_spi_clk(ext_spi_clk),
-        .gsr(1'b0),
-        .gts(1'b0),
-        .io0_1_i(1'b0),
-        .io0_1_o(NLW_U0_io0_1_o_UNCONNECTED),
-        .io0_1_t(NLW_U0_io0_1_t_UNCONNECTED),
-        .io0_i(io0_i),
-        .io0_o(io0_o),
-        .io0_t(io0_t),
-        .io1_1_i(1'b0),
-        .io1_1_o(NLW_U0_io1_1_o_UNCONNECTED),
-        .io1_1_t(NLW_U0_io1_1_t_UNCONNECTED),
-        .io1_i(io1_i),
-        .io1_o(io1_o),
-        .io1_t(io1_t),
-        .io2_1_i(1'b0),
-        .io2_1_o(NLW_U0_io2_1_o_UNCONNECTED),
-        .io2_1_t(NLW_U0_io2_1_t_UNCONNECTED),
-        .io2_i(io2_i),
-        .io2_o(io2_o),
-        .io2_t(io2_t),
-        .io3_1_i(1'b0),
-        .io3_1_o(NLW_U0_io3_1_o_UNCONNECTED),
-        .io3_1_t(NLW_U0_io3_1_t_UNCONNECTED),
-        .io3_i(io3_i),
-        .io3_o(io3_o),
-        .io3_t(io3_t),
-        .ip2intc_irpt(ip2intc_irpt),
-        .keyclearb(1'b0),
-        .pack(1'b0),
-        .preq(preq),
-        .s_axi4_aclk(1'b0),
-        .s_axi4_araddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_arburst({1'b0,1'b0}),
-        .s_axi4_arcache({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_aresetn(1'b0),
-        .s_axi4_arid({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_arlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_arlock(1'b0),
-        .s_axi4_arprot({1'b0,1'b0,1'b0}),
-        .s_axi4_arready(NLW_U0_s_axi4_arready_UNCONNECTED),
-        .s_axi4_arsize({1'b0,1'b0,1'b0}),
-        .s_axi4_arvalid(1'b0),
-        .s_axi4_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_awburst({1'b0,1'b0}),
-        .s_axi4_awcache({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_awid({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_awlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_awlock(1'b0),
-        .s_axi4_awprot({1'b0,1'b0,1'b0}),
-        .s_axi4_awready(NLW_U0_s_axi4_awready_UNCONNECTED),
-        .s_axi4_awsize({1'b0,1'b0,1'b0}),
-        .s_axi4_awvalid(1'b0),
-        .s_axi4_bid(NLW_U0_s_axi4_bid_UNCONNECTED[3:0]),
-        .s_axi4_bready(1'b0),
-        .s_axi4_bresp(NLW_U0_s_axi4_bresp_UNCONNECTED[1:0]),
-        .s_axi4_bvalid(NLW_U0_s_axi4_bvalid_UNCONNECTED),
-        .s_axi4_rdata(NLW_U0_s_axi4_rdata_UNCONNECTED[31:0]),
-        .s_axi4_rid(NLW_U0_s_axi4_rid_UNCONNECTED[3:0]),
-        .s_axi4_rlast(NLW_U0_s_axi4_rlast_UNCONNECTED),
-        .s_axi4_rready(1'b0),
-        .s_axi4_rresp(NLW_U0_s_axi4_rresp_UNCONNECTED[1:0]),
-        .s_axi4_rvalid(NLW_U0_s_axi4_rvalid_UNCONNECTED),
-        .s_axi4_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_wlast(1'b0),
-        .s_axi4_wready(NLW_U0_s_axi4_wready_UNCONNECTED),
-        .s_axi4_wstrb({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi4_wvalid(1'b0),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr({s_axi_araddr[6:2],1'b0,1'b0}),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr({s_axi_awaddr[6:2],1'b0,1'b0}),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp({\^s_axi_bresp ,NLW_U0_s_axi_bresp_UNCONNECTED[0]}),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(\^s_axi_rdata ),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp({\^s_axi_rresp ,NLW_U0_s_axi_rresp_UNCONNECTED[0]}),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata({s_axi_wdata[31],1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,s_axi_wdata[13:0]}),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_wvalid(s_axi_wvalid),
-        .sck_i(1'b0),
-        .sck_o(NLW_U0_sck_o_UNCONNECTED),
-        .sck_t(NLW_U0_sck_t_UNCONNECTED),
-        .spisel(1'b1),
-        .ss_1_i(1'b0),
-        .ss_1_o(NLW_U0_ss_1_o_UNCONNECTED),
-        .ss_1_t(NLW_U0_ss_1_t_UNCONNECTED),
-        .ss_i(1'b0),
-        .ss_o(ss_o),
-        .ss_t(ss_t),
-        .usrcclkts(1'b0),
-        .usrdoneo(1'b1),
-        .usrdonets(1'b0));
-endmodule
-
-(* ORIG_REF_NAME = "address_decoder" *) 
 module msys_axi_quad_spi_0_0_address_decoder
    (p_1_in_0,
     p_2_in,
@@ -1647,7 +1333,6 @@ module msys_axi_quad_spi_0_0_address_decoder
         .O(sw_rst_cond));
 endmodule
 
-(* ORIG_REF_NAME = "async_fifo_fg" *) 
 module msys_axi_quad_spi_0_0_async_fifo_fg
    (almost_full,
     dout,
@@ -2028,7 +1713,6 @@ module msys_axi_quad_spi_0_0_async_fifo_fg
         .O(\FIFO_EXISTS.IP2Bus_WrAck_transmit_enable ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module msys_axi_quad_spi_0_0_axi_lite_ipif
    (bus2ip_reset_ipif_inverted,
     p_1_in_0,
@@ -2876,7 +2560,7 @@ endmodule
 (* C_S_AXI4_ID_WIDTH = "4" *) (* C_S_AXI_ADDR_WIDTH = "7" *) (* C_S_AXI_DATA_WIDTH = "32" *) 
 (* C_TYPE_OF_AXI4_INTERFACE = "0" *) (* C_UC_FAMILY = "0" *) (* C_USE_STARTUP = "1" *) 
 (* C_USE_STARTUP_EXT = "0" *) (* C_XIP_MODE = "0" *) (* C_XIP_PERF_MODE = "1" *) 
-(* ORIG_REF_NAME = "axi_quad_spi" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
 module msys_axi_quad_spi_0_0_axi_quad_spi
    (ext_spi_clk,
     s_axi_aclk,
@@ -3254,7 +2938,6 @@ module msys_axi_quad_spi_0_0_axi_quad_spi
         .ss_t(ss_t));
 endmodule
 
-(* ORIG_REF_NAME = "axi_quad_spi_top" *) 
 module msys_axi_quad_spi_0_0_axi_quad_spi_top
    (io2_o,
     cfgclk,
@@ -3747,7 +3430,6 @@ module msys_axi_quad_spi_0_0_axi_quad_spi_top
         .wr_ce_or_reduce_core_cmb(wr_ce_or_reduce_core_cmb));
 endmodule
 
-(* ORIG_REF_NAME = "cdc_sync" *) 
 module msys_axi_quad_spi_0_0_cdc_sync
    (Rx_FIFO_Full_Fifo,
     scndry_out,
@@ -3851,7 +3533,6 @@ module msys_axi_quad_spi_0_0_cdc_sync_0
         .O(Rx_FIFO_Full_Fifo_d1_synced_i));
 endmodule
 
-(* ORIG_REF_NAME = "counter_f" *) 
 module msys_axi_quad_spi_0_0_counter_f
    (\icount_out_reg[0]_0 ,
     tx_occ_msb_1,
@@ -4164,7 +3845,6 @@ module msys_axi_quad_spi_0_0_counter_f
         .O(tx_FIFO_Empty_d1_i_2_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "cross_clk_sync_fifo_1" *) 
 module msys_axi_quad_spi_0_0_cross_clk_sync_fifo_1
    (SPISR_0_CMD_Error_to_axi_clk,
     spisel_d1_reg_to_axi_clk,
@@ -4888,7 +4568,6 @@ module msys_axi_quad_spi_0_0_cross_clk_sync_fifo_1
         .O(tx_occ_msb));
 endmodule
 
-(* ORIG_REF_NAME = "interrupt_control" *) 
 module msys_axi_quad_spi_0_0_interrupt_control
    (irpt_wrack_d1,
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0 ,
@@ -5447,7 +5126,319 @@ module msys_axi_quad_spi_0_0_interrupt_control
         .R(reset2ip_reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_cntrl_reg" *) 
+(* CHECK_LICENSE_TYPE = "msys_axi_quad_spi_0_0,axi_quad_spi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_quad_spi,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module msys_axi_quad_spi_0_0
+   (ext_spi_clk,
+    s_axi_aclk,
+    s_axi_aresetn,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
+    s_axi_arready,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready,
+    io0_i,
+    io0_o,
+    io0_t,
+    io1_i,
+    io1_o,
+    io1_t,
+    io2_i,
+    io2_o,
+    io2_t,
+    io3_i,
+    io3_o,
+    io3_t,
+    ss_i,
+    ss_o,
+    ss_t,
+    cfgclk,
+    cfgmclk,
+    eos,
+    preq,
+    ip2intc_irpt);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 spi_clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME spi_clk, ASSOCIATED_BUSIF SPI_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input ext_spi_clk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 lite_clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME lite_clk, ASSOCIATED_BUSIF AXI_LITE, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 lite_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME lite_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [6:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARADDR" *) input [6:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 AXI_LITE RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_I" *) (* x_interface_parameter = "XIL_INTERFACENAME SPI_0, BOARD.ASSOCIATED_PARAM QSPI_BOARD_INTERFACE" *) input io0_i;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_O" *) output io0_o;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO0_T" *) output io0_t;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_I" *) input io1_i;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_O" *) output io1_o;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO1_T" *) output io1_t;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_I" *) input io2_i;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_O" *) output io2_o;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO2_T" *) output io2_t;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_I" *) input io3_i;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_O" *) output io3_o;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 IO3_T" *) output io3_t;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_I" *) input [0:0]ss_i;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_O" *) output [0:0]ss_o;
+  (* x_interface_info = "xilinx.com:interface:spi:1.0 SPI_0 SS_T" *) output ss_t;
+  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO cfgclk" *) output cfgclk;
+  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO cfgmclk" *) output cfgmclk;
+  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO eos" *) output eos;
+  (* x_interface_info = "xilinx.com:display_startup_io:startup_io:1.0 STARTUP_IO preq" *) output preq;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME interrupt, SENSITIVITY EDGE_RISING, PORTWIDTH 1" *) output ip2intc_irpt;
+
+  wire \<const0> ;
+  wire cfgclk;
+  wire cfgmclk;
+  wire eos;
+  wire ext_spi_clk;
+  wire io0_i;
+  wire io0_o;
+  wire io0_t;
+  wire io1_i;
+  wire io1_o;
+  wire io1_t;
+  wire io2_i;
+  wire io2_o;
+  wire io2_t;
+  wire io3_i;
+  wire io3_o;
+  wire io3_t;
+  wire ip2intc_irpt;
+  wire preq;
+  wire s_axi_aclk;
+  wire [6:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [6:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:1]\^s_axi_bresp ;
+  wire s_axi_bvalid;
+  wire [31:0]\^s_axi_rdata ;
+  wire s_axi_rready;
+  wire [1:1]\^s_axi_rresp ;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire s_axi_wvalid;
+  wire [0:0]ss_o;
+  wire ss_t;
+  wire NLW_U0_io0_1_o_UNCONNECTED;
+  wire NLW_U0_io0_1_t_UNCONNECTED;
+  wire NLW_U0_io1_1_o_UNCONNECTED;
+  wire NLW_U0_io1_1_t_UNCONNECTED;
+  wire NLW_U0_io2_1_o_UNCONNECTED;
+  wire NLW_U0_io2_1_t_UNCONNECTED;
+  wire NLW_U0_io3_1_o_UNCONNECTED;
+  wire NLW_U0_io3_1_t_UNCONNECTED;
+  wire NLW_U0_s_axi4_arready_UNCONNECTED;
+  wire NLW_U0_s_axi4_awready_UNCONNECTED;
+  wire NLW_U0_s_axi4_bvalid_UNCONNECTED;
+  wire NLW_U0_s_axi4_rlast_UNCONNECTED;
+  wire NLW_U0_s_axi4_rvalid_UNCONNECTED;
+  wire NLW_U0_s_axi4_wready_UNCONNECTED;
+  wire NLW_U0_sck_o_UNCONNECTED;
+  wire NLW_U0_sck_t_UNCONNECTED;
+  wire NLW_U0_ss_1_o_UNCONNECTED;
+  wire NLW_U0_ss_1_t_UNCONNECTED;
+  wire [3:0]NLW_U0_s_axi4_bid_UNCONNECTED;
+  wire [1:0]NLW_U0_s_axi4_bresp_UNCONNECTED;
+  wire [31:0]NLW_U0_s_axi4_rdata_UNCONNECTED;
+  wire [3:0]NLW_U0_s_axi4_rid_UNCONNECTED;
+  wire [1:0]NLW_U0_s_axi4_rresp_UNCONNECTED;
+  wire [0:0]NLW_U0_s_axi_bresp_UNCONNECTED;
+  wire [30:14]NLW_U0_s_axi_rdata_UNCONNECTED;
+  wire [0:0]NLW_U0_s_axi_rresp_UNCONNECTED;
+
+  assign s_axi_bresp[1] = \^s_axi_bresp [1];
+  assign s_axi_bresp[0] = \<const0> ;
+  assign s_axi_rdata[31] = \^s_axi_rdata [31];
+  assign s_axi_rdata[30] = \<const0> ;
+  assign s_axi_rdata[29] = \<const0> ;
+  assign s_axi_rdata[28] = \<const0> ;
+  assign s_axi_rdata[27] = \<const0> ;
+  assign s_axi_rdata[26] = \<const0> ;
+  assign s_axi_rdata[25] = \<const0> ;
+  assign s_axi_rdata[24] = \<const0> ;
+  assign s_axi_rdata[23] = \<const0> ;
+  assign s_axi_rdata[22] = \<const0> ;
+  assign s_axi_rdata[21] = \<const0> ;
+  assign s_axi_rdata[20] = \<const0> ;
+  assign s_axi_rdata[19] = \<const0> ;
+  assign s_axi_rdata[18] = \<const0> ;
+  assign s_axi_rdata[17] = \<const0> ;
+  assign s_axi_rdata[16] = \<const0> ;
+  assign s_axi_rdata[15] = \<const0> ;
+  assign s_axi_rdata[14] = \<const0> ;
+  assign s_axi_rdata[13:0] = \^s_axi_rdata [13:0];
+  assign s_axi_rresp[1] = \^s_axi_rresp [1];
+  assign s_axi_rresp[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  (* Async_Clk = "0" *) 
+  (* C_BYTE_LEVEL_INTERRUPT_EN = "0" *) 
+  (* C_DUAL_QUAD_MODE = "0" *) 
+  (* C_FAMILY = "artix7" *) 
+  (* C_FIFO_DEPTH = "256" *) 
+  (* C_INSTANCE = "axi_quad_spi_inst" *) 
+  (* C_LSB_STUP = "0" *) 
+  (* C_NEW_SEQ_EN = "1" *) 
+  (* C_NUM_SS_BITS = "1" *) 
+  (* C_NUM_TRANSFER_BITS = "8" *) 
+  (* C_SCK_RATIO = "2" *) 
+  (* C_SELECT_XPM = "0" *) 
+  (* C_SHARED_STARTUP = "0" *) 
+  (* C_SPI_MEMORY = "3" *) 
+  (* C_SPI_MEM_ADDR_BITS = "24" *) 
+  (* C_SPI_MODE = "2" *) 
+  (* C_SUB_FAMILY = "artix7" *) 
+  (* C_S_AXI4_ADDR_WIDTH = "24" *) 
+  (* C_S_AXI4_BASEADDR = "32'b11111111111111111111111111111111" *) 
+  (* C_S_AXI4_DATA_WIDTH = "32" *) 
+  (* C_S_AXI4_HIGHADDR = "32'b00000000000000000000000000000000" *) 
+  (* C_S_AXI4_ID_WIDTH = "4" *) 
+  (* C_S_AXI_ADDR_WIDTH = "7" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* C_TYPE_OF_AXI4_INTERFACE = "0" *) 
+  (* C_UC_FAMILY = "0" *) 
+  (* C_USE_STARTUP = "1" *) 
+  (* C_USE_STARTUP_EXT = "0" *) 
+  (* C_XIP_MODE = "0" *) 
+  (* C_XIP_PERF_MODE = "1" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  msys_axi_quad_spi_0_0_axi_quad_spi U0
+       (.cfgclk(cfgclk),
+        .cfgmclk(cfgmclk),
+        .clk(1'b0),
+        .eos(eos),
+        .ext_spi_clk(ext_spi_clk),
+        .gsr(1'b0),
+        .gts(1'b0),
+        .io0_1_i(1'b0),
+        .io0_1_o(NLW_U0_io0_1_o_UNCONNECTED),
+        .io0_1_t(NLW_U0_io0_1_t_UNCONNECTED),
+        .io0_i(io0_i),
+        .io0_o(io0_o),
+        .io0_t(io0_t),
+        .io1_1_i(1'b0),
+        .io1_1_o(NLW_U0_io1_1_o_UNCONNECTED),
+        .io1_1_t(NLW_U0_io1_1_t_UNCONNECTED),
+        .io1_i(io1_i),
+        .io1_o(io1_o),
+        .io1_t(io1_t),
+        .io2_1_i(1'b0),
+        .io2_1_o(NLW_U0_io2_1_o_UNCONNECTED),
+        .io2_1_t(NLW_U0_io2_1_t_UNCONNECTED),
+        .io2_i(io2_i),
+        .io2_o(io2_o),
+        .io2_t(io2_t),
+        .io3_1_i(1'b0),
+        .io3_1_o(NLW_U0_io3_1_o_UNCONNECTED),
+        .io3_1_t(NLW_U0_io3_1_t_UNCONNECTED),
+        .io3_i(io3_i),
+        .io3_o(io3_o),
+        .io3_t(io3_t),
+        .ip2intc_irpt(ip2intc_irpt),
+        .keyclearb(1'b0),
+        .pack(1'b0),
+        .preq(preq),
+        .s_axi4_aclk(1'b0),
+        .s_axi4_araddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_arburst({1'b0,1'b0}),
+        .s_axi4_arcache({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_aresetn(1'b0),
+        .s_axi4_arid({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_arlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_arlock(1'b0),
+        .s_axi4_arprot({1'b0,1'b0,1'b0}),
+        .s_axi4_arready(NLW_U0_s_axi4_arready_UNCONNECTED),
+        .s_axi4_arsize({1'b0,1'b0,1'b0}),
+        .s_axi4_arvalid(1'b0),
+        .s_axi4_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_awburst({1'b0,1'b0}),
+        .s_axi4_awcache({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_awid({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_awlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_awlock(1'b0),
+        .s_axi4_awprot({1'b0,1'b0,1'b0}),
+        .s_axi4_awready(NLW_U0_s_axi4_awready_UNCONNECTED),
+        .s_axi4_awsize({1'b0,1'b0,1'b0}),
+        .s_axi4_awvalid(1'b0),
+        .s_axi4_bid(NLW_U0_s_axi4_bid_UNCONNECTED[3:0]),
+        .s_axi4_bready(1'b0),
+        .s_axi4_bresp(NLW_U0_s_axi4_bresp_UNCONNECTED[1:0]),
+        .s_axi4_bvalid(NLW_U0_s_axi4_bvalid_UNCONNECTED),
+        .s_axi4_rdata(NLW_U0_s_axi4_rdata_UNCONNECTED[31:0]),
+        .s_axi4_rid(NLW_U0_s_axi4_rid_UNCONNECTED[3:0]),
+        .s_axi4_rlast(NLW_U0_s_axi4_rlast_UNCONNECTED),
+        .s_axi4_rready(1'b0),
+        .s_axi4_rresp(NLW_U0_s_axi4_rresp_UNCONNECTED[1:0]),
+        .s_axi4_rvalid(NLW_U0_s_axi4_rvalid_UNCONNECTED),
+        .s_axi4_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_wlast(1'b0),
+        .s_axi4_wready(NLW_U0_s_axi4_wready_UNCONNECTED),
+        .s_axi4_wstrb({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi4_wvalid(1'b0),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr({s_axi_araddr[6:2],1'b0,1'b0}),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr({s_axi_awaddr[6:2],1'b0,1'b0}),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp({\^s_axi_bresp ,NLW_U0_s_axi_bresp_UNCONNECTED[0]}),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(\^s_axi_rdata ),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp({\^s_axi_rresp ,NLW_U0_s_axi_rresp_UNCONNECTED[0]}),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata({s_axi_wdata[31],1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,s_axi_wdata[13:0]}),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_wvalid(s_axi_wvalid),
+        .sck_i(1'b0),
+        .sck_o(NLW_U0_sck_o_UNCONNECTED),
+        .sck_t(NLW_U0_sck_t_UNCONNECTED),
+        .spisel(1'b1),
+        .ss_1_i(1'b0),
+        .ss_1_o(NLW_U0_ss_1_o_UNCONNECTED),
+        .ss_1_t(NLW_U0_ss_1_t_UNCONNECTED),
+        .ss_i(1'b0),
+        .ss_o(ss_o),
+        .ss_t(ss_t),
+        .usrcclkts(1'b0),
+        .usrdoneo(1'b1),
+        .usrdonets(1'b0));
+endmodule
+
 module msys_axi_quad_spi_0_0_qspi_cntrl_reg
    (spicr_bits_7_8_frm_axi_clk,
     SPISR_1_LOOP_Back_Error_int,
@@ -5720,7 +5711,6 @@ module msys_axi_quad_spi_0_0_qspi_cntrl_reg
         .O(rst));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_core_interface" *) 
 module msys_axi_quad_spi_0_0_qspi_core_interface
    (SPISR_0_CMD_Error_to_axi_clk,
     spisel_d1_reg_to_axi_clk,
@@ -7007,7 +6997,6 @@ module msys_axi_quad_spi_0_0_qspi_core_interface
         .R(reset2ip_reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_fifo_ifmodule" *) 
 module msys_axi_quad_spi_0_0_qspi_fifo_ifmodule
    (rc_FIFO_Full_d1,
     tx_FIFO_Empty_d1,
@@ -7095,7 +7084,6 @@ module msys_axi_quad_spi_0_0_qspi_fifo_ifmodule
         .R(reset2ip_reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_look_up_logic" *) 
 module msys_axi_quad_spi_0_0_qspi_look_up_logic
    (qspo,
     \QSPI_LOOK_UP_MODE_2_MEMORY_3.DTR_FIFO_Data_Exists_d1 ,
@@ -7635,7 +7623,6 @@ module msys_axi_quad_spi_0_0_qspi_look_up_logic
         .O(\qspo_int_reg[3] ));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_mode_control_logic" *) 
 module msys_axi_quad_spi_0_0_qspi_mode_control_logic
    (io0_t,
     io1_t,
@@ -8954,7 +8941,6 @@ module msys_axi_quad_spi_0_0_qspi_mode_control_logic
         .O(rd_en));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_startup_block" *) 
 module msys_axi_quad_spi_0_0_qspi_startup_block
    (pipe_signal_reg_r_3_0,
     cfgclk,
@@ -9090,7 +9076,6 @@ module msys_axi_quad_spi_0_0_qspi_startup_block
         .R(reset2ip_reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "qspi_status_slave_sel_reg" *) 
 module msys_axi_quad_spi_0_0_qspi_status_slave_sel_reg
    (SPISSR_frm_axi_clk,
     reset2ip_reset_int,
@@ -9133,7 +9118,6 @@ module msys_axi_quad_spi_0_0_qspi_status_slave_sel_reg
         .S(reset2ip_reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "reset_sync_module" *) 
 module msys_axi_quad_spi_0_0_reset_sync_module
    (R,
     Rst_to_spi,
@@ -9185,7 +9169,6 @@ module msys_axi_quad_spi_0_0_reset_sync_module
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "slave_attachment" *) 
 module msys_axi_quad_spi_0_0_slave_attachment
    (SR,
     p_1_in_0,
@@ -10204,7 +10187,6 @@ module msys_axi_quad_spi_0_0_slave_attachment
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "soft_reset" *) 
 module msys_axi_quad_spi_0_0_soft_reset
    (sw_rst_cond_d1,
     wrack,
@@ -10642,10 +10624,10 @@ module msys_axi_quad_spi_0_0_soft_reset
         .R(bus2ip_reset_ipif_inverted));
 endmodule
 
-(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_gray" *) 
-(* REG_OUTPUT = "0" *) (* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) 
-(* VERSION = "0" *) (* WIDTH = "8" *) (* XPM_MODULE = "TRUE" *) 
-(* keep_hierarchy = "true" *) (* xpm_cdc = "GRAY" *) 
+(* DEST_SYNC_FF = "2" *) (* INIT_SYNC_FF = "1" *) (* REG_OUTPUT = "0" *) 
+(* SIM_ASSERT_CHK = "0" *) (* SIM_LOSSLESS_GRAY_CHK = "0" *) (* VERSION = "0" *) 
+(* WIDTH = "8" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
+(* xpm_cdc = "GRAY" *) 
 module msys_axi_quad_spi_0_0_xpm_cdc_gray
    (src_clk,
     src_in_bin,
@@ -13687,9 +13669,8 @@ module msys_axi_quad_spi_0_0_xpm_cdc_gray__parameterized1__1
 endmodule
 
 (* DEF_VAL = "1'b0" *) (* DEST_SYNC_FF = "2" *) (* INIT = "0" *) 
-(* INIT_SYNC_FF = "1" *) (* ORIG_REF_NAME = "xpm_cdc_sync_rst" *) (* SIM_ASSERT_CHK = "0" *) 
-(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) 
-(* xpm_cdc = "SYNC_RST" *) 
+(* INIT_SYNC_FF = "1" *) (* SIM_ASSERT_CHK = "0" *) (* VERSION = "0" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "true" *) (* xpm_cdc = "SYNC_RST" *) 
 module msys_axi_quad_spi_0_0_xpm_cdc_sync_rst
    (src_rst,
     dest_clk,
@@ -13850,7 +13831,6 @@ module msys_axi_quad_spi_0_0_xpm_cdc_sync_rst__6
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_counter_updn" *) 
 module msys_axi_quad_spi_0_0_xpm_counter_updn
    (Q,
     wr_pntr_plus1_pf_carry,
@@ -17447,13 +17427,12 @@ endmodule
 (* CASCADE_HEIGHT = "0" *) (* CDC_SYNC_STAGES = "2" *) (* DOUT_RESET_VALUE = "0" *) 
 (* ECC_MODE = "no_ecc" *) (* EN_ADV_FEATURE_ASYNC = "16'b0001111100011111" *) (* FIFO_MEMORY_TYPE = "auto" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_WRITE_DEPTH = "256" *) (* FULL_RESET_VALUE = "0" *) 
-(* ORIG_REF_NAME = "xpm_fifo_async" *) (* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) 
-(* P_COMMON_CLOCK = "0" *) (* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "0" *) 
-(* P_READ_MODE = "1" *) (* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "9" *) 
-(* READ_DATA_WIDTH = "8" *) (* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1f1f" *) (* WAKEUP_TIME = "0" *) 
-(* WRITE_DATA_WIDTH = "8" *) (* WR_DATA_COUNT_WIDTH = "9" *) (* XPM_MODULE = "TRUE" *) 
-(* dont_touch = "true" *) 
+(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) (* P_COMMON_CLOCK = "0" *) 
+(* P_ECC_MODE = "0" *) (* P_FIFO_MEMORY_TYPE = "0" *) (* P_READ_MODE = "1" *) 
+(* P_WAKEUP_TIME = "2" *) (* RD_DATA_COUNT_WIDTH = "9" *) (* READ_DATA_WIDTH = "8" *) 
+(* READ_MODE = "fwft" *) (* RELATED_CLOCKS = "0" *) (* SIM_ASSERT_CHK = "0" *) 
+(* USE_ADV_FEATURES = "1f1f" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "8" *) 
+(* WR_DATA_COUNT_WIDTH = "9" *) (* XPM_MODULE = "TRUE" *) (* dont_touch = "true" *) 
 module msys_axi_quad_spi_0_0_xpm_fifo_async
    (sleep,
     rst,
@@ -17826,19 +17805,19 @@ endmodule
 (* EN_WACK = "1'b1" *) (* EN_WDC = "1'b1" *) (* FG_EQ_ASYM_DOUT = "1'b0" *) 
 (* FIFO_MEMORY_TYPE = "0" *) (* FIFO_MEM_TYPE = "0" *) (* FIFO_READ_DEPTH = "256" *) 
 (* FIFO_READ_LATENCY = "0" *) (* FIFO_SIZE = "2048" *) (* FIFO_WRITE_DEPTH = "256" *) 
-(* FULL_RESET_VALUE = "0" *) (* FULL_RST_VAL = "1'b0" *) (* ORIG_REF_NAME = "xpm_fifo_base" *) 
-(* PE_THRESH_ADJ = "8" *) (* PE_THRESH_MAX = "251" *) (* PE_THRESH_MIN = "5" *) 
-(* PF_THRESH_ADJ = "8" *) (* PF_THRESH_MAX = "251" *) (* PF_THRESH_MIN = "7" *) 
-(* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) (* RD_DATA_COUNT_WIDTH = "9" *) 
-(* RD_DC_WIDTH_EXT = "9" *) (* RD_LATENCY = "2" *) (* RD_MODE = "1" *) 
-(* RD_PNTR_WIDTH = "8" *) (* READ_DATA_WIDTH = "8" *) (* READ_MODE = "1" *) 
-(* READ_MODE_LL = "1" *) (* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) 
-(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1f1f" *) (* VERSION = "0" *) 
-(* WAKEUP_TIME = "0" *) (* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "8" *) 
-(* WR_DATA_COUNT_WIDTH = "9" *) (* WR_DC_WIDTH_EXT = "9" *) (* WR_DEPTH_LOG = "8" *) 
-(* WR_PNTR_WIDTH = "8" *) (* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "3" *) 
-(* XPM_MODULE = "TRUE" *) (* both_stages_valid = "3" *) (* invalid = "0" *) 
-(* keep_hierarchy = "soft" *) (* stage1_valid = "2" *) (* stage2_valid = "1" *) 
+(* FULL_RESET_VALUE = "0" *) (* FULL_RST_VAL = "1'b0" *) (* PE_THRESH_ADJ = "8" *) 
+(* PE_THRESH_MAX = "251" *) (* PE_THRESH_MIN = "5" *) (* PF_THRESH_ADJ = "8" *) 
+(* PF_THRESH_MAX = "251" *) (* PF_THRESH_MIN = "7" *) (* PROG_EMPTY_THRESH = "10" *) 
+(* PROG_FULL_THRESH = "10" *) (* RD_DATA_COUNT_WIDTH = "9" *) (* RD_DC_WIDTH_EXT = "9" *) 
+(* RD_LATENCY = "2" *) (* RD_MODE = "1" *) (* RD_PNTR_WIDTH = "8" *) 
+(* READ_DATA_WIDTH = "8" *) (* READ_MODE = "1" *) (* READ_MODE_LL = "1" *) 
+(* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) (* SIM_ASSERT_CHK = "0" *) 
+(* USE_ADV_FEATURES = "1f1f" *) (* VERSION = "0" *) (* WAKEUP_TIME = "0" *) 
+(* WIDTH_RATIO = "1" *) (* WRITE_DATA_WIDTH = "8" *) (* WR_DATA_COUNT_WIDTH = "9" *) 
+(* WR_DC_WIDTH_EXT = "9" *) (* WR_DEPTH_LOG = "8" *) (* WR_PNTR_WIDTH = "8" *) 
+(* WR_RD_RATIO = "0" *) (* WR_WIDTH_LOG = "3" *) (* XPM_MODULE = "TRUE" *) 
+(* both_stages_valid = "3" *) (* invalid = "0" *) (* keep_hierarchy = "soft" *) 
+(* stage1_valid = "2" *) (* stage2_valid = "1" *) 
 module msys_axi_quad_spi_0_0_xpm_fifo_base
    (sleep,
     rst,
@@ -19663,7 +19642,6 @@ module msys_axi_quad_spi_0_0_xpm_fifo_base__parameterized0
         .wrst_busy(wrst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_reg_bit" *) 
 module msys_axi_quad_spi_0_0_xpm_fifo_reg_bit
    (rst_d1,
     d_out_int_reg_0,
@@ -19830,7 +19808,6 @@ module msys_axi_quad_spi_0_0_xpm_fifo_reg_bit_13
         .O(overflow_i0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_reg_vec" *) 
 module msys_axi_quad_spi_0_0_xpm_fifo_reg_vec
    (\gen_pf_ic_rc.gen_full_rst_val.ram_full_i_reg ,
     \reg_out_i_reg[7]_0 ,
@@ -21231,7 +21208,6 @@ module msys_axi_quad_spi_0_0_xpm_fifo_reg_vec__parameterized0_9
         .R(\reg_out_i_reg[8]_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_rst" *) 
 module msys_axi_quad_spi_0_0_xpm_fifo_rst
    (\gen_rst_ic.fifo_rd_rst_ic_reg_0 ,
     wrst_busy,
@@ -22071,25 +22047,25 @@ endmodule
 (* ECC_TYPE = "NONE" *) (* IGNORE_INIT_SYNTH = "0" *) (* MAX_NUM_CHAR = "0" *) 
 (* MEMORY_INIT_FILE = "none" *) (* MEMORY_INIT_PARAM = "" *) (* MEMORY_OPTIMIZATION = "true" *) 
 (* MEMORY_PRIMITIVE = "0" *) (* MEMORY_SIZE = "2048" *) (* MEMORY_TYPE = "1" *) 
-(* MESSAGE_CONTROL = "0" *) (* NUM_CHAR_LOC = "0" *) (* ORIG_REF_NAME = "xpm_memory_base" *) 
-(* P_ECC_MODE = "0" *) (* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) 
-(* P_MAX_DEPTH_DATA = "256" *) (* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "auto" *) 
-(* P_MIN_WIDTH_DATA = "8" *) (* P_MIN_WIDTH_DATA_A = "8" *) (* P_MIN_WIDTH_DATA_B = "8" *) 
-(* P_MIN_WIDTH_DATA_ECC = "8" *) (* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "8" *) 
-(* P_NUM_COLS_WRITE_A = "1" *) (* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) 
-(* P_NUM_ROWS_READ_B = "1" *) (* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) 
-(* P_SDP_WRITE_MODE = "yes" *) (* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) 
-(* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "8" *) 
-(* P_WIDTH_ADDR_READ_B = "8" *) (* P_WIDTH_ADDR_WRITE_A = "8" *) (* P_WIDTH_ADDR_WRITE_B = "8" *) 
-(* P_WIDTH_COL_WRITE_A = "8" *) (* P_WIDTH_COL_WRITE_B = "8" *) (* RAM_DECOMP = "auto" *) 
-(* READ_DATA_WIDTH_A = "8" *) (* READ_DATA_WIDTH_B = "8" *) (* READ_LATENCY_A = "2" *) 
-(* READ_LATENCY_B = "2" *) (* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) 
-(* RST_MODE_A = "SYNC" *) (* RST_MODE_B = "SYNC" *) (* SIM_ASSERT_CHK = "0" *) 
-(* USE_EMBEDDED_CONSTRAINT = "0" *) (* USE_MEM_INIT = "0" *) (* USE_MEM_INIT_MMI = "0" *) 
-(* VERSION = "0" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "8" *) 
-(* WRITE_DATA_WIDTH_B = "8" *) (* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) 
-(* WRITE_PROTECT = "1" *) (* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) 
-(* rsta_loop_iter = "8" *) (* rstb_loop_iter = "8" *) 
+(* MESSAGE_CONTROL = "0" *) (* NUM_CHAR_LOC = "0" *) (* P_ECC_MODE = "0" *) 
+(* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) (* P_MAX_DEPTH_DATA = "256" *) 
+(* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "auto" *) (* P_MIN_WIDTH_DATA = "8" *) 
+(* P_MIN_WIDTH_DATA_A = "8" *) (* P_MIN_WIDTH_DATA_B = "8" *) (* P_MIN_WIDTH_DATA_ECC = "8" *) 
+(* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "8" *) (* P_NUM_COLS_WRITE_A = "1" *) 
+(* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) (* P_NUM_ROWS_READ_B = "1" *) 
+(* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) (* P_SDP_WRITE_MODE = "yes" *) 
+(* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) 
+(* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "8" *) (* P_WIDTH_ADDR_READ_B = "8" *) 
+(* P_WIDTH_ADDR_WRITE_A = "8" *) (* P_WIDTH_ADDR_WRITE_B = "8" *) (* P_WIDTH_COL_WRITE_A = "8" *) 
+(* P_WIDTH_COL_WRITE_B = "8" *) (* RAM_DECOMP = "auto" *) (* READ_DATA_WIDTH_A = "8" *) 
+(* READ_DATA_WIDTH_B = "8" *) (* READ_LATENCY_A = "2" *) (* READ_LATENCY_B = "2" *) 
+(* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) (* RST_MODE_A = "SYNC" *) 
+(* RST_MODE_B = "SYNC" *) (* SIM_ASSERT_CHK = "0" *) (* USE_EMBEDDED_CONSTRAINT = "0" *) 
+(* USE_MEM_INIT = "0" *) (* USE_MEM_INIT_MMI = "0" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "8" *) (* WRITE_DATA_WIDTH_B = "8" *) 
+(* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) (* WRITE_PROTECT = "1" *) 
+(* XPM_MODULE = "TRUE" *) (* keep_hierarchy = "soft" *) (* rsta_loop_iter = "8" *) 
+(* rstb_loop_iter = "8" *) 
 module msys_axi_quad_spi_0_0_xpm_memory_base
    (sleep,
     clka,
@@ -22634,212 +22610,210 @@ hXP2Jh0Ril7rGbajit90p+gJpDpuLee/aOh0BUXbYYLU0YIXK8bskgMir7D6cfu5oWDKwYH6/YRR
 tFjIhRzFsqwjtmaxUnGTZzxsWGazk+uFfHXl7w==
 
 `pragma protect data_method = "AES128-CBC"
-`pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 11600)
+`pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 11472)
 `pragma protect data_block
-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
-pw8XVGA8bLbGNV3zohZcRuDuFnG7QnxX7Wexlt8=
+8/iH188stoVbYofUU+A7W2WaNuRlshnpCnTFaWpb6Dgsuz2xpr91i2DLB3YNOmc57r4zdERUYpnq
+/3nolW22AQGWfgfUBw2qiFqvnzk8NlyJgg0aL1B0L1zUZseSAeNdcIeFoPf5nl4qD70wciYgoxru
+9Re+s985+kSDNakDA3ktHbCQnWe4low/VgaJJwgB4GRn7ezWjXHfpuW3exUJlBVM7zlZwyDxh/qj
+z0OQKhQZWaKFkerHgvrAeZlDAL1jx+XCFNIC27de9qizeFim8yCJoKvYPdKMFdKNbtFw2h6U3tqy
+tnQaaTnhSG/8pouXjJJcN+8NOXBXMwAKXdjZvazNjmmOcmLekJQ3UNgBrooVd+c/HRgdTpA+XEb6
+yKYyJ0ZBLKraEerH7ejiWPtmfvCXZUnmOwQAY8V8Mf5k8X8MkYTYy3O9f08ULENnbhyGGd4pyrO6
+yr4ooPVd2Iz+ojwT15AZj2mSduOzJCRZMW+o/QJ//0vT8VXXCW2zG2NT3koAsvaTUBvTHwIzUjbt
+qy/MvFrhKqdB4V6dikWFqfkgeBhJyHVAEEYeC4+a96SYs36ElYWy0Pg5xartLtsbrE58SAAWzdgt
+U0R/5g07gNERavVm0y6Ygbh2R5FedgKhwcBw5/yqSAkESi06BySwlS5qf/7tvnj5asFOT7wcrxWt
+MG1gb65rAZkXahR0IM8Hr3NhZ2gF3XT+bG8Hr+jOgU5wAIYqIcBvCu4e+rTvYFmltOxBVqFPNr/M
+pzHWFLDLRLABAhlIG4hLQdI/TMjvhHuwcV4oSjds7WgfAYto4qCpO7g1OKMsqFcRboCRo6QWJuhx
+RB9SJDTuOMK8W8rI2V8rDXvErrv4LBZ1LdecT5Xn/hV2oKWrJsPlOpYBWqZ2Rtpw28IucdTxfIrI
+hSsdsS5Tat2M+G8YmfhxBXGzqmx4oD4zlVWZdq8mctIfXocwLAykAORtqrvfWUaZUqbPr3iQN3iU
+a+HDRQ3zp/3pf9GKaa+SFtsRVQ0z91fJflG0HjAgczAxTOZldBJB3R3ymqAfhx8hGmEOxTd0uUsR
+MILMi5IpxTAV3GeWWM+/X3CP0NTKQTmT5zKgSq6kTxVBvk/43BPSFFy0XSZ7N5EhZQrjzr1xitqo
+0el6oP/Q8dQ2mGrALCnQnfErlHL6R0YC1eKoC6veIMmGmB5tvYEdl+63j2y3fARm9Mz5+/2xlNo6
+amW6dTdGNelZZg71i5xR87O57ZN/oXCVIK+WPCubV0UKu7shVF7aKksHBPC2CmRhkkHrE+TUI12a
+nOApwlGnXCA3v4FkJoTLYMKFuZHBybc0Ph/WUifBUC59NKfX9+DrFOtm0/3Nd2yhG0rlYgaj7AbD
+QIh3gFN+pfXh+mNZHxtg0LRnmDMK4rXVEz1PFV3+7Cu8w7n0kf3vpkNY6lk6pF29L9wIQXRxnqUs
+leiaGS9B4gn1SPkyxUJOHSLz6WV5DG3oQylaAfTmsIca3frpul2v57SnHxOmku/Bqb7uy6oPe8fX
+ukvoyVn2e0GtbDYST/8Gcdz9F9OomD8wnDrHe5iXr8ACTxYWI7Bf775ZcShy57EOdPpGvi+6+lSV
+yPEkj2OoN1TTqwAcnqHmqqOd0rqJnaTFYHv2xTZQPJKSf3Dg92mrBXbU3HRnR0mc6XUPuOYIhpuc
+dQ3o3/4EBo5crafDUhPYue9UutaJe9CXSa9Jog9tJI/HOBnO6DZYtP8B7xhF2n3UOJFI61rKeKe4
+bR3bhl9gBwXPigamW2t7Ye5J3jz8MswOCIj1OSyGF3O8w8CL93vxksUGoIfAbI7zYUfr+fbtgst7
+TvPVHOAgv3dHRteKKMT+rAzqGJQ+HD+TPvji5XxtrYYQ/ncjJZm//5PGoav/zNg/TF5pk17kEjkm
+flHOcwN6F/EcPlGtkgpaMpg/6TJK8Phsr43DnlU777SSZQ7u159zISzXJFvIkKEhd2sXKEHbAhq5
+BmS5ey0Ol65WIvQ0aTz4agIFR7XcyJ0ZZq5GG+nhxVoMNrENJbOzQ2MVYbfmyIJ5FD37HTwStqmQ
+Ky2HA7JUk3Bko9GVYKEaYpqlZ/XvokRx0P0s4VVxYOU+t7X3b6FDQMXymWMUn3X8gWffI08Ej6JP
+TBxDvTt9qDMAQPSZVPSI8sCC3BT+CB+7uxRSuifAnptNJUDThmpw2Byu0vOr0ZOBmCm9XjqWL7x5
+2wFvWVbpS43pGpyfuKGXK64GYG+NbdWHQFTqLhG7lvFr8oBsQ+pmzx+VXLtikCeXO5wdu/wyAydb
+1D/Ebn9RDTJ3OOIt9H8nM90qRFGbH6Pac88po7ZvFyED0m1gEQgPfc7WYkVX+kKMmva/yRkoCxlF
+zeNTQlnZHx1X+QpiHuWYylgHR9at13iaaVuqZHNn9XM5LWmCGzbMUs9iQ2wAtTJS5V0XZW7TuprC
+l7g75JWbulxJjMXB/DD44XOT5PaZe4pY/WLf9WsPXg8TnXYTbUHgVduHtFNolVH4d6bPr0yUKW7z
+EmFGxGKthXUH79bB/exy/g9y4B5tTywvph+Li1Kjm0xZSfVpOqgaOem3nKq2EubZzGZtmZmbM4Lm
+AXuJtVuNiK8d/5Lpbj02sXXmWCMTJP2AtWBtw/ZarQ0jDF8A2cfrpK+qA3Yv/6+GXVfD69QYilDJ
+TFpkcOSTtUxSpT6kF6LP0KtIfOxFNFhoYMObyneZQbu8v2/S6CKDYkXOLHPDygmVJkhQCktzvAlO
+SyLUvixzxvDo0l5gR+XEALxJ7K+1WB9S4D661Il2UdTQ/KlCcH5cjHY6wMa7Moaadg4Y+O0DSbcA
+BXeTbHytJO3OMNHRjxOXYa9qdUX7FtgrqJF83JZowvbUH/pYXg4iRtTJaZ13PY6t1rGh0OctuRke
+FxEbvFicTjKNaRV1jnSsLC8msLxGgScRybcIK44IaUPnER59HJGoqF2PD2BlPK4nL5vUq9DDZRAh
+yDies+UM7s/ytOV5ER5D4BUB6p8rcXhHTK6h+D4rrX+cHxg66b9vIoWva+dnmmf7BFmJTRidqJ1v
+T0OzmRj6vbzaZ/qJ4SOmw1M48mfBhSXyi4FktDyuTV0m80WLIb5Kjs8ntWB6xOTlShQKG5TrFa0Z
++asEqgPpO7eJ8O5b+KX6+gnBqzboU8p/wYmNloKdkTEhvNgs82w6UFvNBUWDL1YUfiHquNLio7tp
+y71qbvClcrEzOMHT1atFVKIXD55+5QnVrkKyGxiNxMqmh3olj6UOu4yN1o45e8ddT7PiYWicjyZq
+4G96XljdYxHxs/gtGKpX9VIpdg6nSGQIleGeuOmYwclxOB4enj7rXa4/M3HrbKy4jByQM9R5OBG9
+XHpFiki+0bwt9875esv53thSpsFA4iC/DfCjYdnpExQmo4cQAzTXy+Jioq5/fy2NChSJ0zXoAjr8
+NWiPngogTS9+yaUTMtPrK+ZutpxquJnbVZy/fG6gSby5DB1zMqhnxUANT+uOcJPm3npzoz92g6uP
+cHtdxh9RrUwqBUaTz9PO1zjdOoKtvj9F0vzR1GJQgmxcSfm+rvcJ1AycFm6yMx6quy3veVJlxsqj
+0xMMryMAfjMagfoNtI2U9iZdQrX7C/OrDca+o2iO/xu35uXHIc7AFOMhlPvEXsau8bHnVbKDqvX2
+9fCFGTbws76DNbE8nLOOmKX8XTikguesPZ993Li1pxaC90YoQXM595KiswE0wHZcOrGInlmN9lFT
+5cDKsZsXyIAiQVD3l6w6Ix15R2XbDB2qq/gSElh8pksdSUF0hcFvregThRWgCADOlXAON2rb5MhI
+8lqjMcTuhIgXmPrw0xKeCHCKhgtIf+j+7oJJsdYN/G+4bfNvB9IjybTG2Cg49UWyNsqFut9eGSV/
+df8LcQeJlf0KzTNbuC3flI4H8OKXW50g9Zhc6dN8t/hYBCKsN0a4fKO57FHnE9ZmXQ8MNHKTDc69
+hGwZQnmun8YRjUgrCv6Q8+xs00S243ig1xIpUHvH/R5bY5HXvKMHfv5R37zmb8DzPgdekpfqyvy7
+VpJ3h1FR++cQULM/uJj5QkXhGpbjaDHfiHeJsJWD7FuKJP6nI03MvU5hncmZFW+iJSMntNaCEFIE
+UNxmR5vt0Zi+5E7IVLMiGVagBj2OK4Six9LPXveFHvlLAfHJetyJ9dQlXsxQ7QHjf821iom11alW
+2zMW4htcLNovJRDhCwyudjwkkrriaJPpIilLhjyuNOWEW46Ekygagu5zzD+DBDUpq53ihYSP5vzy
+br2yIG+TOddD4g8K3Q80hTHWjznekRDekVEdGLqikdYMYnNiOenKZJMv03PQu8OJRvoFkd8sUbEP
+cMkSgdeyC7BS2t2cGZdh8FzChAMcLYIdR4+t3No0JkdR7lkbf/9p+qLs65sv9+1g8azlhlJ5EjsD
+lC4Zi5ZIqwKmEwS52zo7aZOmlx6NU8lg93VMNsuFxX4aMQudS5/Ep4hG9HCjvijrzgFHcQZcZ5G6
+vE//ugimzgZySjtGqluUtT/aojXWfy8Vm8hz6s06nxCjnBBG1JQGYm4TfaHAsD3Eddp3mTON3XjH
+22FKJx/ogahwxX9q++vb+G1z3jmgAjrWOCj5iR150Wpl1aiZj60TzjwkZj8hqMNfvYc0Hl7hZFzK
+TAAKzyO1woBJrxOZXfvEfvXEig6GaYX5LEUfg+x/p3eULXjvEHiUm1MO55oPE2qbbnUIeIWGCfep
+FQ6uwMsf21d5JiiTpX5B2yiZ9hz7b+nyXw4BDRKrbDtiQ0+LMwHIbbQUQiHI31Z1tIZUMfcwRonf
+b60dRhV3YzmVyydR1taa8dYduqUqECS8NDEjhVC9RjJoQcK8GPjltxQN/okX/VQoZYln6KoSB8lw
+vr5gFIuY7zoViPRDFppFFDwYQupmhOOoIwTeSIqiuL8gZpccCwxm5oIpdRbcC0b0JLb81iHaLOGk
+ZZYI6CiSFDnl8tLVCE78XZaWhuUWxzMIiZZ8AxfbcNcdhGCbsqUMeuafEbU4fFZ/OPTwSuUwsZXH
+KDFur0MWaJZsy6gZFZLTukWgA82dsPUVbHKH0FVN/rG14R9JhVKBS+hI2/spZ0aIrLYVNhYOENf8
+tK7fAD/RzCWtsuxK7A6MP4QkvQKZAgZfLC7tmkrSpZ8rxwG9XyuhYHGBCRTVi24BLlIzJox74I2e
+H+yL9BMBDLS7fLH4INzmjUUqVrOYb65C6r1RezsyNaTZoZu8XOssxdJjDdSqucRGYeW7HDT0ne35
+w2ZvW+iA78RNYfEzk8i+aCDQHpN0ksTfa9XoOpJnl26ZTqW9gbFY908uvNFj/wsVlToLl0so++m1
+s5UDOFf2uQQ2MOMvgNFq5PIcrOyAmDSX4aI0/GMjEacxXUSM2wDtmg/ks5y9rRHlcO/tHwpFaj0A
+OOacbuYbdEFR+ZOMMLwjAIx17XW5MA1cdpa0wdkEESx3ywgeHj/8FEpMk3U3nf0Mzfwc7eP7OgAH
+p85I4715XxyzZ+LLdZ3DSxibMp9zOCzAw6iOqwfuGyLY5Yom0wMYo/tOP1l/55mhTPn2qsI5S8Df
+QxHDlLtRKc3BaKJmD6S3jjmQD3Sgc65lcoQD0y9Wd1ec63S9UvPOjKXmjhawvTnUga4MsIkCk+7g
+p8yo2Az+WiVU0cTnqXu6Vmj0r+cy3uXLsBqfMPIiFkGOdZQl0fXPfzSsaTMFPJ2sOGIzH4z65WPs
+nDdPeR4XlU7SwLkIMDAof5xPTzf2/gLlgsIphNRqnZEDzHTrjhElMINpCvSAblif8reW9Y/1mkF+
+giDOPWGIwL72yYe6vSrxTDXsLaiVQGm8n8nMlOMVV+3BM9ASaWQBaJpN0VtZmv5PbRjqtnXaGjU+
+xNISxTi+/50INOBFR4DT3t7MvvZqRtcIgFc2endroVmLk3zb4Fotxqb5N4ZEg1XcQR/zaiEpPYBb
+vn5mcF6aFg4rRFGftNJOra8VUEW6OsI81aZiDurwa21XklU0O3RYjnGITs66kxOvpzElk8nSZu0L
+BymnfDen5ifxEeEez3IVsFw1z9bo9dKjZ/nsz2tZQZihDZAuwBEbaqDBlRSkEeuhHmiTBjCbvHUL
+hgBmHQpluRyTvyf6DhTQ3NYKitERcTJTifVTACNz+k3phzzVEe4BQyOvNTKD4GVkWOrncD5J6dSL
+dZsPODPEIiEYN2IGSpOfN+p1pikwzt4PiaQaO63Kj6gZiEq3DAixlXrk5UZsYvap6iUd8yuF+lLC
+qD9vjC5HrwMC05QHiHDVVuhQy6BTYbjTrxPhN4D0GNHufu+ZkcSl9lZdd7IaFmBEv55/AkBktf10
+Jk3mEnvTciDsxt+Aj4X0rb0X1sYVmv35Gia3b7DBqGgJYpNFrWNRIqoqHWNOsUrgPsaEhH+KkVdc
+4R9F5FO+Nqpy5OaNgZAw6OEs5VTmR9enfIuZTaRivPoLi1kIx9LMZFG5AeYKUXpXNrzEKBNArozD
+WRkh+F+Af/Kk4Ja3d9bMdqljTqIRAxLHTphqaXqBAXjA7EeTKRwBove5rgfLO6v1DQbADGd6YTmD
+GfZIW+O5cqoroH8d3iO+dFqBpoEQa0fia3xdvocHLFd0AqEd+8obcVjdaF96APqMe528N0CFa+ZP
+bv0WFXKTKH8Cw51vbzX7eP7YcMOLAUi+gY6q98WSx0stkFPfM/Wy5YN3uTnK2tnxhQb+wyBUB6bs
+tgtjTm0QHV92AGKyQK3Z2h2qFDN1lJM8h8WbrbEk9eqbxPBQ4lhfhjsJ8GD5W3EbJKCgMiBm4K6O
+P6KG29bD6Z5UsWaGM09GDNsBakhv5o4N62t0MnlKU1a6W2cFrxFnFcNOguM+WS5BM+qmiTllI5Di
+JfQtzwh1c4pJFOaMFSerOnjGzDHFDbjdjXm5QSJXc6wEdsitF1jbtlP7d8KnLy1NygbgLs9ffGKO
+ejPbh3azvMAbdNNF02o3YIFu779rmo8mj41pVavjNz8qQLc8D3uhZvQVVFWHbMAf+DpvfMg3t3+z
+sRytX5lRQhrxfx6XCVkBM83zfnpV5leGMM9lSR1WZjqMtiX1zj495pVb89/z6e4r+4/vOukUtbf8
+awxSK26cUZXr9BUhIIsi4qOb8GM8fVpdeScD8nGd/lb1c4mBZqHv+nmkCLYCDtRsdbxHoACdr8t+
+Up/C1zRHr4d83jKMUdV1jeFI8HwbNJhG61MOqT2eh+v0rEGf79NnyX94Em8/l4TaIJPWcrTPuiRq
+mtrB53TvUzGJAfATB6SkOg9BAXOtz7FGelLD2LijeQnN2BsoHJI+41X/WjZWRphrI/k2sezdiJl0
+rDtI77rIwkfSxKJTrXnuC7HYK7USPUAMj0edIVGsW4FOC3hmyBXXauVl50LYPhTQ6ZroXj3XyVKF
+B+JTjZEAsG7LA+Bd4ePkA19pLAA8mkklh6NfiF7Q1lvycALS4qvcx7jl4xTbBUAxHD/rgBh0d8j+
+BVrIFvVnmUbaJtyUnhF4goD8KWZ+7oSL+aPyOnQKywhfDOArGpPgiYyomlLsbosqgm0FPe1Weg6e
+r7bUjcBR09DQyV5zztaim2v2QuS8FB22zOVQJ3PD1FTW1Ij7gEshp9yqOJepcUg7TFhrrKa+I6Q/
+xhJEgrhu1Bcn4p+9mIudTf+k/B2jKZDoAvPFJb0aDfHm5UTtGnsGOikegORbLVR0kUkFl598D2ll
+7hJWyP+CQ69fHExVZ8yamkIGD17NlpnjNWEx8Rkd3GZ8ZXyaUuaE6u+4JTKAeJAj0su35IB4YGlk
+3pR5iZv4+f0wlbZINI52i6TdMa+I/HC2JtKgCNtGZ3X47kAETrW0o7xvD8XCK3YDP/rBaRiI7l3e
+wHbckXBT4i/uYQh36ZAEjn7XsWTuvyRsS8+ZIKxp58BteZ5vFHocC4fPfg9D0cdDokTnEP5kt8lr
+L4xR5WWI0Up6dJQQbgrPVXYqD+cZLbD1lB0TDgS9Ry7gIzpICJxvuCYpPchT+OSQkJBsnSwIwVXt
+ehFqnRi76afnc/ONpn1Qxbci1FT3KXdHkP7VrQSixPo1Sgo1FqRo0RIzW1DkNm9U3M3P1SS2FSb6
+8I10qBVUIev/PSictaSr+zljlnYlbnxRl01SH2R2dgu725aSSbu6O3G86GPahdJIk0+BcoOS7th4
+WAs4H0P4CcpW0AKFnHvnT6YVBawad7fKRs/xZyZTkAzoxpzafvWaD9/iCkaW48SVEnjw8alKb4qH
+QvzDr+MVLxvqhujMLMQFqmWkZ04xfqrAvNnRjNVSm2Iu97pKQmGLw93QQt80gKvXXveHYoE0Z6Lj
+vU8IcU4nXxqIWOAqg4OrhKo1S2tBJOzAQeSEHVvJO/XYILl4lX3xwyY9q/vYRguNWVsLWk05AM6K
+sVzvLOeEc/Dl6Xorjkl/NqagIXJCsrfMTWZjwW7mYiJqBbrETxJIEIj8SgdvLZtdsehWAEmHN0H0
+lW1dibr+x7gYKt9yuuDZ/b/lpui+qlccWKldN9CiPnt7vi9nzPeDfRePlS37oCaGD9mGNa8LeoOm
+c90S+H1ddZpKivU3O46Uihieol5ceYw2uhgPTR0UMyPwAntrNyDjxt3uxgYwyh0h5YW5Ani1QC8W
+AVlUA/v+6G0LYLc4aJzimFjktMF3m/tAJwZJ25yzzij6VxV29GrEhWfb0KSneV2SFDk4LZmvKNdn
+wb0CXljX6HaQHA53IpdIVEEqoEDRkIcL/IlYvUERll7mMxM7AKDDqAho2ieuqI9Kj4IKO2ABjG9u
+04dGu/0Yyyh19rK/mqwEMLrydqpNYSuvBCRUe0twOT04mJfic3IJCyL6yl0swSebvNO2Nf24oWLr
+4ZjlVCL7Tr7B0yqVJLFBz6659JycbndoyYmfhCWo0G/0sweeT95ljA8lcgLdJmDgbTHzOWSpT3J6
+LvSkMfNmk7k3PcqI3Q8dSD87IfW8++bw2wEajXPN9ufDqDsw9lj3X3I+MzRY1Pkle7Z+ozslbVj/
+8vla3Z4/o0pZj6E4XNmz1L54VTYr2+xOFRNHlHD5l1TTBxfGtFHgf+U1uTlAVBNyPlp6m8d0xVfe
+zL/erPXJqbmT0jgYFWoF2NuT3udDtehuz/YuNJFfPd0hSKXVggt228mmRw8mNAGqH2FsBh+897lN
+Pcdz+4q+96e6d+TXd0RBrnBjWPubPx27xkE9mgVIJ0kTFaG31IRcnealXxU2Zii8AKvfkj1xzYJS
+1MjDv8QqIpygahShd8qr3ahFokAoRoi4k/Ew5PExq6ruBarfQSu+eRcHfXnXcC1X7atxP+qnThdK
+aPw6lWj9Me2PpztIM/iMk2w/QYPCf9TPzE+WN6/nAE+4UJYCqb+Kpb46RWHXfJ/tCARCC+7cIjUz
+n8f+gNOPi8o24OiRWmrV1axaN8ix6rqyogER2MBtrizPNoLbJMBZWYXTuc0L578H+ivFQKDicPO8
+RJgl3YkfjqOrZxQMJym/rhzGBlAJE4wBNp6MlurDL525KzfwHTHraXHBUcAITS19J8NyXDoTqREv
+oJxz/mjEMswwp7Jy4p7YB9EWctO6eFHLO7mOBBC8KgUxaqDopupwaKvhU0H9zFS454K8L5GzAeeR
+xAjFH/tlctKmlMZK7g3u63RvnGItacNtctm8dn+8PjZIzgXNaLfV23hr/yNtcEMJv14iz2WMSrDM
+XA84+4ZgDIGXDjh4UcoWu4dNrmjLDQc+CLTcvpuKrhd1XgFNBS7/IiV5I00Y7iH/IcFIiq1S6tBk
+QBiqlAYuZ12H18sktiym/lLN6nWTuTmIA0gc3OhegRvpjwMsXi4Vm41gGLxEAr4V+sBosgm373vq
+Q1tMry0jWQEQMUH8n/rkn253/sppHWw+uzPzKOi4MtSKhJZfkcVzyqKrhiuIFVrr0Fwq0AEvS5A2
+FDGLG5eKd1tLNBli9ovD25uPh86yg7A/KKJ2rL1n5LY7+IOF2Uemupr/Htk80TiFpql2wGX6GH3R
+gXnl5BknpLgoy9OsenlWsvgSBBVk2qbfXLlV4SGDoz7xvGFLJHeuLHenJE0odghwZ+V5/cgKnY2z
+QiSmSWQCsffLgr2ZRb43Y5SP3VlRMXSuugl6qxrCOk6AAr1yf2siByyLG7Q+4zlf+kSSzypcMyvf
+IyuCIl6vpcJce5n7HsjEnEnn3CB/7KXUHvnqlAur+NQHAnZDmU7fHSgplpog5XAULXKHKPz7gbhO
+Hc7cbbyXrJvdQdsH7zidxR6uvShJQ+WYllPdsyzftTlgjJRj5BXrJOtNrnWJzdsyukMkxprOBXC/
+Oi/dnUv0LsRDO6DB89RrdSgW5XJEdvzJtxxZeHiTRkI+4LVsAFjOkReGh5XJPXomRFLHEEMhl/uN
+aG2pHKL9HOp0mGCm4axo+NS5cp2cJzoj0h9TphCT/4DWXFWIqLjBC/Mic359zemiiObJW+ClDmXz
+9CmBltOFWdeh3twjdsZ4kMi5kfCRO9TJGxpnh+bEnfXu7G+ItBcN9R0W/lOBdulcJWzzr0eQGlQt
+IXJ0hNBNP9boIDb/tD6yjkdcPl05eJjgcqGvvrUhoPBrp6NZGRIPhLc5nskKv7bRYdbTBtOGITfa
+ZOlDg1V+5eoNP93aPtxCZuphnjk7JTK2MPxHKmRrn9bRTszVM6MtoZcuXNxamvTa1pc7S6rtNaGT
+PiEjbESORpUw6tCVdcPjifEwz/CaxdKnQeFK9wa6XWnAPwkSLOuDaP+2XonxN0ocwRzpPmd3vDEW
+tbgDVxK6j9mGwlgI30usMx66YnU3NL18N6brf7jOHziwYhDfAQ5ZPy57g+WWPWv06SSnm72mphcF
+tJlR4yHJtD+9m8aNir17Yty952n3a5fyRwVRBS4qIBvyw4r1Ry30+dCUzaSGvJJ+tFhElMNYyTmZ
+dX/vUshUOXjOm5QbtCE+NVW7VRd46KFd1hZYCWhND1+i3P/PCE5DpWmI6gIyQotvt97EdnM4F7vl
+VJmLp/JO4u/YWc52yhmh/Q9XPEmcfqLvHAVyQoEmLazAC4z0tPMy+laZ7ipXfmxqD44VR2I9kzy+
+4Mpb2tacGygMvB2mDoJRBeyZR7z+iZzXVujxsMptXW+Y33cV992NaDif4cOoWUZ2aPEfnsXcqlNr
+zP0e+9JvhYhPxXCCpXl+5mPCK14tMgClayZic661SymqMghpWbg1uTv1Z9WsVFOVZrzryU06B752
+lLnJu2m+G6KsPObNpPAyXr2p3Ijos6r95YoN2I2TxkLH8qp/TCSfs6t63t4m00hOdfGyh9hJo+LP
+oNl1HxZHC1iOS7LETMsQbOciThjoqfjWDgwLahhwLItCNM7x9y2z0z/p/4VpQdjMrRRQqfwlmvkt
+yZb/rV8TU25wdAP1cYZkyXH/y+RP7pxyj2C0oxPOzcqfulbDdTsOPTVR0bHsqBqsDkgZzNaA3T5z
+E3IJ5baWEiBWZVWYitdXzUGWLUItvNg0p1pj0uOoGiZH1VkEG8UJoduFdVZPXxLTS5sLSMmuNWlS
+tqwWHai2bZC1B+BFkzbEUYtCraTE2ClKYuCvPy9yBwADXcpAmY7/6X/gCPiB5o7m+B9CAAVQgt03
+VLmn3FqpGrELkhJyZP71mfzPWfzE/k9tJZ1GwIe74Kf8VV16ljc6QfV15RDm6Lo9CWW3ht2Wi6kW
+l90O0UWAPygmYV2+AuO29aUP7rH2my9H0YnIp5dwXY6bVjMyIAMQh6d0BqXDBEJdlP7FZjAielrS
+OwnuhMkI8/wpkGn1+Q0BXIovHoZSf9I/WEPzMu/Rv21Kq6wzbCdOLPNsU4oSkHfnjVvaAe3FshYQ
+1a1R1V6l7u+SVTzr5NlcxKXB6h40zKTQf2yOsvio/HwxbyIAEM2dWlbRKXtdohzXxn6VJ1Q2Zw/D
++1ePw1BNU4juM6Ktvqc2Pt7WI6FuceY5C04GyAGrXfouosaw5+C5x7nLLU97/BNT7zjRG+Br7/Tp
+g2RnFJJMFFAX2Prdyx/Vzc3k/UXrBLVIVn3iZD7y8ZcbSK2BR66KCwzOmm3G+ni6lxsJUgvrBKaB
+ZSkTkbkfvQ82ncCCe9CUL/ZNVvLEN8SjM0Xv5Lpv/hn/GXdForxeOMV9Kmp2KFkBk3lgfqGzHT7B
+uFEI/OV/YTm/k8xa66V5+SO2D1E4zQDKG/uVbbPx+yjcFf+qyL/F3ZRFsVmLDfV+4EE3zs0w1OXR
+mtlOqjZ9tl3VVNbfFiHO5vtzdScMCeNmiYuWNJFayUkiP7bHW5Zft3l6z4/E1NgYCdifY6/y2mQ3
+eDyEWZKWv22qlJ6ZnGZEJ+69Dm2deNedMmA3QBcDfW6iwICC6Jvff7rZ0lpdIuv8Hy+Lq9Q7DTrG
+TPzD0e82Gtq8ANQF3ij2QDPoWALxPHqjjha6puKkOm6zvBCGqhrPFQgrxcYuz39ZeBYRW9LFakuO
+nrA9GM54rh2X1pElrhCguXSp1DQnDdT1mUwMqDij5tdIvTqkRcGlMK8RzjbCvVyCixX5YDcg0/E7
+6mtM9+JKMaStcAXkw7G1QGRdD5Q6qNgebCIvDvK6P4xsWIWkiSgLNSK9YG3Kx1G/XnDhgM83kEEz
+NqtCoqreikEdktAUvBijzeuT8ufAcbHBl3/HGPcKSi9flsLaaZs0WuNhIIYSMseJbmWZPDNiXf8v
+bxnzSjLnmjPFG3gZ+R7Cnds6bHvr7XDpJN5plJatbbVT7Y7iF1MTXm6Dc7bx5aFXmELdRHL9SPr9
+T7hEQd75p471si5ZkkjoX4zoBGxMrY3hjGdFBa1Ee8fSYOEHyc+Pf2cXN9M4Awe1+t1B+rayDE5d
+Bfpku3sAC9IU6HU+YaFtreuaeQ5GEXyBGodIr2pEcfkXr7aw5Z+4M6e60kENdL2OF3J51lQh4cUp
+KE7DG6x+U418uttnbBspvOD7pw3W056Sl0MkQnQHdosJAlM5qjpRNxBsDIqs7lGYK6RDNMyLiTTB
+LOVCaynqBy7CXAQVZibds+jM+pRk3/kd1BffyPdWgokJoJ8EyoyN7O17ASbOWiheEPrOTr35wVeE
+D1oinInNu1Ic4h91xxT7ApzIAD0b8ufftHNvKE+B0scmRY7T2K3XM5/IYUtCt1g+0jYY9xdYXrRD
+n4b7XAx5dyG29yB5ysTNFtkrQEDPyZNn5RG+aPI2qAm078eXB6s1A/f/Zoxf149d9GFu4zVNIFZ0
+cpidhiDuo7q9K2nMGNWs3fC7PjFfI8rANvbG52AXBuR6vXrShg+njRGkU7Gqi1H7ffHBRIOMyfs+
+CLgd+mQfwIH+ObqS+V+8U2BfK5k+INRXgyDWHv3CJUKvF92D6OLiHW3qcXKttvAtf03Nu3XRvDc7
+7D9QlihRrKivoNcEFxVntDybeXgNdXni84832tvCTOeje6RDOsK5L1Dt4En6okoQBIILwWykgmXt
+wPgJvyfliyh0AcijtxW3Lc5rI62398o/fBRfxx6WkiyqPHygF46cEgKTBxHyJhfiYIK+16q8UhRR
+D6JYpWsgUiyj3+Ez3ua2GJJ4WRb5SqWPOdPxbX7xwjtKaJhGt0mzZnGXajsRHIyj5I60ry7cU881
+qX12N/VdrA0kSPkOSyAW5Cd4BqMMkx4JfEZATCdJk13LbsSBsZywKlLy80WqOjsyqeTjS5c73x9I
+X6xBNXMWdzOJz4cwfIZ7MB3J/EW1jVnF4jL2kEFuojA9LPk10KKvWjAls4q8mLJfWnCF6Uumn71c
+0NQmJwa7UXs6DO2DoWVJa1DV2TcEy0tvpMDfMz+a+gWCnUOMr0q40PFQXvvqjOP7Sf+5wKYuKGFK
+cCxATiwnqTAFKBAY/UXScZinkPfqHpxutpuRKK8q5rQblgjhE8XC9QoAoguob+bdsjVRb9PvvATb
+RoLwNz2yVzRvga1eMnxwKN1bkv3AI8FVZnMmvpCHC3QOQIz+6afqeTK6znTTQjCWEEurT2z2+c6g
+nysM0lnXG8c4FRkfUx/aoUh2oqeLWcH+VSx8Il2umuapC3bF1p3XvwdkNfKzk12J29MQlblqvwnj
+vFgC9jq+wTRg6iWIVGJYlK8Ds2FU/rCIYCIR2PueUfaybH7NHmzwFGfIflctidY2NnRW1u1TePtF
+2diqPV+zEoLo3kOn9ulYN6CcP+tpjGJi/motn7Vn6WAhsPwhNLKtFWpHSSbMla7MxKqbeVd7JgPR
+u+HqObhmV+QN4GFImzsQEZV1W5DAb5NvTFiQhcBvVShzYiwe4HWA9DaL6gvnOFVzTg4tBeebm/q3
+oZbWEY7Xs70rfpfMRfvDKhB7dVmrE3qmpAVhcVzjhLTVpmfJ2U/OqBy8VoWlgtlIQePkR8rpzgoN
+ukP4kCA8JrMdvTczWm33m9646485/GdV1vKgD6GkSd6n709LvNmAqzBO7TJ2ypSHajhzPohVEkFo
+0eiBroOV9CeMAzn674Vcyp55gHzP5ftvwSSkgJYgLKevOoJLTFa7EyTG10T8NhXp7LNZScg37+uU
+W1NDuzLYZ/5ufxXvbcm0HHeDOme2msGPAYcUu4usIgDcCTnTLTOC44z9om2tS392xGMqkpxBzFwB
+BkqYN1kMLBWTQNb2+3ipJPu3aWwFt8qX0QDk/ERqsAttO4qUsYKdqD0WeHv1ZEJk12pYIQzzqocJ
+cGChZfo44ge4RUoCMpS2RKHWXNRZzJmhvOanBRv7CHS2nn7bg1WcPR8YWupp2+CaG/WDlokUU5Kd
+wv3wmSv4hxc+UPdG24KuyigNXNc4a30wIJnnlSjphn/wBJ9aH5ndkuo0cCiFbgqr8pHYIRVY+EX9
+91VlneMaQy+Yr1J8AFhiQJEIflskn5qqwmOohfPnAjPTsQk6jSAWptc7vV6dbfsHmHy7dfkVgisx
+q+v9/xlf+smWyUvN+OTOJas/iDzLIkkJzL2m4SLToSS+YfmiSQznabqE6UJVpl47EMRngZkGU9Ze
+6FgkyR6s5Ih5khecKD76hPIMfJDEdkRb7qX0rJ1GQhj7h8kwOyXtE7pUKmqFvNBSAscSg5S71xOy
+v48efFnl9nbcarxcNPZ+WOgRx+40Cw2pDxCTZ2mc2PwuyQMqJ6dtLUbaHQ3uZ5IpWK3UwK7ZoENb
+kgYfxmmf77EDSlgHBI7aAl659kx4UGNNPCMLNdj2mNNwjnTVHnVwmTEIF6o7hjWlh7kHAol154wZ
+FUtHl3OcRROZWD8IzQpriWUCcsLbCvPzvPYgrwO6XSYtwf/mIE3GJEJoojEkn/VAVy7Dh6fRu6F3
+GL4PnYjvEvkoFVjBsraoAiy2JogagbE7IL5O9db3B1ghIxXuYWkMK/bO1mLcW/Jf5WKtVgt/dKXC
+YxSxOAIyy6xBUPlriPuO
 `pragma protect end_protected
 `ifndef GLBL
 `define GLBL

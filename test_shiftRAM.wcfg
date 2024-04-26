@@ -11,18 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="42.103263 us"></ZoomStartTime>
-      <ZoomEndTime time="54.268793 us"></ZoomEndTime>
-      <Cursor1Time time="43.833979 us"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
+      <Cursor1Time time="82.075 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="166"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="273"></NameColumnWidth>
+      <ValueColumnWidth column_width="160"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="80" />
-   <wvobject fp_name="/test_shiftRAM/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/test_shiftRAM/clk_cnt" type="array">
+      <obj_property name="ElementShortName">clk_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">clk_cnt[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/test_shiftRAM/clr" type="logic">
       <obj_property name="ElementShortName">clr</obj_property>
@@ -52,10 +52,6 @@
       <obj_property name="ElementShortName">counter12_out[11:0]</obj_property>
       <obj_property name="ObjectShortName">counter12_out[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_shiftRAM/addr" type="array">
-      <obj_property name="ElementShortName">addr[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[11:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/test_shiftRAM/pwm" type="array">
       <obj_property name="ElementShortName">pwm[1:64]</obj_property>
       <obj_property name="ObjectShortName">pwm[1:64]</obj_property>
@@ -67,23 +63,54 @@
    <wvobject fp_name="/test_shiftRAM/mutes" type="array">
       <obj_property name="ElementShortName">mutes[1:64]</obj_property>
       <obj_property name="ObjectShortName">mutes[1:64]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_shiftRAM/shiftreg_out" type="array">
-      <obj_property name="ElementShortName">shiftreg_out[0:2500]</obj_property>
-      <obj_property name="ObjectShortName">shiftreg_out[0:2500]</obj_property>
+   <wvobject fp_name="/test_shiftRAM/shift_reg_out" type="array">
+      <obj_property name="ElementShortName">shift_reg_out[0:2500]</obj_property>
+      <obj_property name="ObjectShortName">shift_reg_out[0:2500]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_shiftRAM/tst_addr_flg" type="logic">
-      <obj_property name="ElementShortName">tst_addr_flg</obj_property>
-      <obj_property name="ObjectShortName">tst_addr_flg</obj_property>
+   <wvobject fp_name="/test_shiftRAM/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_shiftRAM/tst_addr_conv" type="array">
-      <obj_property name="ElementShortName">tst_addr_conv[10:0]</obj_property>
-      <obj_property name="ObjectShortName">tst_addr_conv[10:0]</obj_property>
+   <wvobject fp_name="/test_shiftRAM/tst_addr_offset_flg" type="logic">
+      <obj_property name="ElementShortName">tst_addr_offset_flg</obj_property>
+      <obj_property name="ObjectShortName">tst_addr_offset_flg</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_shiftRAM/clk_cnt" type="array">
-      <obj_property name="ElementShortName">clk_cnt[31:0]</obj_property>
-      <obj_property name="ObjectShortName">clk_cnt[31:0]</obj_property>
+   <wvobject fp_name="/test_shiftRAM/tst_addr_mismatch_flg" type="logic">
+      <obj_property name="ElementShortName">tst_addr_mismatch_flg</obj_property>
+      <obj_property name="ObjectShortName">tst_addr_mismatch_flg</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_shiftRAM/addr" type="array">
+      <obj_property name="ElementShortName">addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_shiftRAM/tst_addr_pipe_rega" type="array">
+      <obj_property name="ElementShortName">tst_addr_pipe_rega[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_addr_pipe_rega[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_shiftRAM/tst_addr_pipe_regb" type="array">
+      <obj_property name="ElementShortName">tst_addr_pipe_regb[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_addr_pipe_regb[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_shiftRAM/tst_addr_reg" type="array">
+      <obj_property name="ElementShortName">tst_addr_reg[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tst_addr_reg[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test_shiftRAM/td1_out" type="other">
       <obj_property name="ElementShortName">td1_out</obj_property>
@@ -116,229 +143,5 @@
    <wvobject fp_name="/test_shiftRAM/td8_out" type="other">
       <obj_property name="ElementShortName">td8_out</obj_property>
       <obj_property name="ObjectShortName">td8_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td9_out" type="other">
-      <obj_property name="ElementShortName">td9_out</obj_property>
-      <obj_property name="ObjectShortName">td9_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td10_out" type="other">
-      <obj_property name="ElementShortName">td10_out</obj_property>
-      <obj_property name="ObjectShortName">td10_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td11_out" type="other">
-      <obj_property name="ElementShortName">td11_out</obj_property>
-      <obj_property name="ObjectShortName">td11_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td12_out" type="other">
-      <obj_property name="ElementShortName">td12_out</obj_property>
-      <obj_property name="ObjectShortName">td12_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td13_out" type="other">
-      <obj_property name="ElementShortName">td13_out</obj_property>
-      <obj_property name="ObjectShortName">td13_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td14_out" type="other">
-      <obj_property name="ElementShortName">td14_out</obj_property>
-      <obj_property name="ObjectShortName">td14_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td15_out" type="other">
-      <obj_property name="ElementShortName">td15_out</obj_property>
-      <obj_property name="ObjectShortName">td15_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td16_out" type="other">
-      <obj_property name="ElementShortName">td16_out</obj_property>
-      <obj_property name="ObjectShortName">td16_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td17_out" type="other">
-      <obj_property name="ElementShortName">td17_out</obj_property>
-      <obj_property name="ObjectShortName">td17_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td18_out" type="other">
-      <obj_property name="ElementShortName">td18_out</obj_property>
-      <obj_property name="ObjectShortName">td18_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td19_out" type="other">
-      <obj_property name="ElementShortName">td19_out</obj_property>
-      <obj_property name="ObjectShortName">td19_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td20_out" type="other">
-      <obj_property name="ElementShortName">td20_out</obj_property>
-      <obj_property name="ObjectShortName">td20_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td21_out" type="other">
-      <obj_property name="ElementShortName">td21_out</obj_property>
-      <obj_property name="ObjectShortName">td21_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td22_out" type="other">
-      <obj_property name="ElementShortName">td22_out</obj_property>
-      <obj_property name="ObjectShortName">td22_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td23_out" type="other">
-      <obj_property name="ElementShortName">td23_out</obj_property>
-      <obj_property name="ObjectShortName">td23_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td24_out" type="other">
-      <obj_property name="ElementShortName">td24_out</obj_property>
-      <obj_property name="ObjectShortName">td24_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td25_out" type="other">
-      <obj_property name="ElementShortName">td25_out</obj_property>
-      <obj_property name="ObjectShortName">td25_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td26_out" type="other">
-      <obj_property name="ElementShortName">td26_out</obj_property>
-      <obj_property name="ObjectShortName">td26_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td27_out" type="other">
-      <obj_property name="ElementShortName">td27_out</obj_property>
-      <obj_property name="ObjectShortName">td27_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td28_out" type="other">
-      <obj_property name="ElementShortName">td28_out</obj_property>
-      <obj_property name="ObjectShortName">td28_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td29_out" type="other">
-      <obj_property name="ElementShortName">td29_out</obj_property>
-      <obj_property name="ObjectShortName">td29_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td30_out" type="other">
-      <obj_property name="ElementShortName">td30_out</obj_property>
-      <obj_property name="ObjectShortName">td30_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td31_out" type="other">
-      <obj_property name="ElementShortName">td31_out</obj_property>
-      <obj_property name="ObjectShortName">td31_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td32_out" type="other">
-      <obj_property name="ElementShortName">td32_out</obj_property>
-      <obj_property name="ObjectShortName">td32_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td33_out" type="other">
-      <obj_property name="ElementShortName">td33_out</obj_property>
-      <obj_property name="ObjectShortName">td33_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td34_out" type="other">
-      <obj_property name="ElementShortName">td34_out</obj_property>
-      <obj_property name="ObjectShortName">td34_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td35_out" type="other">
-      <obj_property name="ElementShortName">td35_out</obj_property>
-      <obj_property name="ObjectShortName">td35_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td36_out" type="other">
-      <obj_property name="ElementShortName">td36_out</obj_property>
-      <obj_property name="ObjectShortName">td36_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td37_out" type="other">
-      <obj_property name="ElementShortName">td37_out</obj_property>
-      <obj_property name="ObjectShortName">td37_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td38_out" type="other">
-      <obj_property name="ElementShortName">td38_out</obj_property>
-      <obj_property name="ObjectShortName">td38_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td39_out" type="other">
-      <obj_property name="ElementShortName">td39_out</obj_property>
-      <obj_property name="ObjectShortName">td39_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td40_out" type="other">
-      <obj_property name="ElementShortName">td40_out</obj_property>
-      <obj_property name="ObjectShortName">td40_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td41_out" type="other">
-      <obj_property name="ElementShortName">td41_out</obj_property>
-      <obj_property name="ObjectShortName">td41_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td42_out" type="other">
-      <obj_property name="ElementShortName">td42_out</obj_property>
-      <obj_property name="ObjectShortName">td42_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td43_out" type="other">
-      <obj_property name="ElementShortName">td43_out</obj_property>
-      <obj_property name="ObjectShortName">td43_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td44_out" type="other">
-      <obj_property name="ElementShortName">td44_out</obj_property>
-      <obj_property name="ObjectShortName">td44_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td45_out" type="other">
-      <obj_property name="ElementShortName">td45_out</obj_property>
-      <obj_property name="ObjectShortName">td45_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td46_out" type="other">
-      <obj_property name="ElementShortName">td46_out</obj_property>
-      <obj_property name="ObjectShortName">td46_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td47_out" type="other">
-      <obj_property name="ElementShortName">td47_out</obj_property>
-      <obj_property name="ObjectShortName">td47_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td48_out" type="other">
-      <obj_property name="ElementShortName">td48_out</obj_property>
-      <obj_property name="ObjectShortName">td48_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td49_out" type="other">
-      <obj_property name="ElementShortName">td49_out</obj_property>
-      <obj_property name="ObjectShortName">td49_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td50_out" type="other">
-      <obj_property name="ElementShortName">td50_out</obj_property>
-      <obj_property name="ObjectShortName">td50_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td51_out" type="other">
-      <obj_property name="ElementShortName">td51_out</obj_property>
-      <obj_property name="ObjectShortName">td51_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td52_out" type="other">
-      <obj_property name="ElementShortName">td52_out</obj_property>
-      <obj_property name="ObjectShortName">td52_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td53_out" type="other">
-      <obj_property name="ElementShortName">td53_out</obj_property>
-      <obj_property name="ObjectShortName">td53_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td54_out" type="other">
-      <obj_property name="ElementShortName">td54_out</obj_property>
-      <obj_property name="ObjectShortName">td54_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td55_out" type="other">
-      <obj_property name="ElementShortName">td55_out</obj_property>
-      <obj_property name="ObjectShortName">td55_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td56_out" type="other">
-      <obj_property name="ElementShortName">td56_out</obj_property>
-      <obj_property name="ObjectShortName">td56_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td57_out" type="other">
-      <obj_property name="ElementShortName">td57_out</obj_property>
-      <obj_property name="ObjectShortName">td57_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td58_out" type="other">
-      <obj_property name="ElementShortName">td58_out</obj_property>
-      <obj_property name="ObjectShortName">td58_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td59_out" type="other">
-      <obj_property name="ElementShortName">td59_out</obj_property>
-      <obj_property name="ObjectShortName">td59_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td60_out" type="other">
-      <obj_property name="ElementShortName">td60_out</obj_property>
-      <obj_property name="ObjectShortName">td60_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td61_out" type="other">
-      <obj_property name="ElementShortName">td61_out</obj_property>
-      <obj_property name="ObjectShortName">td61_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td62_out" type="other">
-      <obj_property name="ElementShortName">td62_out</obj_property>
-      <obj_property name="ObjectShortName">td62_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td63_out" type="other">
-      <obj_property name="ElementShortName">td63_out</obj_property>
-      <obj_property name="ObjectShortName">td63_out</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_shiftRAM/td64_out" type="other">
-      <obj_property name="ElementShortName">td64_out</obj_property>
-      <obj_property name="ObjectShortName">td64_out</obj_property>
    </wvobject>
 </wave_config>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_7" LaunchPart="xc7a100tcsg324-2" LaunchTime="1713751804" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_7/msys_wrapper.dcp">
+<GenRun Id="synth_7" LaunchPart="xc7a100tcsg324-2" LaunchTime="1714031901" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_7/msys_wrapper.dcp">
   <File Type="PA-TCL" Name="msys_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="msys_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="msys_wrapper_reports.tcl"/>
@@ -468,14 +468,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/LUT_64x12.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../backup/soundSteering_ctrlr_revB_fpga_fw1_01.srcs/sources_1/new/LUT_64x12.vhd"/>
-        <Attr Name="ImportTime" Val="1713240419"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/backup/_IP/src/adder_17bit.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../backup/_IP/src/adder_17bit.vhd"/>
@@ -657,6 +649,15 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../soundSteering/soundSteering.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd"/>
         <Attr Name="ImportTime" Val="1713309057"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/LUT_64x12.vhd">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../backup/soundSteering_ctrlr_revB_fpga_fw1_01.srcs/sources_1/new/LUT_64x12.vhd"/>
+        <Attr Name="ImportTime" Val="1713240419"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -2407,7 +2408,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/shiftRAM_pipelined.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -2479,18 +2480,5 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_iic_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_ilmb_bram_if_cntlr_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_mdm_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_uartlite_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_dlmb_v10_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_axi_intc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_rst_clk_wiz_0_100M_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_timer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_ilmb_v10_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_lmb_bram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_i2s_receiver_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_serial_adc_pwm_top_0_1"/>
 </GenRun>

@@ -32,9 +32,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 13096
+INFO: [Synth 8-7075] Helper process launched with PID 28232
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1379.105 ; gain = 439.379
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1376.227 ; gain = 439.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'msys_wrapper' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:50]
 INFO: [Synth 8-3491] module 'IOBUF' declared at 'C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197' bound to instance 'iic_main_scl_iobuf' of component 'IOBUF' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:129]
@@ -43,26 +43,26 @@ INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (0#1) [C:/Xilinx/Vivado/20
 INFO: [Synth 8-3491] module 'IOBUF' declared at 'C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197' bound to instance 'iic_main_sda_iobuf' of component 'IOBUF' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:136]
 INFO: [Synth 8-3491] module 'msys' declared at 'c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:2773' bound to instance 'msys_i' of component 'msys' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:143]
 INFO: [Synth 8-638] synthesizing module 'msys' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:2826]
-INFO: [Synth 8-3491] module 'msys_axi_iic_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_iic_0_0_stub.vhdl:6' bound to instance 'axi_iic_0' of component 'msys_axi_iic_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3545]
-INFO: [Synth 8-638] synthesizing module 'msys_axi_iic_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_iic_0_0_stub.vhdl:39]
-INFO: [Synth 8-3491] module 'msys_axi_quad_spi_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_quad_spi_0_0_stub.vhdl:6' bound to instance 'axi_quad_spi_0' of component 'msys_axi_quad_spi_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3575]
-INFO: [Synth 8-638] synthesizing module 'msys_axi_quad_spi_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_quad_spi_0_0_stub.vhdl:52]
-INFO: [Synth 8-3491] module 'msys_axi_quad_spi_1_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_quad_spi_1_0_stub.vhdl:6' bound to instance 'axi_quad_spi_1' of component 'msys_axi_quad_spi_1_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3618]
-INFO: [Synth 8-638] synthesizing module 'msys_axi_quad_spi_1_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_quad_spi_1_0_stub.vhdl:46]
-INFO: [Synth 8-3491] module 'msys_axi_timer_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_timer_0_0_stub.vhdl:6' bound to instance 'axi_timer_0' of component 'msys_axi_timer_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3655]
-INFO: [Synth 8-638] synthesizing module 'msys_axi_timer_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_timer_0_0_stub.vhdl:38]
-INFO: [Synth 8-3491] module 'msys_axi_uartlite_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_uartlite_0_0_stub.vhdl:6' bound to instance 'axi_uartlite_0' of component 'msys_axi_uartlite_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3684]
-INFO: [Synth 8-638] synthesizing module 'msys_axi_uartlite_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_axi_uartlite_0_0_stub.vhdl:34]
-INFO: [Synth 8-3491] module 'msys_clk_wiz_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_clk_wiz_0_0_stub.vhdl:6' bound to instance 'clk_wiz_0' of component 'msys_clk_wiz_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3709]
-INFO: [Synth 8-638] synthesizing module 'msys_clk_wiz_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_clk_wiz_0_0_stub.vhdl:17]
-INFO: [Synth 8-3491] module 'msys_i2s_receiver_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_i2s_receiver_0_0_stub.vhdl:6' bound to instance 'i2s_receiver_0' of component 'msys_i2s_receiver_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3717]
-INFO: [Synth 8-638] synthesizing module 'msys_i2s_receiver_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_i2s_receiver_0_0_stub.vhdl:42]
-INFO: [Synth 8-3491] module 'msys_mdm_1_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_mdm_1_0_stub.vhdl:6' bound to instance 'mdm_1' of component 'msys_mdm_1_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3750]
-INFO: [Synth 8-638] synthesizing module 'msys_mdm_1_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_mdm_1_0_stub.vhdl:22]
-INFO: [Synth 8-3491] module 'msys_microblaze_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_microblaze_0_0_stub.vhdl:6' bound to instance 'microblaze_0' of component 'msys_microblaze_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3763]
-INFO: [Synth 8-638] synthesizing module 'msys_microblaze_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_microblaze_0_0_stub.vhdl:64]
-INFO: [Synth 8-3491] module 'msys_microblaze_0_axi_intc_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_microblaze_0_axi_intc_0_stub.vhdl:6' bound to instance 'microblaze_0_axi_intc' of component 'msys_microblaze_0_axi_intc_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3849]
-INFO: [Synth 8-638] synthesizing module 'msys_microblaze_0_axi_intc_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_microblaze_0_axi_intc_0_stub.vhdl:37]
+INFO: [Synth 8-3491] module 'msys_axi_iic_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_iic_0_0_stub.vhdl:6' bound to instance 'axi_iic_0' of component 'msys_axi_iic_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3545]
+INFO: [Synth 8-638] synthesizing module 'msys_axi_iic_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_iic_0_0_stub.vhdl:39]
+INFO: [Synth 8-3491] module 'msys_axi_quad_spi_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_quad_spi_0_0_stub.vhdl:6' bound to instance 'axi_quad_spi_0' of component 'msys_axi_quad_spi_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3575]
+INFO: [Synth 8-638] synthesizing module 'msys_axi_quad_spi_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_quad_spi_0_0_stub.vhdl:52]
+INFO: [Synth 8-3491] module 'msys_axi_quad_spi_1_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_quad_spi_1_0_stub.vhdl:6' bound to instance 'axi_quad_spi_1' of component 'msys_axi_quad_spi_1_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3618]
+INFO: [Synth 8-638] synthesizing module 'msys_axi_quad_spi_1_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_quad_spi_1_0_stub.vhdl:46]
+INFO: [Synth 8-3491] module 'msys_axi_timer_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_timer_0_0_stub.vhdl:6' bound to instance 'axi_timer_0' of component 'msys_axi_timer_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3655]
+INFO: [Synth 8-638] synthesizing module 'msys_axi_timer_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_timer_0_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'msys_axi_uartlite_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_uartlite_0_0_stub.vhdl:6' bound to instance 'axi_uartlite_0' of component 'msys_axi_uartlite_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3684]
+INFO: [Synth 8-638] synthesizing module 'msys_axi_uartlite_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_axi_uartlite_0_0_stub.vhdl:34]
+INFO: [Synth 8-3491] module 'msys_clk_wiz_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_clk_wiz_0_0_stub.vhdl:6' bound to instance 'clk_wiz_0' of component 'msys_clk_wiz_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3709]
+INFO: [Synth 8-638] synthesizing module 'msys_clk_wiz_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_clk_wiz_0_0_stub.vhdl:17]
+INFO: [Synth 8-3491] module 'msys_i2s_receiver_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_i2s_receiver_0_0_stub.vhdl:6' bound to instance 'i2s_receiver_0' of component 'msys_i2s_receiver_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3717]
+INFO: [Synth 8-638] synthesizing module 'msys_i2s_receiver_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_i2s_receiver_0_0_stub.vhdl:42]
+INFO: [Synth 8-3491] module 'msys_mdm_1_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_mdm_1_0_stub.vhdl:6' bound to instance 'mdm_1' of component 'msys_mdm_1_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3750]
+INFO: [Synth 8-638] synthesizing module 'msys_mdm_1_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_mdm_1_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'msys_microblaze_0_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_microblaze_0_0_stub.vhdl:6' bound to instance 'microblaze_0' of component 'msys_microblaze_0_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3763]
+INFO: [Synth 8-638] synthesizing module 'msys_microblaze_0_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_microblaze_0_0_stub.vhdl:64]
+INFO: [Synth 8-3491] module 'msys_microblaze_0_axi_intc_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_microblaze_0_axi_intc_0_stub.vhdl:6' bound to instance 'microblaze_0_axi_intc' of component 'msys_microblaze_0_axi_intc_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:3849]
+INFO: [Synth 8-638] synthesizing module 'msys_microblaze_0_axi_intc_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_microblaze_0_axi_intc_0_stub.vhdl:37]
 INFO: [Synth 8-638] synthesizing module 'msys_microblaze_0_axi_periph_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1672]
 INFO: [Synth 8-638] synthesizing module 'm00_couplers_imp_H1JZBS' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:58]
 INFO: [Synth 8-256] done synthesizing module 'm00_couplers_imp_H1JZBS' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:58]
@@ -82,30 +82,30 @@ INFO: [Synth 8-638] synthesizing module 'm07_couplers_imp_OLAJ4O' [c:/Users/khar
 INFO: [Synth 8-256] done synthesizing module 'm07_couplers_imp_OLAJ4O' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:764]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_1XV12NH' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1427]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_1XV12NH' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1427]
-INFO: [Synth 8-3491] module 'msys_xbar_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_xbar_0_stub.vhdl:6' bound to instance 'xbar' of component 'msys_xbar_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:2604]
-INFO: [Synth 8-638] synthesizing module 'msys_xbar_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_xbar_0_stub.vhdl:52]
+INFO: [Synth 8-3491] module 'msys_xbar_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_xbar_0_stub.vhdl:6' bound to instance 'xbar' of component 'msys_xbar_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:2604]
+INFO: [Synth 8-638] synthesizing module 'msys_xbar_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_xbar_0_stub.vhdl:52]
 INFO: [Synth 8-256] done synthesizing module 'msys_microblaze_0_axi_periph_0' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1672]
 INFO: [Synth 8-638] synthesizing module 'microblaze_0_local_memory_imp_17WFGJG' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:854]
-INFO: [Synth 8-3491] module 'msys_dlmb_bram_if_cntlr_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_dlmb_bram_if_cntlr_0_stub.vhdl:6' bound to instance 'dlmb_bram_if_cntlr' of component 'msys_dlmb_bram_if_cntlr_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1064]
-INFO: [Synth 8-638] synthesizing module 'msys_dlmb_bram_if_cntlr_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_dlmb_bram_if_cntlr_0_stub.vhdl:32]
-INFO: [Synth 8-3491] module 'msys_dlmb_v10_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_dlmb_v10_0_stub.vhdl:6' bound to instance 'dlmb_v10' of component 'msys_dlmb_v10_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1118]
-INFO: [Synth 8-638] synthesizing module 'msys_dlmb_v10_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_dlmb_v10_0_stub.vhdl:37]
-INFO: [Synth 8-3491] module 'msys_ilmb_bram_if_cntlr_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_ilmb_bram_if_cntlr_0_stub.vhdl:6' bound to instance 'ilmb_bram_if_cntlr' of component 'msys_ilmb_bram_if_cntlr_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1146]
-INFO: [Synth 8-638] synthesizing module 'msys_ilmb_bram_if_cntlr_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_ilmb_bram_if_cntlr_0_stub.vhdl:32]
-INFO: [Synth 8-3491] module 'msys_ilmb_v10_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_ilmb_v10_0_stub.vhdl:6' bound to instance 'ilmb_v10' of component 'msys_ilmb_v10_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1200]
-INFO: [Synth 8-638] synthesizing module 'msys_ilmb_v10_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_ilmb_v10_0_stub.vhdl:37]
-INFO: [Synth 8-3491] module 'msys_lmb_bram_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_lmb_bram_0_stub.vhdl:6' bound to instance 'lmb_bram' of component 'msys_lmb_bram_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1228]
-INFO: [Synth 8-638] synthesizing module 'msys_lmb_bram_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_lmb_bram_0_stub.vhdl:26]
+INFO: [Synth 8-3491] module 'msys_dlmb_bram_if_cntlr_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_dlmb_bram_if_cntlr_0_stub.vhdl:6' bound to instance 'dlmb_bram_if_cntlr' of component 'msys_dlmb_bram_if_cntlr_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1064]
+INFO: [Synth 8-638] synthesizing module 'msys_dlmb_bram_if_cntlr_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_dlmb_bram_if_cntlr_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'msys_dlmb_v10_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_dlmb_v10_0_stub.vhdl:6' bound to instance 'dlmb_v10' of component 'msys_dlmb_v10_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1118]
+INFO: [Synth 8-638] synthesizing module 'msys_dlmb_v10_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_dlmb_v10_0_stub.vhdl:37]
+INFO: [Synth 8-3491] module 'msys_ilmb_bram_if_cntlr_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_ilmb_bram_if_cntlr_0_stub.vhdl:6' bound to instance 'ilmb_bram_if_cntlr' of component 'msys_ilmb_bram_if_cntlr_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1146]
+INFO: [Synth 8-638] synthesizing module 'msys_ilmb_bram_if_cntlr_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_ilmb_bram_if_cntlr_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'msys_ilmb_v10_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_ilmb_v10_0_stub.vhdl:6' bound to instance 'ilmb_v10' of component 'msys_ilmb_v10_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1200]
+INFO: [Synth 8-638] synthesizing module 'msys_ilmb_v10_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_ilmb_v10_0_stub.vhdl:37]
+INFO: [Synth 8-3491] module 'msys_lmb_bram_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_lmb_bram_0_stub.vhdl:6' bound to instance 'lmb_bram' of component 'msys_lmb_bram_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:1228]
+INFO: [Synth 8-638] synthesizing module 'msys_lmb_bram_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_lmb_bram_0_stub.vhdl:26]
 INFO: [Synth 8-256] done synthesizing module 'microblaze_0_local_memory_imp_17WFGJG' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:854]
 INFO: [Synth 8-3491] module 'msys_microblaze_0_xlconcat_0' declared at 'c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_microblaze_0_xlconcat_0_4/synth/msys_microblaze_0_xlconcat_0.v:53' bound to instance 'microblaze_0_xlconcat' of component 'msys_microblaze_0_xlconcat_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:4081]
 INFO: [Synth 8-6157] synthesizing module 'msys_microblaze_0_xlconcat_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_microblaze_0_xlconcat_0_4/synth/msys_microblaze_0_xlconcat_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_5_xlconcat' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/147b/hdl/xlconcat_v2_1_vl_rfs.v:59]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_5_xlconcat' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ipshared/147b/hdl/xlconcat_v2_1_vl_rfs.v:59]
 INFO: [Synth 8-6155] done synthesizing module 'msys_microblaze_0_xlconcat_0' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_microblaze_0_xlconcat_0_4/synth/msys_microblaze_0_xlconcat_0.v:53]
-INFO: [Synth 8-3491] module 'msys_rst_clk_wiz_0_100M_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_rst_clk_wiz_0_100M_0_stub.vhdl:6' bound to instance 'rst_clk_wiz_0_100M' of component 'msys_rst_clk_wiz_0_100M_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:4091]
-INFO: [Synth 8-638] synthesizing module 'msys_rst_clk_wiz_0_100M_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_rst_clk_wiz_0_100M_0_stub.vhdl:22]
-INFO: [Synth 8-3491] module 'msys_serial_adc_pwm_top_0_1' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_serial_adc_pwm_top_0_1_stub.vhdl:6' bound to instance 'serial_adc_pwm_top_0' of component 'msys_serial_adc_pwm_top_0_1' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:4104]
-INFO: [Synth 8-638] synthesizing module 'msys_serial_adc_pwm_top_0_1' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-7148-kharp/realtime/msys_serial_adc_pwm_top_0_1_stub.vhdl:45]
+INFO: [Synth 8-3491] module 'msys_rst_clk_wiz_0_100M_0' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_rst_clk_wiz_0_100M_0_stub.vhdl:6' bound to instance 'rst_clk_wiz_0_100M' of component 'msys_rst_clk_wiz_0_100M_0' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:4091]
+INFO: [Synth 8-638] synthesizing module 'msys_rst_clk_wiz_0_100M_0' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_rst_clk_wiz_0_100M_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'msys_serial_adc_pwm_top_0_1' declared at 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_serial_adc_pwm_top_0_1_stub.vhdl:6' bound to instance 'serial_adc_pwm_top_0' of component 'msys_serial_adc_pwm_top_0_1' [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:4104]
+INFO: [Synth 8-638] synthesizing module 'msys_serial_adc_pwm_top_0_1' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/.Xil/Vivado-19164-kharp/realtime/msys_serial_adc_pwm_top_0_1_stub.vhdl:45]
 INFO: [Synth 8-256] done synthesizing module 'msys' (0#1) [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/synth/msys.vhd:2826]
 INFO: [Synth 8-3491] module 'IOBUF' declared at 'C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197' bound to instance 'spi_flash_io0_iobuf' of component 'IOBUF' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:190]
 INFO: [Synth 8-3491] module 'IOBUF' declared at 'C:/Xilinx/Vivado/2023.2/scripts/rt/data/unisim_comp.v:78197' bound to instance 'spi_flash_io1_iobuf' of component 'IOBUF' [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/hdl/msys_wrapper.vhd:197]
@@ -215,18 +215,18 @@ WARNING: [Synth 8-7129] Port In104[0] in module xlconcat_v2_1_5_xlconcat is eith
 WARNING: [Synth 8-7129] Port In105[0] in module xlconcat_v2_1_5_xlconcat is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.309 ; gain = 565.582
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1504.223 ; gain = 566.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.309 ; gain = 565.582
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1504.223 ; gain = 566.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1505.309 ; gain = 565.582
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1504.223 ; gain = 566.996
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1505.309 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1504.223 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -272,6 +272,14 @@ Finished Parsing XDC File [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSt
 Parsing XDC File [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/_i_bitgen_common.xdc]
 Finished Parsing XDC File [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/_i_bitgen_common.xdc]
 Parsing XDC File [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/vivado_target.xdc]
+CRITICAL WARNING: [Constraints 18-1056] Clock 'msys_i/clk_wiz_0_clk_out2' completely overrides clock 'msys_i/clk_wiz_0/clk_out2'.
+New: create_clock -period 25.000 -waveform {0.000 12.500} [get_nets -hierarchical *clk_wiz_0_clk_out2*], [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/vivado_target.xdc:181]
+Previous: create_generated_clock -source [get_pins msys_i/clk_wiz_0/clk_in1] -edges {1 2 3} -edge_shift {0.000 7.500 15.000} [get_pins msys_i/clk_wiz_0/clk_out2], [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_clk_wiz_0_0_4/msys_clk_wiz_0_0/msys_clk_wiz_0_0_in_context.xdc:2]
+Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
+CRITICAL WARNING: [Constraints 18-1056] Clock 'msys_i/microblaze_0_Clk' completely overrides clock 'msys_i/clk_wiz_0/clk_out1'.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_nets -hierarchical *microblaze_0_Clk*], [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/vivado_target.xdc:182]
+Previous: create_generated_clock -source [get_pins msys_i/clk_wiz_0/clk_in1] -edges {1 2 3} -edge_shift {0.000 0.000 0.000} [get_pins msys_i/clk_wiz_0/clk_out1], [c:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.gen/sources_1/bd/msys/ip/msys_clk_wiz_0_0_4/msys_clk_wiz_0_0/msys_clk_wiz_0_0_in_context.xdc:3]
+Resolution: Review the constraint files and remove the redundant clock definition(s). If the clock constraints are not saved in a file, you can first save the constraints to an XDC file and reload the design once the constraints have been corrected.
 Finished Parsing XDC File [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/vivado_target.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/kharp/Desktop/axi_lite_test_cm32/constraints/vivado_target.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/msys_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/msys_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -279,27 +287,27 @@ Parsing XDC File [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_ha
 Finished Parsing XDC File [C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.645 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1547.359 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 7 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 7 instances
 
 The system cannot find the path specified.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1557.645 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1547.359 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'msys_i/axi_quad_spi_0' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'msys_i/axi_quad_spi_1' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'msys_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -328,10 +336,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for msys_i/axi_quad_spi_1. (constrain
 Applied set_property KEEP_HIERARCHY = SOFT for msys_i/i2s_receiver_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for msys_i/serial_adc_pwm_top_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -354,25 +362,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:16 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:16 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:05 ; elapsed = 00:00:16 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -390,37 +398,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -477,18 +485,18 @@ Report Cell Usage:
 |21    |OBUF                              |    76|
 +------+----------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:18 . Memory (MB): peak = 1557.645 ; gain = 565.582
-Synthesis Optimization Complete : Time (s): cpu = 00:00:06 ; elapsed = 00:00:19 . Memory (MB): peak = 1557.645 ; gain = 617.918
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1547.359 ; gain = 566.996
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 1547.359 ; gain = 610.133
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1557.645 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1547.359 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.645 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1547.359 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 7 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 7 instances
@@ -496,10 +504,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 The system cannot find the path specified.
 Synth Design complete | Checksum: 2e29d104
 INFO: [Common 17-83] Releasing license: Synthesis
-106 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
+106 Infos, 105 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 1557.645 ; gain = 1031.559
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.645 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 1547.359 ; gain = 1021.906
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1547.359 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/synth_7/msys_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file msys_wrapper_utilization_synth.rpt -pb msys_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Apr 21 22:21:19 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 25 03:58:53 2024...

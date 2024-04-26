@@ -80,7 +80,12 @@ entity serial_adc_pwm_top is
 		   --tst_counter_clr  : out std_logic;
            --tst_en_buff      : out std_logic;
            --tst_shift_en     : out std_logic;
-		   --tst_counter_done : out std_logic
+		   --tst_counter_done : out std_logic;
+		   --tst_sdoa_data : out std_logic_vector(15 downto 0);
+           --tst_sdob_data : out std_logic_vector(15 downto 0);
+           --tst_adc_audio_data : out std_logic_vector(15 downto 0);
+           --tst_adc_audio_data_conv : out std_logic_vector(15 downto 0);
+           --tst_adc_data_bram_out : out std_logic_vector(15 downto 0)
 		   );
 end serial_adc_pwm_top;
 
@@ -104,7 +109,7 @@ signal heartbeat_pwm_en_int     : std_logic := '1';
 signal reg_read_int             : std_logic := '0'; 
 signal en_int                   : std_logic := '0';
 signal reconfig_int             : std_logic := '0';
-signal rom_trig_int             : std_logic := '0';    
+signal rom_trig_int             : std_logic := '0';
 
 ----- Datapath -----
 component serial_adc_pwm_datapath is
@@ -135,7 +140,7 @@ component serial_adc_pwm_datapath is
           reg_read             : out std_logic;
           reconfig             : out std_logic;
           en                   : out std_logic;
-
+          
 		  ---------- Datapath Data Input From ADC ----------
 		  sdoa                 : in std_logic;				        -- J2.23 FPGA PIN A3 serial input from SDOA on AD4680 (stereo:mono in)
 		  sdob                 : in std_logic;					    -- J2.25 FPGA PIN V1 serial input from SDOB on AD4680 (ecm)
@@ -174,13 +179,18 @@ component serial_adc_pwm_datapath is
           s_axi_rvalid	: out std_logic;
           s_axi_rready	: in std_logic
        
-          ---------- Test Signals ----------
+          ---------- Test Signals ---------- ! REMOVE FOR SYNTHESIS RUNS... ALSO CHECK WITHIN DATAPATH AROUND SERIAL_VHDL_PERIPH AND SHIFTRAM, ALONG WITH THE OUTPUT ASSIGNMENT SECTION AND THE PORT MAP AT THE TOP OF THE FILE. ALL SIGNALS APPENDED TST_ MUST BE REMOVED, AND THERE ARE SOME EXTRAS TOO
           --tst_sdi_data      : out std_logic_vector(15 downto 0); 
           --tst_sdi_sel       : out std_logic_vector(2 downto 0);    
           --tst_cycle_counter : out unsigned(5 downto 0);
           --tst_counter_clr   : out std_logic;
           --tst_en_buff       : out std_logic;
-          --tst_shift_en      : out std_logic 
+          --tst_shift_en      : out std_logic;
+          --tst_sdoa_data : out std_logic_vector(15 downto 0);
+          --tst_sdob_data : out std_logic_vector(15 downto 0);
+          --tst_adc_audio_data : out std_logic_vector(15 downto 0);
+          --tst_adc_audio_data_conv : out std_logic_vector(15 downto 0);
+          --tst_adc_data_bram_out : out std_logic_vector(15 downto 0)
           );                                            
 end component;
 
@@ -285,12 +295,17 @@ datapath : serial_adc_pwm_datapath port map (
                                               s_axi_rready	=> s_axi_rready
                                               
                                               ---------- Test Signals ----------
-                                              --tst_sdi_data      => tst_sdi_data,
-                                              --tst_sdi_sel       => tst_sdi_sel,   
-                                              --tst_cycle_counter => tst_cycle_counter,
-                                              --tst_counter_clr   => tst_counter_clr,
-                                              --tst_en_buff       => tst_en_buff,
-                                              --tst_shift_en      => tst_shift_en 
+                                              --tst_sdi_data            => tst_sdi_data,
+                                              --tst_sdi_sel             => tst_sdi_sel,   
+                                              --tst_cycle_counter       => tst_cycle_counter,
+                                              --tst_counter_clr         => tst_counter_clr,
+                                              --tst_en_buff             => tst_en_buff,
+                                              --tst_shift_en            => tst_shift_en,
+                                              --tst_sdoa_data           => tst_sdoa_data,
+                                              --tst_sdob_data           => tst_sdob_data,
+                                              --tst_adc_audio_data      => tst_adc_audio_data,
+                                              --tst_adc_audio_data_conv => tst_adc_audio_data_conv,
+                                              --tst_adc_data_bram_out   => tst_adc_data_bram_out
                                               );
                                     
 fsm : serial_adc_pwm_fsm port map ( 

@@ -101,7 +101,12 @@ entity serial_adc_pwm_datapath is
           --tst_cycle_counter : out unsigned(5 downto 0); -- from serial periph module
           --tst_counter_clr   : out std_logic;
           --tst_en_buff       : out std_logic;
-          --tst_shift_en      : out std_logic 
+          --tst_shift_en      : out std_logic;
+          --tst_sdoa_data : out std_logic_vector(15 downto 0);
+          --tst_sdob_data : out std_logic_vector(15 downto 0);
+          --tst_adc_audio_data : out std_logic_vector(15 downto 0);
+          --tst_adc_audio_data_conv : out std_logic_vector(15 downto 0);
+          --tst_adc_data_bram_out : out std_logic_vector(15 downto 0)
           );                                          
 end serial_adc_pwm_datapath;
 
@@ -124,7 +129,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	signal compare_match_a, compare_match_b, compare_match_c : std_logic := '0';
 	
 	-- LUTs for Converted 2's Complement Sample (Addr) to PWM compare-match counts (Data out)
-	signal lut_16_a : std_logic_vector(15 downto 0) := (others => '0');
+	signal adc_bram_data : std_logic_vector(15 downto 0) := (others => '0');
 	
 	-- GPIO Compare Match Outputs and Control Signals
 	signal pwm_raw : std_logic := '0';
@@ -152,9 +157,14 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	signal audio_channel_sel : std_logic_vector(1 downto 0)  := (others => '0');
 	signal sdi_data          : std_logic_vector(15 downto 0) := (others => '0');
 	
-	signal fan_pwm_en_buff : std_logic := '0';
-	signal tx_active_pwm_en_buff : std_logic := '0';
-	signal heartbeat_pwm_en_buff : std_logic := '0';
+	signal fan_pwm_en_reg : std_logic := '0';
+	signal tx_active_pwm_en_reg : std_logic := '0';
+	signal heartbeat_pwm_en_reg : std_logic := '0';
+	signal extra_io_reg : std_logic_vector(2 downto 0) := (others => '0');
+	signal en_reg : std_logic := '0';
+	signal reg_read_reg : std_logic := '0';
+	signal reconfig_reg : std_logic := '0';
+	signal gpio_level_buff : std_logic := '0';
 	
 	signal zeroes : std_logic_vector(26 downto 0) := (others => '0');
 	
@@ -178,13 +188,13 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	--------------------------------------------------
 	---- Number of Slave Registers 72 + 3
 	---- SEE TYPEDEF IN VITIS
-	signal slv_reg0	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"79E"&x"00000"; -- SYS CONTROL REG
+	signal slv_reg0	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"79E"&x"00000"; -- SYS CONTROL REG... x"79E" is address 1950 in the td(num) BRAM ROMs, which corresponds to 0Az 0El
 	signal slv_reg1	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- x TRANSDUCER1_REG
 	signal slv_reg2	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- x TRANSDUCER2_REG
 	signal slv_reg3	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- .
 	signal slv_reg4	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- .
 	signal slv_reg5	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- .
-	signal slv_reg6	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- Write bit 0 high to enable the transducer. Write bit 1 high in order to invert the output phase for this transducer
+	signal slv_reg6	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001"; -- Write bit 0 high to enable the transducer. Write bit 1 high in order to invert the output phase for the transducer
 	signal slv_reg7	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001";
 	signal slv_reg8	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001";
 	signal slv_reg9	    : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0) := x"00000001";
@@ -279,7 +289,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
                --tst_counter_clr    : out std_logic;
                --tst_en_buff        : out std_logic;
                --tst_shift_en       : out std_logic;
-               counter_done       : out std_logic);
+               counter_done       : out std_logic );
     end component;
 	
     -- 16 bit LUT for ADC-PWM mapping... 2x are used (1 for SDOA, 1 for SDOB)
@@ -336,12 +346,15 @@ architecture Behavioral of serial_adc_pwm_datapath is
            --shiftreg_out : out std_logic_vector(0 to 2500);
            mutes    : in std_logic_vector(1 to 64);  -- transducer mutes
            inverts  : in std_logic_vector(1 to 64);  -- transducer inverts for phase reversal
-           full     : out std_logic); 
+           full     : out std_logic);
+           --counter12_out : out unsigned(11 downto 0);
+           --tst_addr_flg : out std_logic;
+           --tst_addr_conv : out std_logic_vector(10 downto 0) := (others => '0')); 
     end component;
     
     component shift_right_multiplier_32 is 
-    Port ( clk    : in std_logic;
-           rstn : in std_logic;
+    Port ( clk           : in std_logic;
+           rstn          : in std_logic;
            clr           : in std_logic;
            data_in       : in std_logic_vector(15 downto 0);
            data_out      : out std_logic_vector(31 downto 0));
@@ -355,13 +368,13 @@ architecture Behavioral of serial_adc_pwm_datapath is
     end component;
     
     component compare_match_32 is 
-        Port( clk    : in std_logic;
-              rstn : in std_logic;
+        Port( clk           : in std_logic;
+              rstn          : in std_logic;
               en            : in std_logic;
               top           : in std_logic_vector(31 downto 0);
               comp          : in std_logic_vector(31 downto 0);
               match         : out std_logic);
-     end component;
+    end component;
      
     component flag_register_2bit is
          Port( clk           : in std_logic;
@@ -390,8 +403,8 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	
 	begin	
 
-    sdi_data_mux          : mux_8to1_16bit port map ( input  => slv_reg65(8 downto 6),
-                                                      addr   => slv_reg65(5 downto 3),          -- will come from axi regs
+    sdi_data_mux          : mux_8to1_16bit port map ( input  => slv_reg65(5 downto 3),
+                                                      addr   => slv_reg65(8 downto 6),          -- will come from axi regs
                                                       sel    => sdi_sel,    -- WHEN THIS is "111", an adc read reg performed with addr specified in addr
                                                       output => sdi_data);
 
@@ -425,14 +438,14 @@ architecture Behavioral of serial_adc_pwm_datapath is
     adc_pwm_LUT_16 : blk_mem_gen_0 port map ( clka      => rom_strobe,
                                               --rstna      => rstn,
                                               addra     => signed_conv_adc,
-                                              douta     => lut_16_a);
+                                              douta     => adc_bram_data);
                                               --rstna_busy => open );	   
 						
     audio_compare_match_timer_a : compare_match_16 port map ( clk   => clk_fast,
                                                               rstn  => rstn,
                                                               en    => '1',
                                                               top   => ULTRASONIC_PWM_TOP,
-														      comp  => lut_16_a, -- mapped integer from LUT either 16 bits padded or 18 bits from LUTs aafter doing addr conversion (2's comp to unsigned)
+														      comp  => adc_bram_data, -- mapped integer from LUT either 16 bits padded or 18 bits from LUTs aafter doing addr conversion (2's comp to unsigned)
 														      match => compare_match_a );	
 												
 	audio_compare_match_timer_b : compare_match_16 port map ( clk   => clk_fast,
@@ -452,7 +465,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
     gpio_peripheral : vhdl_gpio_peripheral port map ( clk   => clk_fast,
                                                       rstn  => rstn,
                                                       wen   => '1',
-                                                      level => gpio_level,
+                                                      level => gpio_level_buff,
                                                       gpio  => pwm_buff_en );    
     
     audio_pwm_chan_sel_mux : mux_4to1_1bit port map ( input1 => compare_match_a, -- sdoa/sdob from adc
@@ -465,25 +478,30 @@ architecture Behavioral of serial_adc_pwm_datapath is
                                               rstn      => rstn,
                                               rom_trig  => rom_trig,
                                               clr       => shiftreg_clr,
-                                              mute      => slv_reg0(2),
+                                              mute      => slv_reg0(2), -- active high mute... when active, we wish to ensure that pwm_en_buff is driven low, so the gate drivers are entirely inactive
                                               data      => pwm_raw,
                                               addr      => slv_reg0(31 downto 20),--addr_shiftRAM_int,
                                               pwm       => pwm_out,
+                                              --shiftreg_out => ,
                                               mutes     => mutes_buff,     -- active low mute bit, will eventually come from register enable bits
                                               inverts   => inverts_buff,   -- active high phase inversion bit, comes from transducer register bit n                                        
-                                              full      => fifo_full ); -- to fsm!
+                                              full      => fifo_full       -- to fsm!
+                                              --counter12_out : out unsigned(11 downto 0);
+                                              --tst_addr_flg : out std_logic;
+                                              --tst_addr_conv : out std_logic_vector(10 downto 0) := (others => '0')
+                                              ); 
 
     -- Might want to refactor these components to allow programming of the top value from here                       
     fan_compare_match_timer : compare_match_32 port map( clk    => clk_fast,
                                                          rstn   => rstn,
-                                                         en     => fan_pwm_en_buff,
+                                                         en     => fan_pwm_en_reg,
                                                          top    => slv_reg69,                    -- assign top and comp to 32 bit register spaces
                                                          comp   => slv_reg70,
                                                          match  => pwm_fan );
                                        
     indicator_compare_match_timer : compare_match_32 port map( clk    => clk_fast,
                                                                rstn   => rstn,
-                                                               en     => tx_active_pwm_en_buff, -- assign to internal signal name and logical and with the axi register bit
+                                                               en     => tx_active_pwm_en_reg, -- assign to internal signal name and logical and with the axi register bit
                                                                top    => slv_reg71,
                                                                comp   => slv_reg72,
                                                                match  => tx_active_led );
@@ -491,7 +509,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
     -- Add an enable for all of these compare match timeres to quickly start and stop... sync the enable such that it clears the reg contents when toggled                                           
     heartbeat_compare_match_timer : compare_match_32 port map( clk    => clk_fast,
                                                                rstn   => rstn,
-                                                               en     => heartbeat_pwm_en_buff, -- assign to internal signal name and logical and with the axi register bit
+                                                               en     => heartbeat_pwm_en_reg, -- assign to internal signal name and logical and with the axi register bit
                                                                top    => slv_reg67,
                                                                comp   => slv_reg68,
                                                                match  => heartbeat_led );
@@ -499,7 +517,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
     pwm_scale_up : shift_right_multiplier_32 port map ( clk      => clk_fast,
                                                         rstn     => rstn,
                                                         clr      => '0',
-                                                        data_in  => lut_16_a, -- possibly mux this with lut_16_b 
+                                                        data_in  => adc_bram_data, -- possibly mux this with lut_16_b 
                                                         data_out => tx_active_compare_match );
                                                         
     audio_channel_change_alert : flag_register_2bit port map ( clk      => clk_fast,
@@ -1613,61 +1631,93 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	      end if;   
 	    end if;
 	  end if;
-	end process;                                                       
+	end process;            
+	                                      
+    -- Active high compare match enables
+	process( clk_fast ) is
+	begin
+	  if (rising_edge (clk_fast)) then
+	    if ( rstn = '0' ) then
+	      fan_pwm_en_reg       <= '0';
+	      tx_active_pwm_en_reg <= '0';
+	      heartbeat_pwm_en_reg <= '0';
+	      slv_reg66            <= (others => '0');
+	      slv_reg73            <= (others => '0');
+	      mutes_buff           <= (others => '0');
+	      inverts_buff         <= (others => '0');
+	      extra_io_reg         <= "000";  -- No functionality for now
+	      reg_read_reg <= '0';
+	      reconfig_reg <= '0';
+	      en_reg <= '0';
+	      gpio_level_buff <= '0';
+	    else
+	      fan_pwm_en_reg       <= fan_pwm_en and slv_reg0(3);  
+	      tx_active_pwm_en_reg <= tx_active_pwm_en and slv_reg0(4);
+	      heartbeat_pwm_en_reg <= heartbeat_pwm_en and slv_reg0(5);
+	      
+	      slv_reg66 <= sdoa_data&sdob_data;            
+          slv_reg73 <= zeroes&std_logic_vector(state);
+          
+          reg_read_reg  <= slv_reg65(2);
+          reconfig_reg  <= slv_reg65(1);
+          en_reg        <= slv_reg65(0);
+          
+          gpio_level_buff <= gpio_level and not slv_reg0(2); -- active high mute -> we desire level to be driven low when active
+	      
+	      -- BIT 0 of each of the 64x transducer registers signifies whether to disable the transducers (active high)
+            mutes_buff <= slv_reg1(0)&slv_reg2(0)&slv_reg3(0)&slv_reg4(0)
+                          &slv_reg5(0)&slv_reg6(0)&slv_reg7(0)&slv_reg8(0)
+                          &slv_reg9(0)&slv_reg10(0)&slv_reg11(0)&slv_reg12(0)
+                          &slv_reg13(0)&slv_reg14(0)&slv_reg15(0)&slv_reg16(0)
+                          &slv_reg17(0)&slv_reg18(0)&slv_reg19(0)&slv_reg20(0)
+                          &slv_reg21(0)&slv_reg22(0)&slv_reg23(0)&slv_reg24(0)
+                          &slv_reg25(0)&slv_reg26(0)&slv_reg27(0)&slv_reg28(0)
+                          &slv_reg29(0)&slv_reg30(0)&slv_reg31(0)&slv_reg32(0)
+                          &slv_reg33(0)&slv_reg34(0)&slv_reg35(0)&slv_reg36(0)
+                          &slv_reg37(0)&slv_reg38(0)&slv_reg39(0)&slv_reg40(0)
+                          &slv_reg41(0)&slv_reg42(0)&slv_reg43(0)&slv_reg44(0)
+                          &slv_reg45(0)&slv_reg46(0)&slv_reg47(0)&slv_reg48(0)
+                          &slv_reg49(0)&slv_reg50(0)&slv_reg51(0)&slv_reg52(0)
+                          &slv_reg53(0)&slv_reg54(0)&slv_reg55(0)&slv_reg56(0)
+                          &slv_reg57(0)&slv_reg58(0)&slv_reg59(0)&slv_reg60(0)
+                          &slv_reg61(0)&slv_reg62(0)&slv_reg63(0)&slv_reg64(0);
+            
+            -- BIT 1 of each of the 64x transducer registers signifies whether to phase invert the signal for that particular transducer
+            inverts_buff <= slv_reg1(1)&slv_reg2(1)&slv_reg3(1)&slv_reg4(1)
+                            &slv_reg5(1)&slv_reg6(1)&slv_reg7(1)&slv_reg8(1)
+                            &slv_reg9(1)&slv_reg10(1)&slv_reg11(1)&slv_reg12(1)
+                            &slv_reg13(1)&slv_reg14(1)&slv_reg15(1)&slv_reg16(1)
+                            &slv_reg17(1)&slv_reg18(1)&slv_reg19(1)&slv_reg20(1)
+                            &slv_reg21(1)&slv_reg22(1)&slv_reg23(1)&slv_reg24(1)
+                            &slv_reg25(1)&slv_reg26(1)&slv_reg27(1)&slv_reg28(1)
+                            &slv_reg29(1)&slv_reg30(1)&slv_reg31(1)&slv_reg32(1)
+                            &slv_reg33(1)&slv_reg34(1)&slv_reg35(1)&slv_reg36(1)
+                            &slv_reg37(1)&slv_reg38(1)&slv_reg39(1)&slv_reg40(1)
+                            &slv_reg41(1)&slv_reg42(1)&slv_reg43(1)&slv_reg44(1)
+                            &slv_reg45(1)&slv_reg46(1)&slv_reg47(1)&slv_reg48(1)
+                            &slv_reg49(1)&slv_reg50(1)&slv_reg51(1)&slv_reg52(1)
+                            &slv_reg53(1)&slv_reg54(1)&slv_reg55(1)&slv_reg56(1)
+                            &slv_reg57(1)&slv_reg58(1)&slv_reg59(1)&slv_reg60(1)
+                            &slv_reg61(1)&slv_reg62(1)&slv_reg63(1)&slv_reg64(1);
+	      
+	      extra_io_reg  <= extra_io_reg;
+	    end if;
+	  end if;
+	end process; 
     
     -- Output Assignments
-    extra_io <= "000";  -- No functionality for now
-    
-    fan_pwm_en_buff       <= fan_pwm_en and slv_reg0(3);
-	tx_active_pwm_en_buff <= tx_active_pwm_en and slv_reg0(4);
-	heartbeat_pwm_en_buff <= heartbeat_pwm_en and slv_reg0(5);
-	
-	-- BIT 0 of each of the 64x transducer registers signifies whether to disable the transducers (active high)
-    mutes_buff <= slv_reg1(0)&slv_reg2(0)&slv_reg3(0)&slv_reg4(0)
-                  &slv_reg5(0)&slv_reg6(0)&slv_reg7(0)&slv_reg8(0)
-                  &slv_reg9(0)&slv_reg10(0)&slv_reg11(0)&slv_reg12(0)
-                  &slv_reg13(0)&slv_reg14(0)&slv_reg15(0)&slv_reg16(0)
-                  &slv_reg17(0)&slv_reg18(0)&slv_reg19(0)&slv_reg20(0)
-                  &slv_reg21(0)&slv_reg22(0)&slv_reg23(0)&slv_reg24(0)
-                  &slv_reg25(0)&slv_reg26(0)&slv_reg27(0)&slv_reg28(0)
-                  &slv_reg29(0)&slv_reg30(0)&slv_reg31(0)&slv_reg32(0)
-                  &slv_reg33(0)&slv_reg34(0)&slv_reg35(0)&slv_reg36(0)
-                  &slv_reg37(0)&slv_reg38(0)&slv_reg39(0)&slv_reg40(0)
-                  &slv_reg41(0)&slv_reg42(0)&slv_reg43(0)&slv_reg44(0)
-                  &slv_reg45(0)&slv_reg46(0)&slv_reg47(0)&slv_reg48(0)
-                  &slv_reg49(0)&slv_reg50(0)&slv_reg51(0)&slv_reg52(0)
-                  &slv_reg53(0)&slv_reg54(0)&slv_reg55(0)&slv_reg56(0)
-                  &slv_reg57(0)&slv_reg58(0)&slv_reg59(0)&slv_reg60(0)
-                  &slv_reg61(0)&slv_reg62(0)&slv_reg63(0)&slv_reg64(0);
-    
-    -- BIT 1 of each of the 64x transducer registers signifies whether to phase invert the signal for that particular transducer
-    inverts_buff <= slv_reg1(1)&slv_reg2(1)&slv_reg3(1)&slv_reg4(1)
-                    &slv_reg5(1)&slv_reg6(1)&slv_reg7(1)&slv_reg8(1)
-                    &slv_reg9(1)&slv_reg10(1)&slv_reg11(1)&slv_reg12(1)
-                    &slv_reg13(1)&slv_reg14(1)&slv_reg15(1)&slv_reg16(1)
-                    &slv_reg17(1)&slv_reg18(1)&slv_reg19(1)&slv_reg20(1)
-                    &slv_reg21(1)&slv_reg22(1)&slv_reg23(1)&slv_reg24(1)
-                    &slv_reg25(1)&slv_reg26(1)&slv_reg27(1)&slv_reg28(1)
-                    &slv_reg29(1)&slv_reg30(1)&slv_reg31(1)&slv_reg32(1)
-                    &slv_reg33(1)&slv_reg34(1)&slv_reg35(1)&slv_reg36(1)
-                    &slv_reg37(1)&slv_reg38(1)&slv_reg39(1)&slv_reg40(1)
-                    &slv_reg41(1)&slv_reg42(1)&slv_reg43(1)&slv_reg44(1)
-                    &slv_reg45(1)&slv_reg46(1)&slv_reg47(1)&slv_reg48(1)
-                    &slv_reg49(1)&slv_reg50(1)&slv_reg51(1)&slv_reg52(1)
-                    &slv_reg53(1)&slv_reg54(1)&slv_reg55(1)&slv_reg56(1)
-                    &slv_reg57(1)&slv_reg58(1)&slv_reg59(1)&slv_reg60(1)
-                    &slv_reg61(1)&slv_reg62(1)&slv_reg63(1)&slv_reg64(1);
-    
+    extra_io <= extra_io_reg;  -- No functionality for now
+
     -- THESE ARE READ ONLY REGISTERS,
     -- THEIR ADDRESSED ENTRY FROM THE WRITE PROCESS OF THE FSM HAS BEEN OMITTED  
     -- Register writes     
-    slv_reg66 <= sdoa_data&sdob_data;            
-    slv_reg73 <= zeroes&std_logic_vector(state);
+    --slv_reg66 <= sdoa_data&sdob_data;            
+    --slv_reg73 <= zeroes&std_logic_vector(state);
     
     -- To FSM
-    reg_read  <= slv_reg65(2);
-    reconfig  <= slv_reg65(1);
-    en        <= slv_reg65(0);
+    reg_read  <= reg_read_reg;
+    reconfig  <= reconfig_reg;
+    en        <= en_reg;
     
     -- AXI I/O Connections assignments
 	S_AXI_AWREADY <= axi_awready;
@@ -1682,8 +1732,10 @@ architecture Behavioral of serial_adc_pwm_datapath is
     -- Test Signals
     --tst_sdi_data <= sdi_data;
     --tst_sdi_sel  <= sdi_sel;
-    --tst_compare_match_a <= compare_match_a;
-    --tst_signed_conv_16_a <= signed_conv_16_a;
-    --tst_lut_16_a <= lut_16_a;
+    --tst_sdoa_data <= sdoa_data;
+    --tst_sdob_data <= sdob_data;
+    --tst_adc_audio_data <= adc_data;
+    --tst_adc_audio_data_conv <= signed_conv_adc;
+    --tst_adc_data_bram_out <= adc_bram_data;
     
 end Behavioral;

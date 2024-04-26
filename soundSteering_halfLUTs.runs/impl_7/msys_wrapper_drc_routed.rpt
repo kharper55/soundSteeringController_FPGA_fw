@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sun Apr 21 22:36:40 2024
+| Date         : Thu Apr 25 04:17:47 2024
 | Host         : kharp running 64-bit major release  (build 9200)
 | Command      : report_drc -file msys_wrapper_drc_routed.rpt -pb msys_wrapper_drc_routed.pb -rpx msys_wrapper_drc_routed.rpx
 | Design       : msys_wrapper
@@ -24,11 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 4
+             Violations found: 5
 +----------+----------+--------------------------+------------+
 | Rule     | Severity | Description              | Violations |
 +----------+----------+--------------------------+------------+
 | BUFC-1   | Warning  | Input Buffer Connections | 1          |
+| PDRC-153 | Warning  | Gated clock check        | 1          |
 | REQP-165 | Advisory | writefirst               | 3          |
 +----------+----------+--------------------------+------------+
 
@@ -37,6 +38,11 @@ Table of Contents
 BUFC-1#1 Warning
 Input Buffer Connections  
 Input buffer spi_flash_ss_iobuf/IBUF (in spi_flash_ss_iobuf macro) has no loads. It is recommended to have an input buffer drive an internal load.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net msys_i/serial_adc_pwm_top_0/U0/fsm/NEXT_STATE__0 is a gated clock net sourced by a combinational pin msys_i/serial_adc_pwm_top_0/U0/fsm/FSM_sequential_NEXT_STATE_reg[3]_i_2/O, cell msys_i/serial_adc_pwm_top_0/U0/fsm/FSM_sequential_NEXT_STATE_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 REQP-165#1 Advisory

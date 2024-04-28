@@ -49,7 +49,7 @@ entity serial_adc_pwm_fsm is
           fan_pwm_en        : out std_logic; -- these signals are simply anded with the enable bit from the axi registers to provide some sync with the FSM
           tx_active_pwm_en  : out std_logic;
           heartbeat_pwm_en  : out std_logic;
-          rom_trig          : out std_logic;
+          --rom_trig          : out std_logic;
           state             : out unsigned(4 downto 0)); -- Internal state output for debugging purposes); -- Stores commands for configuring the ADC in any one of the possible operating modes. See below for config options.
 end serial_adc_pwm_fsm;
 
@@ -72,7 +72,7 @@ begin
         end if;
     end process;
     
-    ----process(CURRENT_STATE, NEXT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
+    --process(CURRENT_STATE, NEXT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
     process(CURRENT_STATE, en, counter_done, fifo_full, flag, reg_read, reconfig)
     --process(CURRENT_STATE)
     begin
@@ -139,6 +139,8 @@ begin
                     NEXT_STATE <= STATE_C;
                 elsif counter_done = '1'  then
                     NEXT_STATE <= STATE_D;      -- Remain in this state until cycle complete
+                else
+                    NEXT_STATE <= STATE_K;
                 end if;
                 
              -- ADC register readback entry state
@@ -215,7 +217,7 @@ begin
 		        fan_pwm_en           <= '0';
                 tx_active_pwm_en     <= '0';
                 heartbeat_pwm_en     <= '0';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(1, 5);  -- debug port for observing the current state of the system
 
             -- ADC init state; defaults to 16 bit with 8x oversampling. Reconfiguration is possible by writing bit 0 of axi slv reg 65 low (disabling module), then writing bit 1 high (reconfig = '1'), then loading bits 5:3 with the code for the desired configuration (see table), and retoggling bit 0 to high (enable) of the same reg.
@@ -230,7 +232,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(2, 5);  -- debug port for observing the current state of the system
              
              -- Extra buffer state
@@ -245,7 +247,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(10, 5);  -- debug port for observing the current state of the system
 
              -- System Idle State
@@ -260,7 +262,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(3, 5);  -- debug port for observing the current state of the system
             
             -- ADC simultaneous continuous conversion state entry
@@ -275,7 +277,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '1';
+                --rom_trig             <= '1';
                 state                <= to_unsigned(4, 5);  -- debug port for observing the current state of the system
              
              -- ADC simultaneous continuous conversion state exit
@@ -290,7 +292,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(5, 5);  -- debug port for observing the current state of the system
              
              when (STATE_K) =>
@@ -304,7 +306,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(11, 5);  -- debug port for observing the current state of the system
                 
              -- ADC register readback entry state
@@ -319,7 +321,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(6, 5);  -- debug port for observing the current state of the system
              
             when (STATE_G) =>
@@ -333,7 +335,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(7, 5);  -- debug port for observing the current state of the system
     
             -- ADC register readback exit state (propagate NOP and fill sdoa with data from ADC)
@@ -348,7 +350,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(12, 5);  -- debug port for observing the current state of the system
             
             when (STATE_M) =>
@@ -362,7 +364,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(13, 5);  -- debug port for observing the current state of the system
             
             when (STATE_N) =>
@@ -376,7 +378,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(14, 5);  -- debug port for observing the current state of the system
 
          
@@ -392,7 +394,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(8, 5);  -- debug port for observing the current state of the system
             
             -- FIFO refill loop   
@@ -407,7 +409,7 @@ begin
                 fan_pwm_en           <= '1';
                 tx_active_pwm_en     <= '1';
                 heartbeat_pwm_en     <= '1';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(9, 5);  -- debug port for observing the current state of the system
                    
             -- Identical outputs as rst state    
@@ -422,7 +424,7 @@ begin
 		        fan_pwm_en           <= '0';
                 tx_active_pwm_en     <= '0';
                 heartbeat_pwm_en     <= '0';
-                rom_trig             <= '0';
+                --rom_trig             <= '0';
                 state                <= to_unsigned(0, 5);  -- debug port for observing the current state of the system
         end case;
     end process;

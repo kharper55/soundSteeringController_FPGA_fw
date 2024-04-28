@@ -9,7 +9,7 @@ entity shift_left_16 is
 		  input    : in std_logic;
 		  clr      : in std_logic;
 		  shift_en : in std_logic;
-		  output   : out std_logic_vector(15 downto 0) :=  (others => '0'));	
+		  output   : out std_logic_vector(15 downto 0));	
 			
 end shift_left_16;
 

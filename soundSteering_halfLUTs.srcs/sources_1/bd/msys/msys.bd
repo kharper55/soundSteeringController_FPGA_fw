@@ -2338,8 +2338,8 @@
           "i2s_receiver_0/s_axi_ctrl_aclk",
           "microblaze_0_axi_periph/M07_ACLK",
           "i2s_receiver_0/m_axis_aud_aclk",
-          "serial_adc_pwm_top_0/s_axi_aclk",
-          "rst_clk_wiz_0_100M/slowest_sync_clk"
+          "rst_clk_wiz_0_100M/slowest_sync_clk",
+          "serial_adc_pwm_top_0/s_axi_aclk"
         ]
       },
       "microblaze_0_intr": {
@@ -2548,7 +2548,7 @@
       "file": {
         "name": "..\\..\\..\\..\\fw\\app_soundSteering\\build\\app_soundSteering.elf",
         "type": "ELF",
-        "checksum": "2275514313",
+        "checksum": "4201977650",
         "IsVisible": "1",
         "ScopedToRef": "msys",
         "ScopedToCell": [

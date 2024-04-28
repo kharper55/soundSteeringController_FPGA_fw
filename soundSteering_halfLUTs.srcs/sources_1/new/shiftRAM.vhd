@@ -27,7 +27,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity shiftRAM is
     Port ( clk           : in STD_LOGIC;             -- Active high sys clk
            rstn          : in STD_LOGIC;             -- Active low sync rst
-           rom_trig      : in std_logic;             -- Rom strobe from fsm... replace with 100meg?
+           --rom_trig      : in std_logic;             -- Rom strobe from fsm... replace with 100meg?
            clr           : in STD_LOGIC;             -- Toggled on a channel change
            mute          : in std_logic;             -- Active high mute function. Writes all zeroes to the pwm logic vector, effectively muting everything
            data          : in STD_LOGIC;             -- single bit pwm input data

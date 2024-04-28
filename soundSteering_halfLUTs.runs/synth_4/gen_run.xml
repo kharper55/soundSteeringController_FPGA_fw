@@ -2463,13 +2463,13 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_iic_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_ilmb_bram_if_cntlr_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_mdm_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_axi_timer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="msys_rst_clk_wiz_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_axi_uartlite_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_axi_quad_spi_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_axi_intc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_axi_timer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="msys_rst_clk_wiz_0_100M_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_dlmb_v10_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_microblaze_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="msys_ilmb_v10_0"/>

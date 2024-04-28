@@ -11,34 +11,33 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,204.764 ns"></ZoomEndTime>
-      <Cursor1Time time="587.500 ns"></Cursor1Time>
+      <ZoomEndTime time="1,277.623 ns"></ZoomEndTime>
+      <Cursor1Time time="675.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="154"></NameColumnWidth>
+      <NameColumnWidth column_width="142"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
-   <wvobject fp_name="/test_vhdl_serial_peripheral/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/test_vhdl_serial_peripheral/clk_slow" type="logic">
+      <obj_property name="ElementShortName">clk_slow</obj_property>
+      <obj_property name="ObjectShortName">clk_slow</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_vhdl_serial_peripheral/s_axi_aclk" type="logic">
-      <obj_property name="ElementShortName">s_axi_aclk</obj_property>
-      <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/clk_fast" type="logic">
+      <obj_property name="ElementShortName">clk_fast</obj_property>
+      <obj_property name="ObjectShortName">clk_fast</obj_property>
    </wvobject>
    <wvobject fp_name="/test_vhdl_serial_peripheral/en" type="logic">
       <obj_property name="ElementShortName">en</obj_property>
       <obj_property name="ObjectShortName">en</obj_property>
    </wvobject>
-   <wvobject fp_name="/test_vhdl_serial_peripheral/s_axi_aresetn" type="logic">
-      <obj_property name="ElementShortName">s_axi_aresetn</obj_property>
-      <obj_property name="ObjectShortName">s_axi_aresetn</obj_property>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
    </wvobject>
    <wvobject fp_name="/test_vhdl_serial_peripheral/sdi_data" type="array">
       <obj_property name="ElementShortName">sdi_data[15:0]</obj_property>
       <obj_property name="ObjectShortName">sdi_data[15:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_vhdl_serial_peripheral/sdoa_data" type="array">
       <obj_property name="ElementShortName">sdoa_data[15:0]</obj_property>
@@ -91,5 +90,9 @@
    <wvobject fp_name="/test_vhdl_serial_peripheral/sda_reg_clr" type="logic">
       <obj_property name="ElementShortName">sda_reg_clr</obj_property>
       <obj_property name="ObjectShortName">sda_reg_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_vhdl_serial_peripheral/tst_sda_reg_clr" type="logic">
+      <obj_property name="ElementShortName">tst_sda_reg_clr</obj_property>
+      <obj_property name="ObjectShortName">tst_sda_reg_clr</obj_property>
    </wvobject>
 </wave_config>

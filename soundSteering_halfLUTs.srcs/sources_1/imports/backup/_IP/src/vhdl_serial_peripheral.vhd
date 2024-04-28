@@ -40,6 +40,7 @@ entity vhdl_serial_peripheral is
            --tst_counter_clr    : out std_logic;
            --tst_en_buff        : out std_logic;
            --tst_shift_en       : out std_logic;
+           --tst_sda_reg_clr    : out std_logic;
            counter_done       : out std_logic );
 end vhdl_serial_peripheral;
 
@@ -76,8 +77,8 @@ architecture Behavioral of vhdl_serial_peripheral is
     signal en_stretched                         : std_logic := '0';
     signal en_metastable, en_stable             : std_logic := '0';
     signal counter_done_stable, counter_done_metastable : std_logic := '1';
-    signal sdoa_data_metastable, sdoa_data_stable  : std_logic_vector(15 downto 0) := (others => '0');
-    signal sdob_data_metastable, sdob_data_stable  : std_logic_vector(15 downto 0) := (others => '0');
+    --signal sdoa_data_metastable, sdoa_data_stable  : std_logic_vector(15 downto 0) := (others => '0');
+    --signal sdob_data_metastable, sdob_data_stable  : std_logic_vector(15 downto 0) := (others => '0');
 
     ---------- COMPONENT DECLARATIONS ----------
     
@@ -272,7 +273,7 @@ begin
 	begin
         if rising_edge(clk_slow) then
            if rstn = '0' then
-               sda_reg_clr_buff <= '0';
+               sda_reg_clr_buff <= '1'; -- changed to '1' on 0428
            else
                sda_reg_clr_buff <= sda_reg_clr_buff_next;
            end if;
@@ -285,7 +286,7 @@ begin
 	                 sdi_data_reg;
 	
 	sda_reg_clr_buff_next <= '0' when en_buffer_reg = '1' else
-	                         '1' when (sda_reg_clr = '1' and en_buffer_reg = '0') else 
+	                         '1' when (sda_reg_clr = '1' and en_buffer_reg = '0') else -- Prevent clearing the reg during a cycle
 	                         sda_reg_clr_buff;
 	                        
 	-- Signal a bit early to FSM
@@ -296,11 +297,16 @@ begin
 			   '1' when (en_buffer_reg = '0' or (en_buffer_reg = '1' and (counter_value = CYCLE_DATA_WIDTH))) else			
 			   cs_reg;		 
 		
-	sdoa_next <= shift_regA_out when (counter_value = CYCLE_DATA_WIDTH + to_unsigned(1, 6)) else
-				 sdoa_reg;-- update register 2 clock cycles after a potential read has occurred. thereafter pipelined at the ADC data rate (1MSPS)
+	--sdoa_next <= shift_regA_out when (counter_value = CYCLE_DATA_WIDTH + to_unsigned(1, 6)) else
+	--			 sdoa_reg;-- update register 2 clock cycles after a potential read has occurred. thereafter pipelined at the ADC data rate (1MSPS)
 			
+	sdoa_next <= shift_regA_out when (counter_value = to_unsigned(0, 6)) else
+				 sdoa_reg;-- update register 2 clock cycles after a potential read has occurred. thereafter pipelined at the ADC data rate (1MSPS)
+
 					 
-	sdob_next <= shift_regB_out when (counter_value = CYCLE_DATA_WIDTH + to_unsigned(1, 6)) else
+	--sdob_next <= shift_regB_out when (counter_value = CYCLE_DATA_WIDTH + to_unsigned(1, 6)) else
+	--			 sdob_reg;
+	sdob_next <= shift_regB_out when (counter_value = to_unsigned(0, 6)) else
 				 sdob_reg;
     
     -- START SHIFTING SDI OUT ON COUNT = 1
@@ -317,8 +323,12 @@ begin
 	                  '0';
 	
 	-- need to address fact that we arent even using the enable signal                  
-	en_buffer_next <= '1' when (counter_done_stable = '1' and counter_value = to_unsigned(0, 6) and en_stable = '1') else
-	                  '0' when (counter_done_stable = '1' and counter_value = CYCLE_LENGTH and en_stable = '0') else
+	--en_buffer_next <= '1' when (counter_done_stable = '1' and counter_value = to_unsigned(0, 6) and en_stable = '1') else
+	--                  '0' when (counter_done_stable = '1' and counter_value = CYCLE_LENGTH and en_stable = '0') else
+	--                  en_buffer_reg; -- buffer user applied enable so as to complete serial transmissions
+	          
+	en_buffer_next <= '1' when (counter_value = to_unsigned(0, 6) and en_stable = '1') else
+	                  '0' when (counter_value = CYCLE_LENGTH and en_stable = '0') else
 	                  en_buffer_reg; -- buffer user applied enable so as to complete serial transmissions
 	                  
 	shift_en_next <= '1' when (en_buffer_reg = '1' and ((counter_value > to_unsigned(0, 6)) and (counter_value <= CYCLE_DATA_WIDTH))) else 
@@ -343,5 +353,6 @@ begin
     --tst_shift_en      <= shift_en_reg;
     --tst_counter_clr   <= autoclear_reg;
     --tst_en_buff       <= en_buffer_reg;
+    --tst_sda_reg_clr   <= sda_reg_clr_buff;
 
 end Behavioral;

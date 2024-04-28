@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 25 03:50:37 2024" VIVADOVERSION="2023.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Apr 28 14:41:07 2024" VIVADOVERSION="2023.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="trenz.biz:te0725_100_2i:part0:1.0" DEVICE="7a100t" NAME="msys" PACKAGE="csg324" SPEEDGRADE="-2"/>
 
@@ -4840,8 +4840,8 @@
             <CONNECTION INSTANCE="i2s_receiver_0" PORT="s_axi_ctrl_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M07_ACLK"/>
             <CONNECTION INSTANCE="i2s_receiver_0" PORT="m_axis_aud_aclk"/>
-            <CONNECTION INSTANCE="serial_adc_pwm_top_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="rst_clk_wiz_0_100M" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="serial_adc_pwm_top_0" PORT="s_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="40000000" DIR="O" NAME="clk_out2" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">

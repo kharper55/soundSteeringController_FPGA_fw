@@ -46,7 +46,7 @@ entity serial_adc_pwm_datapath is
           fan_pwm_en           : in std_logic;
           tx_active_pwm_en     : in std_logic;
           heartbeat_pwm_en     : in std_logic;
-          rom_trig             : in std_logic;
+          --rom_trig             : in std_logic;
           state                : in unsigned(4 downto 0);
           
           ---------- Datapath Control Outputs to FSM ----------
@@ -100,8 +100,6 @@ entity serial_adc_pwm_datapath is
           --tst_sdi_sel       : out std_logic_vector(2 downto 0);                      
           --tst_cycle_counter : out unsigned(5 downto 0); -- from serial periph module
           --tst_counter_clr   : out std_logic;
-          --tst_en_buff       : out std_logic;
-          --tst_shift_en      : out std_logic;
           --tst_sdoa_data : out std_logic_vector(15 downto 0);
           --tst_sdob_data : out std_logic_vector(15 downto 0);
           --tst_adc_audio_data : out std_logic_vector(15 downto 0);
@@ -337,7 +335,7 @@ architecture Behavioral of serial_adc_pwm_datapath is
     component shiftRAM is
     Port ( clk           : in STD_LOGIC;             -- self explanatory
            rstn          : in STD_LOGIC;             -- self explanatory
-           rom_trig      : in std_logic;
+           --rom_trig      : in std_logic;
            clr           : in STD_LOGIC;
            mute          : in std_logic;
            data          : in STD_LOGIC;             -- single bit pwm input data
@@ -476,19 +474,19 @@ architecture Behavioral of serial_adc_pwm_datapath is
                                                                                               
     steering_peripheral : shiftRAM port map ( clk       => clk_fast,
                                               rstn      => rstn,
-                                              rom_trig  => rom_trig,
+                                              --rom_trig  => rom_trig,
                                               clr       => shiftreg_clr,
                                               mute      => slv_reg0(2), -- active high mute... when active, we wish to ensure that pwm_en_buff is driven low, so the gate drivers are entirely inactive
                                               data      => pwm_raw,
                                               addr      => slv_reg0(31 downto 20),--addr_shiftRAM_int,
                                               pwm       => pwm_out,
-                                              --shiftreg_out => ,
+                                              --shiftreg_out => TST_shiftreg_out,
                                               mutes     => mutes_buff,     -- active low mute bit, will eventually come from register enable bits
                                               inverts   => inverts_buff,   -- active high phase inversion bit, comes from transducer register bit n                                        
                                               full      => fifo_full       -- to fsm!
-                                              --counter12_out : out unsigned(11 downto 0);
-                                              --tst_addr_flg : out std_logic;
-                                              --tst_addr_conv : out std_logic_vector(10 downto 0) := (others => '0')
+                                              --counter12_out => TST_counter12_out,
+                                              --tst_addr_flg  => TST_tst_addr_flg,
+                                              --tst_addr_conv => TST_tst_addr_conv
                                               ); 
 
     -- Might want to refactor these components to allow programming of the top value from here                       
@@ -1646,10 +1644,10 @@ architecture Behavioral of serial_adc_pwm_datapath is
 	      mutes_buff           <= (others => '0');
 	      inverts_buff         <= (others => '0');
 	      extra_io_reg         <= "000";  -- No functionality for now
-	      reg_read_reg <= '0';
-	      reconfig_reg <= '0';
-	      en_reg <= '0';
-	      gpio_level_buff <= '0';
+	      reg_read_reg         <= '0';
+	      reconfig_reg         <= '0';
+	      en_reg               <= '0';
+	      gpio_level_buff      <= '0';
 	    else
 	      fan_pwm_en_reg       <= fan_pwm_en and slv_reg0(3);  
 	      tx_active_pwm_en_reg <= tx_active_pwm_en and slv_reg0(4);

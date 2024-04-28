@@ -39,6 +39,8 @@ architecture Behavioral of test_vhdl_serial_peripheral is
     signal tst_en_buff     : std_logic := '0';
     signal tst_shift_en    : std_logic := '0';
     
+    signal tst_sda_reg_clr : std_logic := '0';
+    
     signal counter_done : std_logic := '1';
     signal sda_reg_clr : std_logic := '0';
     
@@ -66,6 +68,7 @@ architecture Behavioral of test_vhdl_serial_peripheral is
                tst_counter_clr   : out std_logic;
                tst_en_buff       : out std_logic;
                tst_shift_en      : out std_logic;
+               tst_sda_reg_clr   : out std_logic;
                counter_done      : out std_logic);
     end component;
 
@@ -88,6 +91,7 @@ begin
                                           tst_counter_clr   => tst_counter_clr,
                                           tst_en_buff       => tst_en_buff,
                                           tst_shift_en      => tst_shift_en,
+                                          tst_sda_reg_clr => tst_sda_reg_clr,
                                           counter_done      => counter_done );
     
     -- Generate 40MHz signal
@@ -127,18 +131,18 @@ begin
           en <= '0';
           wait for (ClockPeriod / 5);
        -- read alert reg to verify status_F bit
-       elsif ClockCount = 95 then
+       elsif ClockCount = 200 then
           en <= '1';
           sdi_data <= x"AAAA";
           wait for (ClockPeriod / 5);
-       elsif ClockCount = 97 then
+       elsif ClockCount = 297 then
           sda_reg_clr <= '1';
           --en <= '0';
           wait for (ClockPeriod / 5); 
-       elsif ClockCount = 99 then
+       elsif ClockCount = 199 then
           sda_reg_clr <= '0';
           wait for (ClockPeriod / 5);
-       elsif ClockCount = 115 then  
+       elsif ClockCount = 315 then  
           en <= '0';   
           wait for (ClockPeriod / 5);  
        else

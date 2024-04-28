@@ -6,6 +6,7 @@
 	device_id = "7a100t";
 	#address-cells = <1>;
 	#size-cells = <1>;
+	slrcount = <1>;
 	microblaze_0_local_memory_dlmb_bram_if_cntlr_memory: memory@0 {
 		compatible = "xlnx,lmb-bram-if-cntlr-4.0";
 		device_type = "memory";

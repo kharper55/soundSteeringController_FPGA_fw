@@ -3,8 +3,8 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Apr 19 01:13:48 2024
-# Process ID: 32368
+# Start of session at: Sun Apr 28 15:42:27 2024
+# Process ID: 16808
 # Current directory: C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/impl_1
 # Command line: vivado.exe -log msys_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source msys_wrapper.tcl -notrace
 # Log file: C:/Users/kharp/Desktop/soundSteering_halfLUTs/soundSteering_halfLUTs.runs/impl_1/msys_wrapper.vdi
@@ -16,32 +16,32 @@ Command: open_checkpoint msys_wrapper_routed.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 306.879 ; gain = 7.832
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 308.012 ; gain = 8.316
 INFO: [Device 21-403] Loading part xc7a100tcsg324-2
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.509 . Memory (MB): peak = 1018.312 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 36775 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.518 . Memory (MB): peak = 1017.098 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 37781 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-WARNING: [Netlist 29-43] Netlist 'msys_wrapper' is not ideal for floorplanning, since the cellview 'msys_serial_adc_pwm_top_0_1_LUT_64x12' defined in file 'msys_serial_adc_pwm_top_0_1.edf' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+WARNING: [Netlist 29-43] Netlist 'msys_wrapper' is not ideal for floorplanning, since the cellview 'msys_serial_adc_pwm_top_0_1_shiftRAM' defined in file 'msys_serial_adc_pwm_top_0_1.edf' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-479] Netlist was created with Vivado 2023.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.271 . Memory (MB): peak = 1206.004 ; gain = 42.918
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.426 . Memory (MB): peak = 1203.816 ; gain = 43.289
 INFO: [Timing 38-478] Restoring timing data from binary archive.
 INFO: [Timing 38-479] Binary timing data restore complete.
 INFO: [Project 1-856] Restoring constraints from binary archive.
 INFO: [Project 1-853] Binary constraint restore complete.
 INFO: [Designutils 20-5722] Start Reading Physical Databases.
 Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.126 . Memory (MB): peak = 1890.184 ; gain = 0.000
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1888.793 ; gain = 0.000
 Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1890.184 ; gain = 0.000
-Read PlaceDB: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1979.734 ; gain = 89.551
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1979.734 ; gain = 0.000
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1888.793 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1976.680 ; gain = 87.887
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1976.680 ; gain = 0.000
 Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:01 . Memory (MB): peak = 2000.453 ; gain = 20.719
-Read Physdb Files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2000.453 ; gain = 110.270
-Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 2000.453 ; gain = 110.270
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2000.453 ; gain = 0.000
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:01 . Memory (MB): peak = 1996.676 ; gain = 19.996
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1996.676 ; gain = 107.883
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1996.676 ; gain = 107.883
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1996.676 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 249 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 7 instances
@@ -52,7 +52,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2023.2 (64-bit) build 4029153
 WARNING: [Vivado 12-23575] Critical violations of the methodology design rules detected. Critical violations may contribute to timing failures or cause functional issues in hardware. Run report_methodology for more information.
-open_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:24 . Memory (MB): peak = 2000.453 ; gain = 1706.066
+open_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:25 . Memory (MB): peak = 1996.676 ; gain = 1703.762
 INFO: [Memdata 28-208] The XPM instance: <msys_i/i2s_receiver_0/inst/I2S_RX_V1_0_SYS_INST/AXIS_FIFO_INST/xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst> is part of IP: <msys_i/i2s_receiver_0>. This XPM instance will be excluded from the .mmi because updatemem is prohibited from making changes to an XPM that is part of an IP.
 INFO: [Memdata 28-208] The XPM instance: <msys_i/axi_quad_spi_1/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst> is part of IP: <msys_i/axi_quad_spi_1>. This XPM instance will be excluded from the .mmi because updatemem is prohibited from making changes to an XPM that is part of an IP.
 INFO: [Memdata 28-208] The XPM instance: <msys_i/axi_quad_spi_1/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst> is part of IP: <msys_i/axi_quad_spi_1>. This XPM instance will be excluded from the .mmi because updatemem is prohibited from making changes to an XPM that is part of an IP.
@@ -78,17 +78,17 @@ Loading data files...
 Loading site data...
 Loading route data...
 Processing options...
-Overwriting "TIMESTAMP" with "9A30139A" for option USR_ACCESS
-TIMESTAMP = Fri Apr 19 01:14:26 2024
+Overwriting "TIMESTAMP" with "E230FAC8" for option USR_ACCESS
+TIMESTAMP = Sun Apr 28 15:43:08 2024
 
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 2530432 bits.
+Bitstream compression saved 2575424 bits.
 Writing bitstream ./msys_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
 32 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 2713.480 ; gain = 713.027
-INFO: [Common 17-206] Exiting Vivado at Fri Apr 19 01:14:41 2024...
+write_bitstream: Time (s): cpu = 00:00:16 ; elapsed = 00:00:29 . Memory (MB): peak = 2718.742 ; gain = 722.066
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 15:43:24 2024...

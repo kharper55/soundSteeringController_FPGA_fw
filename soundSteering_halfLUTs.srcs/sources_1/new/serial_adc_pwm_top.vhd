@@ -109,7 +109,7 @@ signal heartbeat_pwm_en_int     : std_logic := '1';
 signal reg_read_int             : std_logic := '0'; 
 signal en_int                   : std_logic := '0';
 signal reconfig_int             : std_logic := '0';
-signal rom_trig_int             : std_logic := '0';
+--signal rom_trig_int             : std_logic := '0';
 
 ----- Datapath -----
 component serial_adc_pwm_datapath is
@@ -130,7 +130,7 @@ component serial_adc_pwm_datapath is
           fan_pwm_en           : in std_logic;
           tx_active_pwm_en     : in std_logic;
           heartbeat_pwm_en     : in std_logic;
-          rom_trig             : in std_logic;
+          --rom_trig             : in std_logic;
           state                : in unsigned(4 downto 0);
           
           ---------- Datapath Control Outputs to FSM ----------
@@ -220,7 +220,7 @@ component serial_adc_pwm_fsm is
           fan_pwm_en           : out std_logic; -- these signals are simply anded with the enable bit from the axi registers to provide some sync with the FSM
           tx_active_pwm_en     : out std_logic;
           heartbeat_pwm_en     : out std_logic;
-          rom_trig             : out std_logic;
+          --rom_trig             : out std_logic;
           state                : out unsigned(4 downto 0) -- Internal state output for debugging purposes); -- Stores commands for configuring the ADC in any one of the possible operating modes. See below for config options.
           ); 
 end component;
@@ -245,7 +245,7 @@ datapath : serial_adc_pwm_datapath port map (
                                               fan_pwm_en           => fan_pwm_en_int,
                                               tx_active_pwm_en     => tx_active_pwm_en_int,
                                               heartbeat_pwm_en     => heartbeat_pwm_en_int,
-                                              rom_trig             => rom_trig_int,
+                                              --rom_trig             => rom_trig_int,
                                               state                => state_int,
                                               
                                               ---------- Datapath Outputs to FSM ----------      
@@ -332,7 +332,7 @@ fsm : serial_adc_pwm_fsm port map (
                                     fan_pwm_en           => fan_pwm_en_int,
                                     tx_active_pwm_en     => tx_active_pwm_en_int,
                                     heartbeat_pwm_en     => heartbeat_pwm_en_int,
-                                    rom_trig             => rom_trig_int,
+                                    --rom_trig             => rom_trig_int,
                                     state                => state_int
                                     );
 

@@ -34,6 +34,9 @@ DEVICE_ID:STRING=7a100t
 // Non Yocto embeddedsw FLOW
 NON_YOCTO:BOOL=ON
 
+// Number of slrs
+NUMBER_OF_SLRS:STRING=0x1
+
 // The directory containing a CMake configuration file for SCUGIC.
 SCUGIC_DIR:PATH=SCUGIC_DIR-NOTFOUND
 

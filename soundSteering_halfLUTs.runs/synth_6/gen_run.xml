@@ -3,8 +3,8 @@
   <File Type="PA-TCL" Name="msys_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="msys_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="msys_wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="serial_adc_pwm_top_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="serial_adc_pwm_top_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="msys_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="msys_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="msys_wrapper.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>

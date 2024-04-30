@@ -339,11 +339,11 @@ libsrc/xiltimer/src/core/default_timer/clean:
 # Target rules for target libsrc/CMakeFiles/combined.dir
 
 # All Build rule for target.
-libsrc/CMakeFiles/combined.dir/all: libsrc/intc/src/CMakeFiles/intc.dir/all
-libsrc/CMakeFiles/combined.dir/all: libsrc/iic/src/CMakeFiles/iic.dir/all
 libsrc/CMakeFiles/combined.dir/all: libsrc/spi/src/CMakeFiles/spi.dir/all
 libsrc/CMakeFiles/combined.dir/all: libsrc/tmrctr/src/CMakeFiles/tmrctr.dir/all
 libsrc/CMakeFiles/combined.dir/all: libsrc/uartlite/src/CMakeFiles/uartlite.dir/all
+libsrc/CMakeFiles/combined.dir/all: libsrc/intc/src/CMakeFiles/intc.dir/all
+libsrc/CMakeFiles/combined.dir/all: libsrc/iic/src/CMakeFiles/iic.dir/all
 	$(MAKE) $(MAKESILENT) -f libsrc/CMakeFiles/combined.dir/build.make libsrc/CMakeFiles/combined.dir/depend
 	$(MAKE) $(MAKESILENT) -f libsrc/CMakeFiles/combined.dir/build.make libsrc/CMakeFiles/combined.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:/Users/kharp/Desktop/soundSteering_halfLUTs/fw/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles --progress-num= "Built target combined"

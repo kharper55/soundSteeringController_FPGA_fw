@@ -28,120 +28,26 @@
 #include "xspi.h"		/* SPI device driver */
 #include "xinterrupt_wrap.h"
 #include "xil_exception.h"
-
-UINTPTR ip_base_addr = XPAR_SERIAL_ADC_PWM_TOP_0_BASEADDR; /*Low addr = 0x10000, High addr = 0x10fff */
-
-enum AXI_LITE_REGS {
-    CONTROL_REG            = 0x000,
-    T1_REG                 = 0x004,
-    T2_REG                 = 0x008,
-    T3_REG                 = 0x00C,
-    T4_REG                 = 0x010,
-    T5_REG                 = 0x014,
-    T6_REG                 = 0x018,
-    T7_REG                 = 0x01C,
-    T8_REG                 = 0x020,
-    T9_REG                 = 0x024,
-    T10_REG                = 0x028,
-    T11_REG                = 0x02C,
-    T12_REG                = 0x030,
-    T13_REG                = 0x034,
-    T14_REG                = 0x038,
-    T15_REG                = 0x03C,
-    T16_REG                = 0x040,
-    T17_REG                = 0x044,
-    T18_REG                = 0x048,
-    T19_REG                = 0x04C,
-    T20_REG                = 0x050,
-    T21_REG                = 0x054,
-    T22_REG                = 0x058,
-    T23_REG                = 0x05C,
-    T24_REG                = 0x060,
-    T25_REG                = 0x064,
-    T26_REG                = 0x068,
-    T27_REG                = 0x06C,
-    T28_REG                = 0x070,
-    T29_REG                = 0x074,
-    T30_REG                = 0x078,
-    T31_REG                = 0x07C,
-    T32_REG                = 0x080,
-    T33_REG                = 0x084,
-    T34_REG                = 0x088,
-    T35_REG                = 0x08C,
-    T36_REG                = 0x090,
-    T37_REG                = 0x094,
-    T38_REG                = 0x098,
-    T39_REG                = 0x09C,
-    T40_REG                = 0x0A0,
-    T41_REG                = 0x0A4,
-    T42_REG                = 0x0A8,
-    T43_REG                = 0x0AC,
-    T44_REG                = 0x0B0,
-    T45_REG                = 0x0B4,
-    T46_REG                = 0x0B8,
-    T47_REG                = 0x0BC,
-    T48_REG                = 0x0C0,
-    T49_REG                = 0x0C4,
-    T50_REG                = 0x0C8,
-    T51_REG                = 0x0CC,
-    T52_REG                = 0x0D0,
-    T53_REG                = 0x0D4,
-    T54_REG                = 0x0D8,
-    T55_REG                = 0x0DC,
-    T56_REG                = 0x0E0,
-    T57_REG                = 0x0E4,
-    T58_REG                = 0x0E8,
-    T59_REG                = 0x0EC,
-    T60_REG                = 0x0F0,
-    T61_REG                = 0x0F4,
-    T62_REG                = 0x0F8,
-    T63_REG                = 0x0FC,
-    T64_REG                = 0x100,
-    ADC_CTRL_REG           = 0x104,
-    ADC_DATA_REG           = 0x108,
-    HEARTBEAT_CM32_TOP_REG = 0x10C,
-    HEARTBEAT_CM32_CM_REG  = 0x110,
-    FAN_CM32_TOP_REG       = 0x114,
-    FAN_CM32_CM_REG        = 0x118,
-    SPECTRUM_CM32_TOP_REG  = 0x11C,
-    SPECTRUM_CM32_CM_REG   = 0x120,
-    FSM_STATE_REG          = 0x124,
-    EXTRA_REG              = 0x128
-};
+#include "app_utility.h"
 
 /************************** Constant Definitions *****************************/
 
-/*
- * The following constants map to the XPAR parameters created in the
- * xparameters.h file. They are defined here such that a user can easily
- * change all the needed parameters in one place.
- */
-
-// This is the size of the buffer to be transmitted/received in this example.
-#define BUFFER_SIZE		4
-
+#define BUFFER_SIZE		4 // 4 byte SPI transactions
 int Count = 0;
+
+#define IP_BASE_ADDR    XPAR_SERIAL_ADC_PWM_TOP_0_BASEADDR
         
 /************************** Function Prototypes ******************************/
-
-//static int SpiSlaveIntrExample(XSpi *SpiInstancePtr, UINTPTR BaseAddress);
-
 static void SpiHandler(void *CallBackRef, u32 StatusEvent, unsigned int ByteCount);
 
 /************************** Variable Definitions *****************************/
-/*
- * The instances to support the device drivers are global such that they are
- * initialized to zero each time the program runs. They could be local but
- * should at least be static so that they are zeroed.
- */
 static XSpi  SpiInstance;   /* Instance of the SPI device */
-//static XGpio XGpioInstance;
 
 /*
  * The following variables are used to read/write from the  Spi device, these
  * are global to avoid having large buffers on the stack.
  */
-u8 ReadBuffer[BUFFER_SIZE] = {0x00, 0x00, 0x00, 0x00};
+u8 ReadBuffer[BUFFER_SIZE] = {0x00, 0x00, 0x00, 0x00}; // low bytes should contain az,el respectively
 u8 WriteBuffer[BUFFER_SIZE] = {0xDE, 0xAD, 0xBE, 0xEF};
 
 /*
@@ -168,18 +74,38 @@ int get_custom_ip_register(int baseaddr, int offset) {
     return (temp);
 }
 
+/*
 // Write safe to register
 void update_custom_ip_register(int baseaddr, int offset, int value) {
     uint32_t temp = get_custom_ip_register(baseaddr, offset);
     Xil_Out32(baseaddr + offset, temp | value);
+}*/
+
+// Write specific bits to register
+void update_custom_ip_register(int baseaddr, int offset, int value, uint32_t bitmask) {
+    uint32_t temp = get_custom_ip_register(baseaddr, offset);
+    // Clear the bits specified by the bitmask
+    temp &= ~bitmask;
+    // Set the new value for the specified bits
+    temp |= (value & bitmask);
+    // Write the modified value back to the register
+    Xil_Out32(baseaddr + offset, temp);
 }
 
 int main() {
 
     init_platform();
 
+    //static const bool VERBOSE = true;
+
     XSpi_Config *ConfigPtr;
     int Status;
+    
+
+    static int chann = 0;
+
+    xil_printf("Enabling sound steering peripheral...");
+    update_custom_ip_register(IP_BASE_ADDR, ADC_CTRL_REG, (uint32_t)1, 0x1);   // enable operation of the device (everything gets enabled)
 
 	/*
 	 * Initialize the SPI driver so that it's ready to use, specify the
@@ -249,32 +175,70 @@ int main() {
 
         // Print all the data received from the master.
         if (Status == XST_SUCCESS) {
-            xil_printf("\r\nCount: %d\r\n", rx_count);
-            xil_printf("\r\nSPI RX Data: 0x%08X \r\n", \
+
+
+            // here we should decode the data. for now, grab it and write it out, then write the received coords to the pertinent register location, ie reg0 bits 31:20, 6bit Az, 6bit el
+            // prior we were just ripping the first 4 bytes received, 2 for azi 2 for el. now it will be shifted over cuz the command code is being carried in 
+
+
+            xil_printf("\r\nCount        : %d\r\n", rx_count);
+            xil_printf("\r\nSPI RX Data  : 0x%08X \r\n", \
                         (uint32_t)((uint8_t)ReadBuffer[3] << 24 | (uint8_t)ReadBuffer[2] << 16 \
                                  | (uint8_t)ReadBuffer[1] << 8 | (uint8_t)ReadBuffer[0]));
+
+            xil_printf("\r\nGot some bytes: %u", (unsigned)ReadBuffer[3]);
+
+            // branch depending on leading char / cmd                
+            switch((uint8_t)ReadBuffer[3]) {
+                case(0x80): // new coordinates came in
+                    xil_printf("\r\nWriting steering coords...");
+                    update_custom_ip_register(IP_BASE_ADDR, CONTROL_REG, (uint32_t)(((((uint16_t)((ReadBuffer[2] & 0x3F) << 10)) | ((uint16_t)((ReadBuffer[1] & 0x3F) << 4)))&0xFFF0)) << 16, 0xFFF00000);
+                    break;
+                case(0x40): // channel change requested
+                    if(chann == 0) {
+                        chann = 1;
+                    }
+                    else {
+                        chann = 0;
+                    }
+                    xil_printf("\r\nToggling channel to %d...", chann);
+                    update_custom_ip_register(IP_BASE_ADDR, CONTROL_REG, (uint32_t)chann, 0x00000001); // only need to write low bit to toggle channel
+                    break;
+                default:
+                    xil_printf("\r\nUnfamiliar data!");
+                    break;
+            }
+            xil_printf("\r\nCoord        : 0x%08X", (uint32_t)(((((uint16_t)((ReadBuffer[2] & 0x3F) << 10)) | ((uint16_t)((ReadBuffer[1] & 0x3F) << 4)))&0xFFF0)) << 16);
             
-            xil_printf("\r\nSPI TX Data: 0x%08X \r\n", \
+            // old -- update_custom_ip_register(IP_BASE_ADDR, CONTROL_REG, (uint32_t)(((((uint16_t)((ReadBuffer[3] & 0x3F) << 10)) | ((uint16_t)((ReadBuffer[2] & 0x3F) << 4)))&0xFFF0)) << 16, 0xFFF00000);
+            //update_custom_ip_register(IP_BASE_ADDR, CONTROL_REG, (uint32_t)(((((uint16_t)((ReadBuffer[2] & 0x3F) << 10)) | ((uint16_t)((ReadBuffer[1] & 0x3F) << 4)))&0xFFF0)) << 16, 0xFFF00000);
+
+
+            /*
+            Reference console prints
+            SPI RX Data        : 0x801E1E00   <---- data is 0x8 identifier (coordinate), 1e high is azimuth, 1e low is el, these correspond to readbuff 2 and 1 respectively
+            Coord              : 0x1E00000
+            SPI TX Data        : 0xDEADBEEF 
+            IP FSM Status Code : 0x4
+            IP Steering Coord  : 0x1E00000
+            XSPI Status Reg    : 0x0025
+            XSPI Control Reg   : 0x0082
+            */
+
+            // Comment this out for tomorrow
+            xil_printf("\r\nSPI TX Data  : 0x%08X \r\n", \
                         (uint32_t)((uint8_t)WriteBuffer[0] << 24 | (uint8_t)WriteBuffer[1] << 16 \
                                  | (uint8_t)WriteBuffer[2] << 8 | (uint8_t)WriteBuffer[3]));
- 
-            if (rx_count == 5)  {
-                xil_printf("Count is %d. Enabling sound steering peripheral...", rx_count);
-                update_custom_ip_register(ip_base_addr, ADC_CTRL_REG, (uint32_t)1);   
-                //set_custom_ip_register(ip_base_addr, ADC_CTRL_REG, (uint32_t)1);                           
-            }  
-
-            xil_printf("XSPI Status Reg: 0x%04x\r\n", XSpi_GetStatusReg(&SpiInstance));
-            xil_printf("XSPI Control Reg: 0x%04x\r\n", XSpi_GetControlReg(&SpiInstance));
         }
 
         else {
             xil_printf("Spi slave interrupt Example Failed\r\n");
             //return XST_FAILURE;
         }
-
-        xil_printf("IP FSM Status Code: 0x%00x\r\n", get_custom_ip_register(ip_base_addr, FSM_STATE_REG));
-        
+        xil_printf("IP FSM Status Code : 0x%08X\r\n", get_custom_ip_register(IP_BASE_ADDR, FSM_STATE_REG));
+        xil_printf("IP Control Reg     : 0x%08X\r\n", get_custom_ip_register(IP_BASE_ADDR, CONTROL_REG));
+        xil_printf("XSPI Status Reg    : 0x%08x\r\n", XSpi_GetStatusReg(&SpiInstance));
+        xil_printf("XSPI Control Reg   : 0x%08x\r\n", XSpi_GetControlReg(&SpiInstance));
     }
     
     cleanup_platform();
